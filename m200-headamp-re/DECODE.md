@@ -228,15 +228,38 @@ own DSP state as scene data. Arithmetic stayed with whoever performs it, exactly
 The ownership boundary is now measured across **five** console-side parameters — polarity, pan, main,
 HPF, EQ — and **enumerated** from the box's side (below). It is no longer a hypothesis.
 
-### The state push is PERIODIC — and it ENUMERATES the surface
+### The protocol is DECLARATIVE — the master re-asserts state, it does not issue commands
 
-The M-200 re-broadcasts its **entire head-amp state every ~45-90 s**, unprompted, values unchanged
-(observed at `t=1858, 2062, 2107, 2197, 2287` — four consecutive pushes byte-identical). This is not
-a response to anything; it is a refresh cadence.
+The M-200 re-broadcasts its **entire head-amp state**, unprompted, values byte-identical. Every
+design choice we measured follows from this and only makes sense together:
 
-> **Implementation note for #155:** a real master does not fire-and-forget. It re-asserts full
-> head-amp state periodically. Our master should match that cadence rather than sending edge-
-> triggered commands only.
+- **Values are absolute, never deltas.** The SENS sweep sent `0x04, 0x05, 0x06 …`, never "+1".
+  Absolute values are **idempotent** — which is what makes blind resending safe.
+- **Nothing is ACKed**, and nothing needs to be — the re-assert *is* the reliability mechanism.
+- **Broadcast with no addressing** — a declarative "this is the world" needs no recipient.
+- **Edge-triggered AND re-asserted**: immediate on a knob move, then restated regardless.
+
+REAC control is raw Ethernet: no ACK, no retransmit, no sequence recovery. A dropped command would
+otherwise desynchronise the box **permanently**, with nothing to notice. Continuous state assertion
+makes that failure self-healing instead.
+
+> **SAFETY note for #155 — this is not optional fidelity.** A fire-and-forget master loses a frame
+> and the box is wrong forever. The parameter where that bites is **phantom**: an engineer switches
+> 48 V off to patch a ribbon mic, the frame is lost, the box never hears it, and the UI shows "off"
+> while 48 V sits on the pins. The re-assert is what bounds that failure to one cycle.
+
+**The push is phase 2 of a whole-console state broadcast — NOT a head-amp timer.** It follows a
+SCENE/SYSPARAM transfer by **exactly 4.4 s, 7 times out of 7** (`t=797→801.4, 842.8→847.3,
+1854.3→1858.7, 2057.8→2062.3, 2102.6→2107.1, 2192.7→2197.1, 2282.7→2287.1`). Zero drift across 25
+minutes. The console announces its DSP state, waits 4.4 s, then announces its box state. One
+operation, two phases.
+
+**Unknown: what triggers the sequence.** Intervals are irregular — 46, 1011, 204, 45, 90, 90 s — and
+do not correlate with operator activity in any way we could establish. It is NOT a simple timer. (An
+earlier claim in this document of a "~45-90 s cadence" was wrong and is retracted.)
+
+This also explains the burst that nearly derailed the MAIN negative: `t=797` was this same sequence
+firing while the operator happened to be moving the fader.
 
 Each push dumps the whole surface in ~60 ms:
 
