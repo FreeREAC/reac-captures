@@ -23,3 +23,5 @@
 23:31:03.874  OPERATOR: about to toggle HPF on ch1. PREDICTION: ambiguous — fires => box has ANALOG HPF (param 03, headroom is physical); silent => HPF is console DSP. Cannot refute the rule either way.
 23:32:58.967  OPERATOR: HPF ch1 toggled AND frequency swept up/down
 23:36:05.082  MEASURED: HPF ch1 toggle+freq sweep -> op=0403 UNCHANGED at 484. No analog HPF; console DSP. ALSO: t=1858 full state push enumerates 8ch x 3 params. ALSO: real cksum = record sums to 0x80 (0x7e was a special case).
+23:38:49.953  OPERATOR: EQ ch1 exercised. THE FALSIFICATION TEST — EQ is pure arithmetic, the rule says SILENT. If op=0403 fires, the rule is DEAD.
+23:40:10.027  MEASURED: EQ ch1 -> ZERO box commands. The +256 op=0403 frames are 4 PERIODIC state pushes (t=2062/2107/2197/2287), all values byte-identical, ch1 unchanged. RULE SURVIVES ITS FALSIFICATION TEST. EQ generated 2728 op=0100 SCENE/SYSPARAM frames instead. NEW: TAG 0500 (48 frames) undecoded.
