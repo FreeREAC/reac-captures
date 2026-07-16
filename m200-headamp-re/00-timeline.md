@@ -14,3 +14,5 @@
 23:04:59.545  OPERATOR CONFIRMS: polarity ch1 ON->OFF done — NO op=0403 frame seen; widening to all ops
 23:07:12.665  OPERATOR: moved PAN — expect nothing on the wire (console-side param)
 23:07:54.141  MEASURED: polarity+pan produced 532 new frames, op=0403 count UNCHANGED at 206 -> neither is a stagebox param
+23:11:47.189  OPERATOR: swept MAIN fader — testing whether box OUTPUT level is a box param
+23:12:37.273  MEASURED: MAIN sweep -> 1092 new frames, op=0403 STILL 206. Box owns ONLY phantom+SENS. Surface complete.

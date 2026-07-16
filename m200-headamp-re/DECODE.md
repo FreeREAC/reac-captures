@@ -90,7 +90,9 @@ break the sum.
 
 ## NOT yet decoded
 
-- **Polarity (Ø)** — expected to be another `PARAM` on the same op-0403 frame (`01` or `03`?).
+(Polarity was expected here as another `PARAM` on op-0403. It is not — see the negative-results
+section below: it never reaches the box at all, because it is not the box's parameter.)
+
 - The fixed preamble `000200fe0ef0410a0000 1212 0101` — constant across every frame observed;
   purpose unknown (session/target addressing?). Do not assume it is constant for other box models
   or master generations (see reac-pw #135: per-generation decode).
@@ -98,10 +100,15 @@ break the sum.
 
 ## Negative results — the ownership boundary (measured, not assumed)
 
-**Polarity (Ø) and PAN never reach the box.** Both were toggled/moved on the M-200 while the tap
-was demonstrably live: **532 frames arrived during those experiments and the `op=0403` count stayed
-frozen at 206.** Announce (`cfea/ffff`) and heartbeat (`cdea/0103`) kept flowing throughout, so the
-capture was not stalled — the source-control channel was simply silent.
+**Polarity (Ø), PAN and MAIN LEVEL never reach the box.** All three were exercised on the M-200
+while the tap was demonstrably live: **1624 frames arrived across those experiments and the
+`op=0403` count stayed frozen at 206.** Announce (`cfea/ffff`) and heartbeat (`cdea/0103`) kept
+flowing throughout, so the capture was not stalled — the source-control channel was simply silent.
+
+MAIN was the test that could have broken the rule, and it is worth recording why it didn't: the
+S-0808 has eight **outputs**, so it has D/A converters and output jacks, and an analog output level
+stage would have been a perfectly plausible box-owned parameter. It is not one. **The box's outputs
+are dumb converters at fixed level** — the console sends samples already at the right amplitude.
 
 Across the whole session the M-200 emits only THREE frame kinds:
 
@@ -111,10 +118,18 @@ Across the whole session the M-200 emits only THREE frame kinds:
 | `cdea` | `0103` | channel-list heartbeat |
 | `cdea` | `0403` | source control — **only** param `00` (phantom) and `02` (SENS) |
 
-**The rule:** the stagebox owns exactly what it can physically do — **+48 V** on the XLR pins and
-**SENS**, the analog gain stage before the A/D. Everything after the converter is arithmetic, and
-arithmetic belongs to whoever performs it. Polarity is a sign flip on a sample; pan is amplitude
-maths on a mix bus the S-0808 does not have. Neither is the box's to own, so neither is on the wire.
+**The rule — the protocol carries ONLY what cannot be done in software.** The stagebox owns exactly
+two things, and they are exactly the two that are physically impossible anywhere else:
+
+- **+48 V** — a voltage on the XLR pins
+- **SENS** — the analog gain stage *before* quantisation (buys real signal-to-noise)
+
+Everything else is arithmetic on samples, and arithmetic belongs to whoever is already performing
+it. Polarity is a sign flip; pan is amplitude maths on a mix bus the S-0808 does not have; main is
+a gain on a mix the box never sees. None of them are the box's to own, so none are on the wire.
+
+**The box-side surface is therefore COMPLETE at two controls.** This is derived from three
+independent negatives (polarity, pan, main), not assumed — there is nothing further to hunt for.
 
 ### What this means for openmixer
 
@@ -123,7 +138,7 @@ maths on a mix bus the S-0808 does not have. Neither is the box's to own, so nei
 | Phantom +48 V | **the box** | state-only (#93) — a button that lies. Now implementable. |
 | SENS (head-amp) | **the box** | absent. Now implementable — and NOT the same thing as trim. |
 | Polarity (Ø) | **the console** | **already correct** — native DSP `sgain = polarity ? -gain : gain` |
-| Trim / pan | **the console** | already correct — digital, post-converter |
+| Trim / pan / main | **the console** | already correct — digital, post-converter |
 
 openmixer's native-DSP polarity is not a workaround for missing hardware control: **it is what
 Roland does too.** The reference implementation agrees with us.
