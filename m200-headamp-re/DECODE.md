@@ -91,6 +91,7 @@ Operator-anchored against the M-200's own display (every anchor lands):
 | `0013` | 592 | `01 01` | `CH PARAM VALUE` | **head-amp control** — decoded below |
 | `0014` | 20 | `01 00` | `06 00 01 00` | **UNDECODED** (seen only in a state push) |
 | `0014` | 20 | `00 00` | `03 00 00 00` | **UNDECODED** (seen only in a state push) |
+| — | 48 | `05 00` | — | **UNDECODED** — appears only inside state pushes; not head-amp |
 
 > **THE REAL INVARIANT: the record bytes from TAG through CKSUM sum to `0x80`.**
 > Verified across **all 612 op-0403 frames, both variants, zero violations.**
@@ -211,9 +212,33 @@ This was never a test of the rule (both outcomes were consistent — an *analog*
 preamp would have been physical, since it protects headroom from subsonic energy). It is a **hardware
 fact about the box**: the S-0808's front end is phantom, pad, gain, and nothing else.
 
-### The state push — the surface ENUMERATED (positive evidence, not absence)
+### EQ — the falsification test the rule PASSED
 
-At `t=1858` the M-200 dumped its entire head-amp state in ~60 ms:
+EQ was the sharp test, and it is worth being explicit about why: a biquad has **no physical claim on
+the box**. No voltage, no pre-converter necessity, nothing lost by doing it downstream. Unlike HPF
+(where an analog implementation would have been defensible), there is no version of "EQ in the
+stagebox" that the rule can absorb. **If EQ had fired an `op=0403` frame, the rule would be dead.**
+
+It didn't. EQ was exercised on ch1 and **ch1's head-amp record is byte-identical in every subsequent
+state push** — `PHANTOM=00 PAD=00 SENS=0x00`, unchanged. Zero new params, zero new values.
+
+Where the EQ *did* go: **2728 frames of `op=0100` (SCENE/SYSPARAM)** — the console broadcasting its
+own DSP state as scene data. Arithmetic stayed with whoever performs it, exactly as the rule says.
+
+The ownership boundary is now measured across **five** console-side parameters — polarity, pan, main,
+HPF, EQ — and **enumerated** from the box's side (below). It is no longer a hypothesis.
+
+### The state push is PERIODIC — and it ENUMERATES the surface
+
+The M-200 re-broadcasts its **entire head-amp state every ~45-90 s**, unprompted, values unchanged
+(observed at `t=1858, 2062, 2107, 2197, 2287` — four consecutive pushes byte-identical). This is not
+a response to anything; it is a refresh cadence.
+
+> **Implementation note for #155:** a real master does not fire-and-forget. It re-asserts full
+> head-amp state periodically. Our master should match that cadence rather than sending edge-
+> triggered commands only.
+
+Each push dumps the whole surface in ~60 ms:
 
 ```
 ch1..ch8  ×  {00 PHANTOM, 01 PAD, 02 SENS}   = 24 records, every one summing to 0x7e
@@ -252,8 +277,9 @@ are not watching (a different EtherType, or Roland's separate RUI network), this
 show it. Re-test against ALL traffic, not just `0x8819`, before treating it as universal.
 
 **Still open:**
-- The two `oplen=0014` records (TAG `01 00` / `00 00`) are undecoded — 20 frames, seen only inside a
-  state push, not enough to guess from. They are NOT head-amp records.
+- Three record TAGs are undecoded: `01 00` and `00 00` (20 frames, `oplen=0014`) and **`05 00`**
+  (48 frames). All appear only inside state pushes and none are head-amp records. Too few frames,
+  and no operator action isolates them, so they are recorded as unknown rather than guessed at.
 - The pad-ON SENS endpoints (`-45 … +10`) are derived from the measured +20 offset and two display
   anchors, not from a full pad-ON sweep. Worth 60 seconds on the next box day.
 - `op=0100/0101/0102` (SCENE/SYSPARAM) fires on its own schedule — the burst recurred with no fader
