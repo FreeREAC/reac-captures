@@ -89,9 +89,16 @@ Operator-anchored against the M-200's own display (every anchor lands):
 | oplen | n | TAG | DATA | meaning |
 |---|---|---|---|---|
 | `0013` | 592 | `01 01` | `CH PARAM VALUE` | **head-amp control** — decoded below |
-| `0014` | 20 | `01 00` | `06 00 01 00` | **UNDECODED** (seen only in a state push) |
-| `0014` | 20 | `00 00` | `03 00 00 00` | **UNDECODED** (seen only in a state push) |
-| — | 48 | `05 00` | — | **UNDECODED** — appears only inside state pushes; not head-amp |
+| `0014` | 14 | `01 00` | `06 00 01 00` | **the JOIN GRANT** — already known, = reac-pw's `GRANT_BLK` |
+| `0014` | 14 | `00 00` | `03 00 00 00` | **UNDECODED** |
+| `0013` | 84 | `05 00` | 4 distinct values | **UNDECODED** — not head-amp |
+
+**`op=0403` is a record CONTAINER, not a message.** `oplen` gives the data length (`0013`→3 bytes,
+`0014`→4) and the TAG selects the record type. This resolves a collision: reac-pw's parser calls
+every `04 03` a `REAC_CTRL_GRANT`, because the grant was the only record firmware RE had seen. A
+live M-200 emits **628 head-amp records for every 14 grants**, and `reac_fsm.c` gates JOIN on
+`REAC_CTRL_GRANT` — so a joining slave reads an engineer's preamp knob-turn as its grant.
+**Dispatch on TAG, not on the opcode.**
 
 > **THERE ARE TWO NESTED CHECKSUMS. An implementation must set BOTH, inner first.**
 
@@ -325,9 +332,12 @@ are not watching (a different EtherType, or Roland's separate RUI network), this
 show it. Re-test against ALL traffic, not just `0x8819`, before treating it as universal.
 
 **Still open:**
-- Three record TAGs are undecoded: `01 00` and `00 00` (20 frames, `oplen=0014`) and **`05 00`**
-  (48 frames). All appear only inside state pushes and none are head-amp records. Too few frames,
-  and no operator action isolates them, so they are recorded as unknown rather than guessed at.
+- Two record TAGs remain undecoded: `00 00` (`03 00 00 00`, 14 frames) and `05 00` (84 frames, 4
+  distinct values). Both appear only inside state pushes; neither is head-amp. No operator action
+  isolates them, so they are recorded as unknown rather than guessed at.
+- TAG `01 00` was listed here as undecoded in an earlier revision. It is the **JOIN grant** and was
+  never unknown — it is byte-identical to `GRANT_BLK` in reac-pw's `reac_master.c`, derived from
+  firmware RE long ago. The answer was in our own tree.
 - The pad-ON SENS endpoints (`-45 … +10`) are derived from the measured +20 offset and two display
   anchors, not from a full pad-ON sweep. Worth 60 seconds on the next box day.
 - `op=0100/0101/0102` (SCENE/SYSPARAM) fires on its own schedule — the burst recurred with no fader
