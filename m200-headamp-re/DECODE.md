@@ -93,11 +93,36 @@ Operator-anchored against the M-200's own display (every anchor lands):
 | `0014` | 20 | `00 00` | `03 00 00 00` | **UNDECODED** (seen only in a state push) |
 | — | 48 | `05 00` | — | **UNDECODED** — appears only inside state pushes; not head-amp |
 
-> **THE REAL INVARIANT: the record bytes from TAG through CKSUM sum to `0x80`.**
-> Verified across **all 612 op-0403 frames, both variants, zero violations.**
+> **THERE ARE TWO NESTED CHECKSUMS. An implementation must set BOTH, inner first.**
 
-**The previously published `0x7e` is a special case, not the rule.** It is `0x80` minus the constant
-TAG bytes `01 + 01` that precede every head-amp record. An implementation that hardcodes
+| # | span (absolute bytes) | rule | cksum byte | scope |
+|---|---|---|---|---|
+| inner | `[34 .. cksum]` (TAG→CKSUM) | **sums to `0x80`** | `39` (0013) / `40` (0014) | **op=0403 records only** |
+| outer | `[18:50]` (the 32-byte control block) | **sums to `0`** | `49` | **every control frame** |
+
+Byte map of a head-amp frame:
+```
+14 15 │ 16 17 │ 18 19 │ 20 21 │ 22..31   │ 32 33 │ 34 35 │ 36 37 38 │ 39 │ 40 │..│ 49
+ ctr  │ cd ea │ 04 03 │ 00 13 │ preamble │ 12 12 │  TAG  │ CH PAR VAL│ck_i│ f7 │  │ck_o
+                                                  └──── inner: sums to 0x80 ────┘
+       └──────────────────── outer: block sums to 0 ─────────────────────────────┘
+```
+
+**The outer block checksum was already known and already implemented** in reac-pw
+(`reac_ctrl_checksum_apply()`), and `reac-protocol/wire-format.md` specifies it correctly. It is
+verified here across **all 11186 control frames of every op** (0403: 740/740, 0103: 5672/5672,
+0100: 4774/4774). The inner record checksum is the new finding, and it exists **only** inside
+op=0403 records — which is why it went unnoticed: every other frame type has just the block sum.
+
+> **IMPLEMENTATION TRAP.** Every existing `reac_ctrl_build_*` helper ends by calling
+> `reac_ctrl_checksum_apply()`, which computes the **outer** sum. Write `build_headamp()` in that
+> image and each frame ships a correct block checksum around a **garbage record checksum** — the box
+> rejects it while the frame looks perfect on the wire. Set the inner checksum first, then the outer.
+
+Verified across **all 612 op-0403 frames, both variants, zero violations.**
+
+**The previously published `0x7e` is a special case of the INNER sum, not the rule.** It is `0x80`
+minus the constant TAG bytes `01 + 01` that precede every head-amp record. An implementation that hardcodes
 `cksum = 0x7e - (ch+param+value)` is correct for phantom/pad/SENS and emits a **corrupt frame** the
 moment it touches any other record type. Compute the record sum; don't hardcode 0x7e.
 
