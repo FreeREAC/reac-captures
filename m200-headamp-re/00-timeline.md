@@ -16,3 +16,7 @@
 23:07:54.141  MEASURED: polarity+pan produced 532 new frames, op=0403 count UNCHANGED at 206 -> neither is a stagebox param
 23:11:47.189  OPERATOR: swept MAIN fader — testing whether box OUTPUT level is a box param
 23:12:37.273  MEASURED: MAIN sweep -> 1092 new frames, op=0403 STILL 206. Box owns ONLY phantom+SENS. Surface complete.
+23:15:08.113  OPERATOR: PAD toggled on ch1 — the falsifiable test of the ownership rule
+23:19:30.048  OPERATOR: about to toggle PAD on ch3 (2x2 confirm for pad)
+23:22:50.763  OPERATOR: PAD ch3 done. KEY: engaging pad makes the M-200 SENS display jump -15 -> +5 (=+20dB). Pad = 20dB attenuator, shifts the SENS scale. Q: does VALUE re-send, or is VALUE pad-relative?
+23:26:33.999  ANCHOR 2: SENS -30 -> pad on -> -10 (+20dB again). Pad offset confirmed at two independent points.
