@@ -20,3 +20,6 @@
 23:19:30.048  OPERATOR: about to toggle PAD on ch3 (2x2 confirm for pad)
 23:22:50.763  OPERATOR: PAD ch3 done. KEY: engaging pad makes the M-200 SENS display jump -15 -> +5 (=+20dB). Pad = 20dB attenuator, shifts the SENS scale. Q: does VALUE re-send, or is VALUE pad-relative?
 23:26:33.999  ANCHOR 2: SENS -30 -> pad on -> -10 (+20dB again). Pad offset confirmed at two independent points.
+23:31:03.874  OPERATOR: about to toggle HPF on ch1. PREDICTION: ambiguous — fires => box has ANALOG HPF (param 03, headroom is physical); silent => HPF is console DSP. Cannot refute the rule either way.
+23:32:58.967  OPERATOR: HPF ch1 toggled AND frequency swept up/down
+23:36:05.082  MEASURED: HPF ch1 toggle+freq sweep -> op=0403 UNCHANGED at 484. No analog HPF; console DSP. ALSO: t=1858 full state push enumerates 8ch x 3 params. ALSO: real cksum = record sums to 0x80 (0x7e was a special case).

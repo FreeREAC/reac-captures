@@ -78,10 +78,32 @@ Operator-anchored against the M-200's own display (every anchor lands):
 | -65 dB (max) | `0x37` | -65 ✓ |
 | -10 dB (min) | `0x00` | -10 ✓ |
 
-## The checksum invariant
+## Frame structure — a TAGGED RECORD summing to `0x80`
 
-`CH + PARAM + VALUE + CKSUM == 0x7e` — held across **all 376 op-0403 frames**, two channels, all
-three parameters, and the full 56-step sweep. Worked examples:
+`op=0403` has **two length variants**, and the record is self-describing:
+
+```
+[counter:2] cdea 0403 [oplen:2] 000200fe [0e|0f] f0410a0000 1212 | TAG(2) DATA(n) CKSUM(1) | f7
+```
+
+| oplen | n | TAG | DATA | meaning |
+|---|---|---|---|---|
+| `0013` | 592 | `01 01` | `CH PARAM VALUE` | **head-amp control** — decoded below |
+| `0014` | 20 | `01 00` | `06 00 01 00` | **UNDECODED** (seen only in a state push) |
+| `0014` | 20 | `00 00` | `03 00 00 00` | **UNDECODED** (seen only in a state push) |
+
+> **THE REAL INVARIANT: the record bytes from TAG through CKSUM sum to `0x80`.**
+> Verified across **all 612 op-0403 frames, both variants, zero violations.**
+
+**The previously published `0x7e` is a special case, not the rule.** It is `0x80` minus the constant
+TAG bytes `01 + 01` that precede every head-amp record. An implementation that hardcodes
+`cksum = 0x7e - (ch+param+value)` is correct for phantom/pad/SENS and emits a **corrupt frame** the
+moment it touches any other record type. Compute the record sum; don't hardcode 0x7e.
+
+## The head-amp checksum (the `01 01` special case)
+
+`CH + PARAM + VALUE + CKSUM == 0x7e` — held across **all 592 oplen-0013 frames**, eight channels,
+all three parameters, and the full 56-step sweep. Worked examples:
 
 ```
 ch1 phantom off : 00 + 00 + 00 + 7e = 0x7e
@@ -180,6 +202,32 @@ a gain on a mix the box never sees. None of them are the box's to own, so none a
 predicts. Pad was found *because* the rule predicted it: it was a falsifiable test that could have
 broken the theory, and instead confirmed it.
 
+### HPF — measured negative: the S-0808 has NO analog high-pass
+
+The M-200's channel HPF was toggled **and its corner frequency swept up and down**. `op=0403` stayed
+at **484 — not one frame**. So the M-200's HPF is a biquad in its own DSP: arithmetic, console-side.
+
+This was never a test of the rule (both outcomes were consistent — an *analog* HPF ahead of the
+preamp would have been physical, since it protects headroom from subsonic energy). It is a **hardware
+fact about the box**: the S-0808's front end is phantom, pad, gain, and nothing else.
+
+### The state push — the surface ENUMERATED (positive evidence, not absence)
+
+At `t=1858` the M-200 dumped its entire head-amp state in ~60 ms:
+
+```
+ch1..ch8  ×  {00 PHANTOM, 01 PAD, 02 SENS}   = 24 records, every one summing to 0x7e
+```
+
+**Eight channels × three parameters, and nothing else.** This closes two gaps that were previously
+inferred rather than measured: the channel space really is `00..07`, and the PARAM space really is
+exactly `{00, 01, 02}`. If a fourth parameter existed, the console's own exhaustive dump would carry
+it.
+
+This is the strongest single piece of evidence in the document. Every other conclusion here rests on
+negatives ("we toggled it and nothing appeared"), which are only as wide as their census. This one is
+positive: **the console listed its complete state, and it contains exactly these three.**
+
 ### What this means for openmixer
 
 | control | physical owner | openmixer today |
@@ -203,5 +251,11 @@ full six-op census, and the physics agrees — but if a console ever carries pol
 are not watching (a different EtherType, or Roland's separate RUI network), this capture would not
 show it. Re-test against ALL traffic, not just `0x8819`, before treating it as universal.
 
-**Still open:** the pad-ON SENS endpoints (`-45 … +10`) are derived from the measured +20 offset and
-two display anchors, not from a full pad-ON sweep. Worth 60 seconds on the next box day.
+**Still open:**
+- The two `oplen=0014` records (TAG `01 00` / `00 00`) are undecoded — 20 frames, seen only inside a
+  state push, not enough to guess from. They are NOT head-amp records.
+- The pad-ON SENS endpoints (`-45 … +10`) are derived from the measured +20 offset and two display
+  anchors, not from a full pad-ON sweep. Worth 60 seconds on the next box day.
+- `op=0100/0101/0102` (SCENE/SYSPARAM) fires on its own schedule — the burst recurred with no fader
+  anywhere near it, which retired the earlier "MAIN triggered it" correlation as coincidence. What
+  *does* trigger it is unknown.
