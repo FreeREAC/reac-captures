@@ -350,12 +350,41 @@ show it. Re-test against ALL traffic, not just `0x8819`, before treating it as u
 ## CH = model_base + (channel - 1) — the base is PER-MODEL [V, anchored on hardware]
 
 ```
-CH = model_base + (channel - 1)
+CH = model_base + (BOX INPUT - 1)      <- the BOX's physical input. NOT the console's strip.
 
 S-0808 (8ch)  base  0   ->  CH 0x00..0x07
 S-1608 (16ch) base 32   ->  CH 0x20..0x2f
 S-4000 (32ch) base  0   ->  CH 0x00..0x1f
 ```
+
+### CH is BOX-relative, not console-relative [V] — the decisive test
+
+With **console ch2 patched to box ch16**, the two models predict different bytes:
+
+| model | predicts |
+|---|---|
+| CH = the **box's physical input** | `32 + 15` = **`0x2f`** |
+| CH = the **console's channel strip** | `32 + 1` = `0x21` |
+
+**Measured: `0x2f`, on all 11 operator edges. Zero on `0x21`.** So `CH` addresses the **box's input
+socket**, and the console↔box patch is **invisible to the wire**.
+
+**The ownership rule predicted this.** Patching is routing; routing is arithmetic; arithmetic is
+console-side — so a patch *cannot* reach the box. What reaches the box is the only physical fact:
+which XLR socket the 48 V lands on.
+
+Two anchors — **ch1 → `0x20`** and **ch16 → `0x2f`** — establish the mapping is **linear and
+contiguous** across all 16, not merely a range starting at 32 (ruling out reversed order, stride-2,
+or a lookup table).
+
+> **Correction.** An earlier revision read the phantom pattern at `0x22`/`0x24` as "the M-200's
+> console channels 3 and 5". Wrong label: they are **box inputs 3 and 5**. The offset arithmetic
+> was right, which is exactly why it slipped through — a wrong model can predict correctly.
+
+> **This validates openmixer's source-layer architecture.** `core/src/source.ts` already puts the
+> head-amp props on the **Source** (the input), decoupled from the channel, with the strip merely
+> *referencing* it. The wire agrees: `SourcePatch.input` is the physical socket, and the channel
+> assignment is correctly nowhere near the protocol.
 
 **Anchored on hardware, prediction-first:** with the S-1608 alone on the segment, the operator was
 asked to touch all three params on **ch1**. Predicted `CH=0x20` before the test; **all 26 operator
