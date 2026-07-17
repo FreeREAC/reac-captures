@@ -23,7 +23,7 @@ Byte offsets **within the full frame payload, counter included** (tcpdump `-x` s
 | `[2:4]`   | type       | `cdea` = control |
 | `[4:6]`   | **op**     | **`0403` = source/head-amp control** |
 | `[6:8]`   | op-len     | `0013` |
-| `[22]`    | **CH**     | **channel, ZERO-BASED** (ch1 = `00`, ch3 = `02`) |
+| `[22]`    | **CH**     | **channel + a PER-BOX BASE** — NOT flat zero-based, see below |
 | `[23]`    | **PARAM**  | **`00` = phantom +48V · `01` = PAD (-20 dB) · `02` = SENS** |
 | `[24]`    | **VALUE**  | phantom/pad: `00`/`01` · SENS: `0x00..0x37` |
 | `[25]`    | **CKSUM**  | `0x7e - (CH + PARAM + VALUE)` |
@@ -93,8 +93,10 @@ Operator-anchored against the M-200's own display (every anchor lands):
 | `0014` | 14 | `00 00` | `03 00 00 00` | **UNDECODED** |
 | `0013` | 84 | `05 00` | 4 distinct values | **UNDECODED** — not head-amp |
 
-**`op=0403` is a record CONTAINER, not a message.** `oplen` gives the data length (`0013`→3 bytes,
-`0014`→4) and the TAG selects the record type. This resolves a collision: reac-pw's parser calls
+**`op=0403` is a record CONTAINER, not a message.** **`record_len = oplen - 0x0d`** — verified across
+four observed lengths (`0013`→6, `0014`→7, `0016`→9, `001a`→13 bytes), with the `0x80` sum holding
+**913/913**. An earlier two-case rule here (`0013`→3 data bytes else 4) was a hack that happened to
+fit the two lengths then in view and the TAG selects the record type. This resolves a collision: reac-pw's parser calls
 every `04 03` a `REAC_CTRL_GRANT`, because the grant was the only record firmware RE had seen. A
 live M-200 emits **628 head-amp records for every 14 grants**, and `reac_fsm.c` gates JOIN on
 `REAC_CTRL_GRANT` — so a joining slave reads an engineer's preamp knob-turn as its grant.
@@ -343,3 +345,69 @@ show it. Re-test against ALL traffic, not just `0x8819`, before treating it as u
 - `op=0100/0101/0102` (SCENE/SYSPARAM) fires on its own schedule — the burst recurred with no fader
   anywhere near it, which retired the earlier "MAIN triggered it" correlation as coincidence. What
   *does* trigger it is unknown.
+
+
+## CH IS NOT FLAT ZERO-BASED — it carries a per-box BASE [measured across the capture library]
+
+Derived without new hardware, by re-running the decode over the existing master × box matrix in
+`captures/` (M-200 / M-300 / M-5000 × S-0808 / S-1608 / S-4000):
+
+| box | inputs | head-amp CH range |
+|---|---|---|
+| **S-0808** | 8 | **`0..7`** |
+| **S-1608** | 16 | **`32..47`** ← not `0..15` |
+| **S-4000** | 32 | **`0..31`** |
+
+Identical under all three consoles, so it is a property of the **box**, not the master.
+
+- **Not a unit-ID switch:** two physically different S-4000 units (`c4:06:80`, `c4:08:bc`) both use
+  `0..31`.
+- **Not derivable from width:** the 8-ch and 32-ch boxes both base at 0; only the 16-ch box bases
+  at 32.
+- **`(box_index << 5) | channel` is REFUTED** — it predicted a distinct base for the S-4000.
+
+> **Implementation consequence (#155):** an implementation must **learn** a box's channel base, not
+> compute it. `CH = channel - 1` is correct for an S-0808 and addresses nothing on an S-1608.
+> reac-pw has `--box-channels` (width) but **no channel base** — that is a gap.
+
+**Why the S-1608 bases at 32 is unknown.** Recorded as measured fact, not explained.
+
+## TAG `05 00` — capability / identity exchange (role decoded, fields NOT)
+
+Bidirectional, and the direction is the whole point:
+
+- **Master→box records are CONSTANT** across M-200, M-300 and M-5000, and identical regardless of
+  which box is attached (`00 00 04`, `06 00 08`, `10 00 11`, `10 11 09`, `11 00 11`, `11 11 09`).
+  So `06 00 08` is **not** a channel count — it stays `08` with a 16-ch box attached. It is a fixed
+  master capability advertisement.
+- **Box→master records TRACK THE BOX MODEL:**
+
+```
+S-0808 :  oplen 0016 [00 00 01 00 00 03]   oplen 001a [06 00 00 00 00 01 00 00 00 00]
+S-1608 :  oplen 0016 [00 00 02 02 00 00]   oplen 001a [06 00 00 00 00 02 00 03 00 02]
+S-4000 :  oplen 0016 [00 00 02 05 00 00]   oplen 001a [06 00 00 00 00 02 00 01 00 02]
+```
+
+A model-ID pair is clearly present — `(01,00)` / `(02,02)` / `(02,05)` — but **the individual fields
+are NOT decoded**, and three boxes is not enough to build a model registry from. Recorded as role,
+not as a codec.
+
+> **This is the mechanism reac-pw #137 wants** (recognise the connected box from its frames): the box
+> *declares itself* here, which beats inferring the model from frame geometry.
+
+## The box is NOT silent — "nothing is ACKed" was too strong
+
+Earlier analysis filtered on the master's MAC and therefore never saw the box's own control frames.
+Per-sender census (`ctl2.pcap`):
+
+```
+M-200   : TAG 0000×18   TAG 0100×18   TAG 0101×724   TAG 0500×108
+S-0808  :               TAG 0100×9    TAG 0302×9     TAG 0500×27
+```
+
+The box sends `op=0403` records. What survives, and what the safety argument actually rests on:
+**the box NEVER sends TAG `01 01`** — head-amp state is never echoed, so **head-amp specifically is
+unacknowledged**. That is the claim to make; "nothing is ACKed" is not.
+
+`TAG 03 02` (`00 01 00`) is **box→master only and constant** across every master and every box.
+Meaning unknown; an ack/ready is plausible and unproven.
