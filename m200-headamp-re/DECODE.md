@@ -347,7 +347,44 @@ show it. Re-test against ALL traffic, not just `0x8819`, before treating it as u
   *does* trigger it is unknown.
 
 
-## CH IS NOT FLAT ZERO-BASED — it carries a per-box BASE [measured across the capture library]
+## CH = model_base + (channel - 1) — the base is PER-MODEL [V, anchored on hardware]
+
+```
+CH = model_base + (channel - 1)
+
+S-0808 (8ch)  base  0   ->  CH 0x00..0x07
+S-1608 (16ch) base 32   ->  CH 0x20..0x2f
+S-4000 (32ch) base  0   ->  CH 0x00..0x1f
+```
+
+**Anchored on hardware, prediction-first:** with the S-1608 alone on the segment, the operator was
+asked to touch all three params on **ch1**. Predicted `CH=0x20` before the test; **all 26 operator
+edges landed on `0x20` and nothing else** — 8 phantom toggles, 9 pad toggles, and a SENS ramp
+`0x36..0x31` (= -64..-59 dBu, clean 1 dB/step). So `0x20` **is** the S-1608's ch1, not merely the
+bottom of a range it happens to occupy.
+
+**The whole head-amp decode transfers to a different box model unchanged** — same three params in
+the same order, same `0x7e` invariant on every frame, same linear SENS law. **Only the base differs.**
+
+### Evidence the base is INTRINSIC to the model (three independent ways)
+
+1. **Two different physical S-1608 units** — `c4:80:3b` (2026-07-11) and `c4:80:41` (2026-07-17) —
+   both base at 32, and both emit **byte-identical** TAG `05 00` identity records.
+2. **Three different consoles** — M-200, M-300, M-5000 — all address the S-1608 at 32.
+3. **Alone on an empty segment** — with the S-0808 unplugged and `0..7` entirely free, the M-200
+   *still* addresses the S-1608 at `0x20..0x2f`. **Base 32 is not collision-avoidance.**
+
+Two boxes coexisted earlier in the same capture at `0x00..0x07` + `0x20..0x2f` — contiguous,
+non-overlapping, no negotiation. And when the S-0808 was unplugged, **the master dropped `0..7` from
+its state assert** within one cycle: the re-assert covers only boxes actually present. (That last
+behaviour is what openmixer #161 wants — observed on the reference implementation, not invented.)
+
+**`(box_index << 5) | channel` is REFUTED** — it predicted a distinct base for the S-4000, which
+bases at 0 like the S-0808.
+
+**Why the S-1608 bases at 32 is unknown.** Recorded as measured fact, not explained.
+
+### The original matrix survey (how the base was first spotted)
 
 Derived without new hardware, by re-running the decode over the existing master × box matrix in
 `captures/` (M-200 / M-300 / M-5000 × S-0808 / S-1608 / S-4000):
@@ -364,13 +401,12 @@ Identical under all three consoles, so it is a property of the **box**, not the 
   `0..31`.
 - **Not derivable from width:** the 8-ch and 32-ch boxes both base at 0; only the 16-ch box bases
   at 32.
-- **`(box_index << 5) | channel` is REFUTED** — it predicted a distinct base for the S-4000.
 
-> **Implementation consequence (#155):** an implementation must **learn** a box's channel base, not
-> compute it. `CH = channel - 1` is correct for an S-0808 and addresses nothing on an S-1608.
-> reac-pw has `--box-channels` (width) but **no channel base** — that is a gap.
-
-**Why the S-1608 bases at 32 is unknown.** Recorded as measured fact, not explained.
+> **Implementation consequence (#155):** an implementation must **learn** a box's channel base from
+> its model, not compute it from width. `CH = channel - 1` is correct for an S-0808 and addresses
+> nothing on an S-1608. reac-pw has `--box-channels` (width) but **no channel base** — that is a gap.
+> The box declares its model in its TAG `05 00` records at enrolment (below), which is where the
+> base should come from.
 
 ## TAG `05 00` — capability / identity exchange (role decoded, fields NOT)
 
