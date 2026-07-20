@@ -532,3 +532,34 @@ unacknowledged**. That is the claim to make; "nothing is ACKed" is not.
 
 `TAG 03 02` (`00 01 00`) is **box→master only and constant** across every master and every box.
 Meaning unknown; an ack/ready is plausible and unproven.
+
+## Commit mechanism RESOLVED — op-0103 + op-0403 are COMPLEMENTARY (2026-07-20)
+
+Two workflows over the full 22.9 GB corpus + the S-1608 firmware settled the op-0103-vs-op-0403 question
+and cracked why reac-pw commits only the anchor. **The apparent "S-1608 has no op-0403 head-amp intake"
+was a decompile-EXPORT artifact** — the whole opcode-dispatch layer is data-section fn-ptr/vtable
+dispatched and absent from the function-only export (proven: even the *known* op-0103 handler
+`FUN_0c002e94` and scene FSM `FUN_0c0037ee` have ZERO callers; the staging table `0xc0cd52e` is read-only
+in the export = the fingerprint of a hidden writer).
+
+**The model (staging/commit):**
+- **op-0103 chanmap** — presence/enrol; writes head-amp into the ACTIVE table `0xc0cf85a` directly.
+  Its per-record byte1 is a constant bank marker (`0x28`/`0x38`), NOT phantom.
+- **op-0403 TAG-0101** — the per-channel head-amp VALUES → the STAGING table `0xc0cd52e`.
+- **op-0101 (SUB-A) → op-0102 (SUB-B)** — drives the scene-FSM state-4 commit `FUN_0c003c8a`, which
+  copies STAGING → ACTIVE for all `0x50` slots (the "flush 12 phantom groups").
+
+**Why reac-pw commits only the anchor** (RE hypothesis, MEDIUM confidence, rig-UNVALIDATED): reac-pw
+already emits op-0103 presence for all `0x20..0x2f` AND op-0403 values for all `0x20..0x2f` (both
+wire-correct). The gap is the COMMIT TRIGGER — reac-pw emits the SUB-A→SUB-B pair only during PROBING
+(before the staging sweep), never after, so nothing beyond the box's default-enrolled anchor ever flushes.
+And a *working* S-0808 capture (`s0808-reboot-enrollfix`) committed while **sustaining** the SUB pair
+continuously (~134 events / 79.5 s) — the commit is a SUSTAINED cadence, not one-shot.
+
+**Fix (reac-pw `feat/reac-headamp-scene-commit`, flag `REACPW_EST_COMMIT`):** (1) fire SUB-A→SUB-B AFTER
+the op-0403 staging sweep; (2) SUSTAIN it on the established cadence (~1/s), not one-shot; (3) re-arm on
+`reac_master_set_headamp_src()` for live edits. **Open item:** captures disagree on SUB *cadence*
+(scene-recall 4× in 3.4 s vs matrix-m200-s1608 16× / 56 s) — "sustain it" sidesteps that. **Rig A/B:**
+S-0808 as positive control (anchor commits), A=default build (only anchor) vs B=sustained-SUB build
+(expect all 8 inputs), physical 48V/condenser confirmation per input (no soft meter). Box upstream requires
+nothing (commit is purely master-driven; the box JOIN/identity burst is channel-agnostic).
