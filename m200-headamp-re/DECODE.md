@@ -6,6 +6,59 @@ openmixer/reac-pw were **not** master during the capture — every frame here is
 
 This closes **gap #1** (head-amp / 48V), the blocker on openmixer #155.
 
+## The preamble is a Roland DT1 SysEx — DECODED + PROVEN (2026-07-20)
+
+The `f0 41 0a 00 00 12 12 …` bytes, previously filed under "NOT yet decoded" as an opaque
+constant, are a genuine **Roland DT1 (Data Set 1) MIDI SysEx** message embedded in the REAC record.
+**Proven by checksum math** — the inner checksum reproduces the observed byte on **3173/3173**
+op-0403 control records (850/850 in a first pass, 913/913 per the original census) using exactly the
+Roland DT1 rule `cksum = (128 − sum(address+data) mod 128) mod 128` over the span `01 01 CH PARAM
+VALUE` — and **confirmed** by the DT1/RQ1 command split: byte `[33]` is `0x12` (DT1, "set") on every
+head-amp record but flips to `0x11` (RQ1, "request") on the identity polls (132/132, master-sourced
+only). So the message is Roland's, not a look-alike.
+
+Full field map of the op-0403 control container (full-frame offsets, after the 14-byte Ethernet
+header; note the 2-byte free-running counter at `[14:16]`):
+
+```
+[16:18] cd ea          REAC control-frame type                     FIXED   PROVEN
+[18:20] 04 03          record-container opcode                     FIXED   PROVEN
+[20:22] 00 13          op length, big-endian (record_len = oplen-0x0d)      PROVEN
+[22:26] 00 02 00 fe    REAC console wrapper (OUTSIDE the SysEx)     FIXED   PROVEN
+[26]    0e             SysEx-payload length echo (= oplen - 5)              PROVEN
+[27]    f0             ── MIDI SysEx start                          FIXED   PROVEN
+[28]    41                Roland manufacturer ID                    FIXED   PROVEN
+[29]    0a                Roland device ID                          FIXED   STRONG
+[30:33] 00 00 12          Roland model ID (3-byte, extended)        FIXED   STRONG
+[33]    12                DT1 command (Data Set 1); 0x11 = RQ1 poll         STRONG
+[34:36] 01 01             DT1 address hi = head-amp register page (the "TAG") PROVEN
+[36]    CH                DT1 address = box input = model_base+(input-1)     PROVEN
+[37]    PARAM             DT1 address lo = 00 phantom / 01 pad / 02 sens    PROVEN
+[38]    VALUE             DT1 data (1 byte)                                 PROVEN
+[39]    cksum          ── Roland DT1 checksum (INNER, set FIRST)           PROVEN
+[40]    f7             ── MIDI SysEx end (EOX)                     FIXED   PROVEN
+[41:49] 00 × 8         REAC block padding                          FIXED   STRONG
+[49]    cksum          REAC block checksum (OUTER, NOT Roland; block ≡ 0)  PROVEN
+```
+
+Key corrections to earlier framing: the two `12` bytes are the **model-ID low byte** (`00 00 12`) and
+the **DT1 command** (`0x12`) — not a repeated marker. The "TAG `01 01`" is the **high 2 bytes of the
+Roland 4-byte address** (`01 01 CH PARAM`), *not* a REAC tag; VALUE is the sole data byte. The inner
+checksum is the Roland DT1 checksum (its span excludes the command byte `[33]`, exactly per the Roland
+spec); the outer block checksum is REAC's own and unrelated.
+
+**EMULATOR TRAP (adversary-caught):** `op=0403` is OVERLOADED — the S-1608 *upstream audio-braid*
+frames also carry `04 03` at `[18:20]` (wrapper `02 00 fe 00`, no `f0…f7`, no `f7` terminator,
+counter `0000`, box-sourced). Dispatch control on the `cd ea` marker + the `00 02 00 fe` wrapper +
+counter≠0, **never on the `04 03` opcode alone**.
+
+**Open discrepancy (the S-1608 commit blocker, NOT a decode gap):** the S-1608 v2200 firmware
+decompile shows *no op-0403 head-amp intake* (it ingests op-0103 triples), yet the M-200 is captured
+emitting op-0403 head-amp to S-1608 channels `0x20..0x2f`. Reconciling these two is the practical
+blocker on reliable S-1608 48V commit. STRONG-but-unresolved sub-items: device-ID value `0x0a` (vs
+Roland's common `0x10`), the exact 2-vs-3 byte model-ID split, and the meaning of the `00 02 00 fe`
+wrapper. The mod-128 wrap can't be distinguished from "sum to 0x80" here (max span-sum = 91 < 128).
+
 ## The command frame
 
 EtherType `0x8819`, control type `cdea`, **op `0403`** (the channel-list heartbeat is op `0103`):
@@ -177,10 +230,13 @@ break the sum.
 (Polarity was expected here as another `PARAM` on op-0403. It is not — see the negative-results
 section below: it never reaches the box at all, because it is not the box's parameter.)
 
-- The fixed preamble `000200fe0ef0410a0000 1212 0101` — constant across every frame observed;
-  purpose unknown (session/target addressing?). Do not assume it is constant for other box models
-  or master generations (see reac-pw #135: per-generation decode).
-- Whether the box **acknowledges** a command (upstream reply not yet analysed).
+- ~~The fixed preamble `000200fe0ef0410a0000 1212 0101`~~ — **DECODED 2026-07-20 as a Roland DT1
+  SysEx; see "The preamble is a Roland DT1 SysEx" at the top.** Residual unknowns: the `00 02 00 fe`
+  REAC wrapper's internal meaning, the device-ID `0x0a` rationale, and the 2-vs-3-byte model-ID split.
+- Whether the box **acknowledges** a command: head-amp (TAG `01 01`) is NEVER echoed by the box, so it
+  is unacknowledged; `TAG 03 02` (box→master, constant `00 01 00`) is a plausible-but-unproven ready/ack.
+- **S-1608 receive-path discrepancy** — firmware shows op-0103-only intake but the M-200 sends op-0403
+  head-amp to it; the practical S-1608 48V-commit blocker (an integration gap, not a decode gap).
 
 ## The frame census — every op the M-200 emits
 
