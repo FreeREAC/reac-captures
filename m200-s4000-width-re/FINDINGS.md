@@ -39,26 +39,63 @@ constraint, but it is NOT this bug.)
   `reac_master_set_box(in_ch=32)` is called (`reac_pacer.c:263`); the grant sweep builds
   32-wide (`REAC_GRANT_MAX_WIDTH`=32, `alloc_fits(0,32)` OK).
 
-So the snake accepts head-amp control across 32 but caps its AUDIO RETURN at 8. The
-differentiating field is subtler — in the grant burst / chanmap / downstream fabric, or
-a config/identity frame the snake reads to decide how many slots to FILL. It SCALES with
-width (reac-pw computes it right for ≤16, wrong/truncated at 32).
+So the snake accepts head-amp control across 32 but caps its AUDIO RETURN at 8: the
+differentiating field had to be one the snake reads to decide how many slots to FILL.
 
-## The generalisation (target)
+## SOLVED (2026-07-24): the ENROLL group map is the audio-width gate
 
-The snake declares its own width/base/model in its handshake frames; reac-pw should READ
-that per-connection rather than look up a table. Prime special case to delete:
-`OBSERVED_PLACEMENT` in `reac_grant.c` (`{8→0x00, 16→0x20, 32→0x00}` — non-monotonic, so
-NOT a width→base formula; the base is likely the box's own declaration / head-amp CH
-base). reac-pw's SLAVE (`reac_slave.c`, `--box-channels`, task #134) ALREADY stamps a
-width into its box→master frames — very likely the SAME field the master must read
-(shortcut + confirms the encoding).
+The trimmed golden `../captures/matrix-m200-s4000-coldconnect-2026-07-24.pcap` (6 s,
+probing → cold-connect → widen → JOIN → grant burst) shows the widen SEQUENCE — an
+ORDER of states, not a timing recipe:
 
-## Open (RE agent decoding)
+```
+874.724  console  cdea 0102 000e         negotiation op begins (box connecting)
+874.733  box      cdea 0103 0010         CONFIG-announce (3rd frame; box streams 8ch/340B)
+874.941  console  cfea ffff 0100         one-shot cfea (console MAC, fabric 0x28, width 0x20)
+874.942  console  cdea 0103 000d         ENROLL — the group map, 32-wide      ← THE GATE
+874.9456 box      340B → 1204B           BOX WIDENS 8→32ch, 3 ms after the ENROLL
+874.946  console  cdea 0103 0019         CHANMAP resumes
+876.5    box      cdea 0403 JOIN         head-amp phase (separate, later)
+878      console  cdea 0403 grant burst  head-amp arming sweep
+```
 
-WHERE in the box→master frames the snake declares width/base; the exact per-width special
-cases to replace with dynamic derivations; validation that 8/16/32 reproduce the goldens
-so 24 (S-2416) falls out. Then: read it, delete the tables, derive the rest.
+**The ENROLL group map is a pure function of width — NO per-box special case.** In the
+block (from the `cdea` marker), the input region `[9:14]` carries `width/8` bytes of
+`0x41` packed from the front; the output region `[14:19]` carries the remaining groups
+as `0xc3` packed from the back:
+
+| box | width | input region | output region |
+|---|---|---|---|
+| S-0808 | 8 | `41 00 00 00 00` | `00 c3 c3 c3 c3` |
+| S-1608 | 16 | `41 41 00 00 00` | `00 00 c3 c3 c3` |
+| S-4000S | 32 | `41 41 41 41 00` | `00 00 00 00 c3` |
+
+Cross-console verified byte-for-byte on the goldens: **M-200, M-300 and M-5000 emit the
+identical map for the same box** — only the console-model byte at block `[8]` differs
+(`0x00` V-Mixer / `0x01` OHRCA). Also checked: the CHANMAP sweep advertises the full
+40-slot fabric regardless of box (width-independent), and the M-200's first grant frames
+to an S-0808 vs an S-1608 are byte-identical — no per-box constant anywhere in the
+width path.
+
+**reac-pw's bug (branch `feat/dynamic-enroll-width`, commit `d037319`):** it emitted a
+STATIC 8-ch ENROLL (`1×0x41`) once at GRANTING-start — recognition
+(`reac_master_set_box`) later learned width 32 and rebuilt the grant sweep + cfea width
+byte but never touched `enroll_blk`. Circular trap: enrol 8 → box streams 8 →
+"recognize" 8. Fix: `set_enroll_width()` derives the group map from width;
+`set_box` applies the declared width + flags a one-shot re-emit that the GRANTING dwell
+delivers (matching the golden's post-CONFIG enrol); the default seed is the wide-safe
+32 (`4×0x41`+`1×0xc3`, the widest real-box config) so an unrecognized box still opens
+fully.
+
+**Live result (2026-07-24):** S-4000S upstream went 340 B → **1204 B / 32 ch** on the
+wire; music + 48 V phantom on box inputs 16 AND 32 confirmed by the operator by ear.
+S-0808/S-1608 regression pending a box swap.
+
+**Still open on the width topic:** the head-amp CH base for the S-1608 (`0x20` in
+`reac_grant.c` / prior live 48V evidence) appears in NO capture here — the goldens are
+steady-state and never show a real M-200 editing an S-1608 head-amp. Needs a dedicated
+capture (M-200 + S-1608 + a 48V toggle) before touching that rule.
 
 **Constraint:** reac-pw merges to main auto-deploy → the fix lives on branch
-`feat/dynamic-box-width`, manual-launch tested, not merged until the operator confirms.
+`feat/dynamic-enroll-width`, manual-launch tested, not merged until the operator
+confirms.
