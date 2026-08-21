@@ -85,6 +85,34 @@ permutation itself is built wrong on this box, and `FUN_0c012162` selects its ta
 real M-200 on OUR unit (`c4:80:41`) and its upper slots do not carry signal either, which
 points the same way: the difference is the unit, not the master.
 
+## THE NIC SWAP: it is the UNIT (2026-08-21, evening)
+
+The S-1608 had only ever been driven over a USB NIC (`eth0`, ASIX AX88179) and the S-0808
+only over the rig NIC (`enp131s0`), so "the box is gated" and "that segment/instance is
+broken" were confounded. The operator swapped the two cables. Same masters, same binary,
+same code path; only the box on each segment changed.
+
+| | segment | head-amp |
+|---|---|---|
+| S-1608 | rig NIC `enp131s0` | **DEAD** — all 16 slots unmoved at −106 dBFS with all 16 cells armed phantom=1 sens=50 |
+| S-0808 | USB NIC `eth0` | **WORKS** — all 8 slots up ~20 dB (−87.8 → −67.0); slot 8 −36.1 → −1.1 |
+
+Both directions at once. The NIC, the cable, the segment and the master instance are
+exonerated, and the fault travels with the S-1608 unit.
+
+That is the branch the firmware lift called not master-reachable: the head-amp path is gated
+on `FUN_0c00f6b4()` ∈ {0,1}, decoded once at boot from two I/O-expander bits and never
+re-sampled, so nothing on the wire can reach it. Four consecutive boots (including one with a
+2½-minute power-off, to rule out a marginal read during rail rise) all came up gated.
+**Stop looking at the protocol for this. The next move is physical** — the unit's rear
+mode/role straps, or a hardware fault in that box.
+
+Incidental but useful confirmation of the port-name ruling: after the swap the node named
+`reac-playback` declared `base=32 channels=16` (the S-1608) while the one named
+`reac-playback.s1608` declared `base=0 channels=8` (the S-0808). Every name was wrong and
+every declaration was right. Selecting by the published base/channels kept working across a
+physical swap that made the names lie.
+
 ## Method notes worth keeping
 
 - **A desk MAC is not proof of a real desk.** reac-pw impersonated `00:40:ab:c9:cc:03` from
