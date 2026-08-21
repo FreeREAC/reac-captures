@@ -21,10 +21,21 @@
  *        'ether proto 0x8819 and ether src <box-mac>'
  * Build:
  *   gcc up_slots.c -o up_slots -I<libreac>/include <libreac>/libreac.a -lm
+ *
+ * Usage: up_slots <pcap> [skip]
+ *
+ * `skip` discards that many decodable upstream frames before measuring, which is what
+ * makes the corpus usable: a capture that opens on a reboot or a cold-connect spends its
+ * first frames in a transient, and measuring those describes the transient rather than
+ * the established box. Corpus captures are also MIRRORED — the same frame appears twice,
+ * once clean and once with the +2 FCS residue (libreac reac.h:35-47) — which costs
+ * nothing here because reac_frame_clean_len strips the residue and both copies carry the
+ * same audio.
  */
 #include <reac/reac.h>
 #include <reac/reac_upstream.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 #define MAX_SLOTS  40   /* the REAC fabric ring: 5 groups x 8 */
@@ -32,9 +43,11 @@
 
 int main(int argc, char **argv)
 {
-	if (argc < 2) { fprintf(stderr, "usage: %s <pcap>\n", argv[0]); return 2; }
+	if (argc < 2) { fprintf(stderr, "usage: %s <pcap> [skip]\n", argv[0]); return 2; }
 	FILE *f = fopen(argv[1], "rb");
 	if (!f) { perror(argv[1]); return 1; }
+	long skip = (argc > 2) ? atol(argv[2]) : 0;
+	long seen = 0;
 
 	unsigned char gh[24];
 	if (fread(gh, 1, 24, f) != 24) { fclose(f); return 1; }
@@ -58,6 +71,7 @@ int main(int argc, char **argv)
 
 		unsigned char pcm[MAX_SLOTS * SAMPLES * 3];
 		if (reac_upstream_decode(buf, len, pcm) != SAMPLES) continue;
+		if (seen++ < skip) continue;
 		frames++;
 		slots = nch;
 

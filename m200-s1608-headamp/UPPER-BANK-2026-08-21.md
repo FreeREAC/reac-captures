@@ -66,6 +66,45 @@ Still open from that same note: the MINIMAL enrolling value, and whether SENS al
 channel that has never enrolled. Neither is answered here — both writes above landed on a
 channel that was already live.
 
+## The goldens: a real M-200 DID convert on input 16
+
+`analysis/up_slots.c` over the corpus, 400 frames sampled at `skip 50000` (established, not
+the cold-connect transient):
+
+| capture | slot 1 | slot 3 | slot 7 | slot 16 |
+|---|---|---|---|---|
+| `m200-ch16-anchor-toggle-20260721-220347` | −63.8 | −94.0 | −53.3 | **−35.3** |
+| `m200-s1608-COLDCONNECT-clean-2026-07-24` | −58.1 | −88.1 | −29.4 | **−67.4** |
+| `m200-headamp-1357_16-toggle3-20260721-214420` | −65.0 | −93.8 | −52.0 | **−32.5** |
+
+The third capture's name states its own scene — channels 1, 3, 5, 7 and 16 — and the slots
+that carry signal are 1, 3, 7 and 16. So the upper bank is not a hardware limit of the
+S-1608, and it is not something only an OHRCA desk can reach: a V-Mixer M-200 had input 16
+converting at −32 dBFS.
+
+That makes this a divergence between what a real desk sends and what reac-pw sends, and
+the chanmap is NOT that divergence (see below).
+
+## The 1 Hz chanmap is byte-faithful — ruled out
+
+The steady-state control plane is one frame each way per second: we send CHANMAP
+(`cdea 0103 0019`), a rolling 8-entry window over the 49-position ring, and the box answers
+`cdea 0103 0001` `81 00`, byte-identical every second (it carries nothing about banks).
+
+Our chanmap flags 0x28–0x2f with `0x38` and everything else with `0x28`
+(`reac_master.c:gen_chanmap`, hardcoded). `analysis/placement_rows.jsonl` shows every real
+desk doing exactly the same to a real S-1608 — M-200i, M-300 and M-5000 alike, in
+`m200-s1608-BIDIR-coldboot`, `matrix-m300-s1608`, `matrix-m5000-s1608`,
+`real-m200-s1608-coldboot`. The flag correlates perfectly with the dead bank on our rig,
+and is still not the cause.
+
+## One measurement nuance worth keeping
+
+Our dead slots read ~−106 dBFS, which is roughly 1 LSB of dither — a converter that is
+running. Absolute absence reads −200 (the probe's log floor, i.e. all-zero samples), which
+is what `m200-s1608-BIDIR-reboot` shows in slots 1–8 while its slots 9–16 carry −94..−106.
+So "−106" and "no data at all" are different states, and the corpus contains both.
+
 ## Where the next evidence is
 
 A golden where a real M-200 had all 16 S-1608 inputs converting, diffed against what reac-pw
