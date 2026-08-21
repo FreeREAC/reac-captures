@@ -115,3 +115,8 @@ its upper bank — and does the golden's box ever stream non-zero in slots 9–1
 
 The chanmap flag difference already noted for 0x28–0x2f (0x38) in `m200-headamp-re/DECODE.md`
 is the standing lead.
+
+**ANSWERED — see `ENROLL-IS-THE-GATE-2026-08-21.md`.** The diff runs the other way: there is no
+frame a real desk sends that we do not. There is one we send that no real desk sends an S-1608 —
+the ENROLL group map (`cdea 01 03 000d`). Real desks: 0 of 11 establishment captures. Us: 6 of 7
+(the miss is the run where reac-pw was the slave). The 0x38 chanmap lead stays ruled out.
