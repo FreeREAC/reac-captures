@@ -9,12 +9,24 @@ real desk ever sends it: the ENROLL group map, `cdea 01 03 000d`.**
 Derived entirely from the committed corpus (`analysis/placement_rows.jsonl`); no pcap was
 re-scanned and no new capture was needed.
 
-## The discriminator trap, disarmed first
+## The discriminator, and why it is not the filename
 
-Source MAC cannot tell a golden from one of our own runs: through July reac-pw impersonated
-the real M-200's address `00:40:ab:c9:cc:03`, so both sides of the corpus answer to the same
-desk MAC. The only reliable discriminator here is the **filename prefix** — `m200-*` is the
-real desk, `reacpw-*` is us. A diff keyed on MAC compares us against ourselves.
+**Capture filenames are not evidence** (operator, 2026-08-21) — this corpus is large and not
+uniformly named, and an argument that rests on a prefix rests on nothing.
+
+Nor is the desk MAC, on its own: through July reac-pw impersonated the real M-200's address
+`00:40:ab:c9:cc:03`, so both sides answer to that one address.
+
+What survives both doubts is the subset of desks reac-pw has **never** impersonated — the
+M-300 (`c9:d8:5b`) and the M-5000 (`ca:15:4c`). Those two are unambiguously real desks
+whatever a file is called, and the result below is stated on them alone. Every S-1608 ENROLL
+in the whole corpus is sourced from `c9:cc:03` (the impersonated M-200 address) or
+`c9:cc:04` (the reac-pw master stand-in).
+
+Second correction, in `analysis/placement_scan.py`: `00:40:ab:c4:80:41` was labelled
+`reac-pw(slave stand-in)`. It is **the rig's own S-1608** (`HEADAMP-S1608-STATE-DIAGRAM-2026-07-19`,
+`UPPER-BANK-2026-08-21`), now `S-1608#2`. The stale label made every table over this rig
+unreadable.
 
 Second correction, in `analysis/placement_scan.py`: `00:40:ab:c4:80:41` was labelled
 `reac-pw(slave stand-in)`. It is **the rig's own S-1608** (`HEADAMP-S1608-STATE-DIAGRAM-2026-07-19`,
@@ -44,6 +56,23 @@ not a broken search. (The one S-0808 miss is `m200-…pcap09`, a mid-stream spli
 whose establishment marker is a heartbeat, not a cold-connect. The one reac-pw miss is
 `reacpw-slave-m5000-postfix`, where reac-pw was the **slave** — a master frame is correctly
 absent there.)
+
+## The ENROLL is a RESPONSE, and the protocol is sequenced
+
+Operator ruling, 2026-08-21: **this protocol sets things one after the other, never on a
+clock.** Elapsed time is circumstantial; the ORDER is the law.
+
+In every capture where an enrol exists, it follows the box's CONFIG announce — the desk
+answers what the box declared. Never before it, and never on a timer.
+
+reac-pw does not model it that way. It emits a wide-safe ENROLL at GRANTING **tick 0**,
+before the box has declared anything, and a second one when the declaration arrives. The
+first frame is not early — it is an answer to a question nobody asked, and it is the one
+frame no real desk sends this box. That the rest of the establish path is counted in ticks
+(`grant_ticks`, `grant_dwell`) is the same defect one level up.
+
+So the fix is not a suppression rule bolted onto a schedule. **The enrol is a response to the
+declaration**, and for a 16-input declaration the response is: send nothing.
 
 ## What the group map says when it is sent
 
