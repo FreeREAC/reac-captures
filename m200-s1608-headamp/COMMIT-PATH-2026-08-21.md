@@ -112,6 +112,52 @@ is causal is unproven.
 Prior work's `0x0c033158` / `FUN_0c01e49e` is re-confirmed as RUI panel parameters, not an
 enrol array — it never touches `0x0c0cf85a`, `0x0c0f5e00` or `FUN_0c00ac1e`.
 
+## RESOLVED as far as the wire goes: the block is INSIDE the box
+
+Everything above was chased to exhaustion on the wire and the answer is that the wire is not
+the problem. The discriminating run: clean establish, **two complete 49 s chanmap sweeps**
+landed before anything was pushed, then `phantom=1 sens=55` on CH 0x27 byte-verified on the
+wire, then another sweep. Every slot stayed at −106 dBFS, both banks, no LED. Repeated with
+`REACPW_CHANMAP_PERTURB` forcing four map CHANGES (the only network-side trigger for the
+hardware push, `FUN_0c0041e8`:6085 → `FUN_0c00cb8e` → `FUN_0c00cb14` → task cmd 2 →
+`FUN_0c0081f6` → `FUN_0c007fbc`): same null.
+
+The commit itself is FINE and provably so. The box's `01 03 00 10 8x` frame is emitted ONLY by
+`FUN_0c003c8a` (lines 5857–5891), so **it is a commit receipt**, and it is present in tonight's
+captures (`cm.pcap` t+9.045, `bidir.pcap` t+8.608) — in both cases fired by a one-shot
+SUB01→SUB02, before the first complete sweep. Staging → active works. What never happens is
+the copy from the active table to the pins.
+
+**The gate is strap-derived and unreachable from the wire.** `FUN_0c007e06`:8654 returns true
+only when `FUN_0c00f6b4()` (`*0x0c08091c`) is 0 or 1, and `FUN_0c0081f6` returns immediately
+otherwise, applying nothing. The same value independently gates `FUN_0c00cb14`:11985, the only
+sender of the apply command. That value is decoded once at boot by `FUN_0c01091a`:15843 from
+two I/O-expander input bits (device 8, bits 1 and 0):
+
+```c
+b = (FUN_0c01f020(8,1) << 1) | FUN_0c01f020(8,0);
+role = (b==1)?0 : (b==2)?1 : (b==3)?2 : 3;      // head-amp path needs 0 or 1
+```
+
+sampled in `FUN_0c00f650`:14416 and deliberately NOT re-sampled by the re-init path
+(`FUN_0c00f68c`). So `b==0` or `b==3` silently disables all head-amp hardware writes for the
+whole power cycle, and **no frame a master can send will change it**. What those two pins are
+physically wired to is not in the decompile.
+
+Secondary suspects on the same path, both real but unproven: `*0x0c0805f8 == 1` (set by
+`FUN_0c00435e` when a second config source publishes; blocks the master's chanmap from ever
+republishing) and `FUN_0c00cbd4() != 0`, which diverts to a compare branch that pushes nothing.
+Both are cleared by re-entry to `FUN_0c00444c`, i.e. by a clean link drop — which was done
+repeatedly tonight without effect.
+
+## The operator ask (physical, first thing)
+
+The box worked at 03:00 and has applied nothing since, across a power cycle. Since the gate is
+a boot-sampled hardware strap, check the box's PHYSICAL configuration before any more wire
+work: rear mode/role switches, which REAC port the cable occupies, any split/merge or
+standalone selector, and whether anything was moved during the power cycle. A strap that reads
+`b==0` or `b==3` reproduces every symptom seen tonight exactly.
+
 ## What to do next, in order
 
 1. **Recover the commit at all**, on bank 0, before touching the bank question. The box
