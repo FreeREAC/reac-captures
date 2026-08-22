@@ -1,0 +1,13 @@
+REMOVED BY THE LFS HISTORY REWRITE OF 2026-08-23
+
+This capture was committed RAW and exceeded GitHub's 2 GiB per-object LFS
+limit, which made the whole repository unpushable. The pointer was replaced
+by this note so the history could be published. The bytes were NOT deleted.
+
+sha256: 11c9c9635679bb01991b5ed25702bf101ec1da08985e631271b5ee04e119ea98
+bytes:  2637369700
+
+The raw file is at ~/Devel/audio/reac-captures-raw/, outside git, with a
+README and a full SHA256SUMS.txt; the digest above is its entry there. The
+DISTILLED capture at the same relative path in the current commit is the one
+the two corpus gates read.
