@@ -54,9 +54,42 @@ def iter_packets(path):
                     raise ValueError(f'{path}: caplen {caplen} at {i} — desync')
                 if n - i - 16 < caplen:
                     break
-                yield (ts_s + ts_f / tsdiv, wirelen, buf[i + 16:i + 16 + caplen])
+                yield (ts_s + ts_f / tsdiv, wirelen,
+                       strip_fcs(buf[i + 16:i + 16 + caplen]))
                 i += 16 + caplen
             buf = buf[i:]
+
+
+def canonical_len(n):
+    """A frame length the REAC geometry allows: 52 + n_channels*36 (reac.ksy)."""
+    return n >= 52 and (n - 52) % 36 == 0
+
+
+def strip_fcs(frame):
+    """A REAC frame without the capture's Ethernet FCS residue.
+
+    THE RESIDUE IS NOT PROTOCOL AND MUST NOT REACH A CONSUMER. `spec/reac.ksy` fixes
+    the geometry at `52 + n_channels*36` — 40ch downstream 1492, 16ch upstream 628,
+    8ch 340 — and a mirrored capture stores some frames with two bytes of the
+    capture's own FCS left on the end. Those two bytes corrupt the frame SIZE, and
+    the size is what every width and offset is derived from: a 1494-byte frame read
+    as a REAC frame has an audio region two bytes longer than any declared width, so
+    a consumer walking it lands off the end of the last channel.
+
+    Stripping here rather than in each tool is the point. Every analysis in this
+    directory reads through {@link iter_packets}; doing it once means no script can
+    be handed a frame whose length lies about its width.
+
+    A frame that is not REAC is handed back untouched — this only ever trims a
+    0x8819 frame whose length is exactly two past a legal one.
+    """
+    if len(frame) < 14 or frame[12:14] != b'\x88\x19':
+        return frame
+    if canonical_len(len(frame)):
+        return frame
+    if canonical_len(len(frame) - 2):
+        return frame[:-2]
+    return frame
 
 
 def mac(b):
