@@ -24,6 +24,9 @@ The step histogram is the real verdict. A clean capture is overwhelmingly step=1
 with a handful of wraps; anything with a fat step=0 bar has not been deduped, and
 anything with steps scattered across many values is not being parsed as REAC at all.
 
+Reads the RAW stream (keep_mirror_copies=True) — it must see both copies to judge
+them. The reader drops them for every OTHER consumer.
+
 Run it on the OUTPUT of dedup_mirror.py. Reporting "0 duplicates" on a file the
 reader could not parse would be the same false null this corpus has produced before,
 so a file that yields no frames is a FAILURE here, never a pass.
@@ -42,7 +45,7 @@ def verify(path: str) -> bool:
     repeats = collections.Counter()      # step 0 AND identical bytes: a real duplicate
     stutter = collections.Counter()      # step 0 but DIFFERENT bytes: a mis-parse
     total = 0
-    for ts, wirelen, frame in iter_packets(path):
+    for ts, wirelen, frame in iter_packets(path, keep_mirror_copies=True):
         if len(frame) < 50 or frame[12:14] != b'\x88\x19':
             continue
         total += 1
