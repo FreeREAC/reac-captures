@@ -30,7 +30,7 @@
 # noise and the row says so.
 set -o pipefail
 
-IFACE=${IFACE:-eth0}
+IFACE=${IFACE:-enp131s0}   # the S-1608's segment since the eth0 adapter was retired
 BOX=${BOX:-00:40:ab:c4:80:41}
 API=${API:-http://127.0.0.1:8800}
 HERE=$(cd "$(dirname "$0")" && pwd)
