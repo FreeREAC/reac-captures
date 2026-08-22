@@ -4,12 +4,16 @@
 #
 # HEALTHY or GATED? One command, one verdict, per box.
 #
-# The S-1608's head-amp path is gated at boot from two I/O-expander bits that no wire
-# sequence reaches (FUN_0c00f6b4 -> FUN_0c007e06/FUN_0c00cb14; decoded once in
-# FUN_0c01091a and deliberately never re-sampled). EACH POWER CYCLE IS AN INDEPENDENT
-# SAMPLE, which is why the box worked one morning and not that evening with nothing
-# physically touched. So the question "did this boot come up healthy?" gets asked a lot,
-# and asking it by ear or by LED is slow and easy to get wrong.
+# A box can be streaming audio perfectly and applying no head-amp command at all, and
+# nothing in the link state, the frame counters or the console's own row says so: every
+# PATCH returns ok:true either way. This answers the only question that distinguishes them,
+# and it answers it from the audio rather than from a status field.
+#
+# WHOSE FAULT IT IS, IS NOT THIS TOOL'S TO SAY. On 2026-08-22 the rig's S-1608 measured
+# GATED under reac-pw while the operator sets 48 V on both its banks from real mixers -- so
+# a GATED verdict here means "this master is not reaching this box's preamps", NOT "this box
+# is broken". Read it as a divergence, and diff our desk-side traffic against a real desk's
+# (analysis/opdiff.py, m200-s1608-headamp/DESK-TEST-PROCEDURE.md).
 #
 # The test: arm every declared input at a high SENS and ask whether ANY slot leaves the
 # converter floor. A live preamp lifts its own noise floor ~35 dB going from minimum to
