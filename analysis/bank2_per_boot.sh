@@ -64,13 +64,11 @@ set_gain () { curl -s --max-time 5 -X PATCH "$API/api/channel/input/$1/headAmp" 
 
 # sweep <console-ch> <slot> -> "lo hi delta ref_lo ref_hi"
 #
-# NEVER SWEEP TO SENS 0. Measured 2026-08-22, the hard way: repeatedly driving one
-# channel to 0 left it at the converter floor (un-enrolled, and it did NOT come back
-# when the gain was raised — enrolment happens at establish, not on a write), and the
-# other three channels of its 4-channel group (slot>>2) stopped responding to SENS
-# while still reading enrolled. reac_grant.c already says SENS is armed "deliberately
-# non-zero so the channel enrols"; 0 is not a gain setting to this box, it is an
-# un-enrol. 10 dB is low enough for a clean ratio against 55 and safe.
+# The low end is 10 dB rather than 0 only so the ratio is read against a real gain
+# setting. An earlier note here claimed 0 un-enrols a channel; that was inferred from
+# a run that also involved daemon restarts and duplicate masters, and the operator has
+# since observed channels sitting at 0 while holding 48V and passing sound. Unproven,
+# so not claimed.
 SWEEP_LO=${SWEEP_LO:-10}
 sweep () {
 	set_gain "$1" $SWEEP_LO;  sleep 4; local lo ref_lo;  lo=$(rms "$2");  ref_lo=$(rms "$REF_SLOT")
