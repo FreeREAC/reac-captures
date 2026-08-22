@@ -30,23 +30,20 @@ import struct
 import sys
 
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
-from reac_pcap import PCAP_MAGICS  # noqa: E402  (same directory, shared reader)
+from reac_pcap import PCAP_MAGICS, canonical_len, strip_fcs  # noqa: E402
 
 END_MARKER = b'\xc2\xea'
 
 
-def canonical_len(n: int) -> bool:
-    """A frame length the geometry allows: 52 + n_channels*36."""
-    return n >= 52 and (n - 52) % 36 == 0
+def strip(frame: bytes):
+    """The frame without FCS residue, or None when it fits no declared width.
 
-
-def strip(frame: bytes) -> bytes | None:
-    """The frame without FCS residue, or None when it fits no declared width."""
-    if canonical_len(len(frame)):
-        return frame
-    if canonical_len(len(frame) - 2):
-        return frame[:-2]
-    return None
+    The geometry itself lives in `reac_pcap` — one definition, used by the reader so
+    no consumer ever sees a +2 frame, and re-used here because this tool reads the
+    file RAW rather than through `iter_packets` (it must see both copies to drop one).
+    """
+    body = strip_fcs(frame)
+    return body if canonical_len(len(body)) else None
 
 
 def main(src: str, dst: str) -> int:
