@@ -28,8 +28,26 @@ PCAP_MAGICS = {                            # keyed by the RAW first 4 bytes
 CHUNK = 4 << 20
 
 
-def iter_packets(path):
-    """Yield (ts_float, wirelen, frame_bytes). Streaming, bounded memory."""
+def iter_packets(path, keep_mirror_copies=False):
+    """Yield (ts_float, wirelen, frame_bytes). Streaming, bounded memory.
+
+    MIRROR COPIES ARE DROPPED HERE, like the FCS residue, and for the same reason:
+    a switch mirror hands the capture each frame TWICE, so every per-op count taken
+    from a mirrored file is inflated — and not uniformly, since a frame present in
+    both copies counts twice while one present once counts once. Comparing our own
+    traffic (captured off a plain NIC) against a mirrored corpus file then compares a
+    deduplicated stream against a doubled one. Measured across the m200-s1608 corpus:
+    16 of 16 files mirrored, ~33% of each is duplication.
+
+    The test is exact, not heuristic. Every REAC frame carries a free-running u16
+    counter at offset 14 which its sender increments, so two DISTINCT frames are never
+    byte-identical — a frame equal to its immediate predecessor is the mirror's second
+    copy and nothing else. Dropping it needs no window, no timestamp tolerance and no
+    guess.
+
+    `keep_mirror_copies=True` returns the raw stream, for the one job that must see
+    both copies: proving the drop is right (`verify_unique.py`, `dedup_mirror.py`).
+    """
     with open(path, 'rb') as f:
         gh = f.read(24)
         if len(gh) < 24:
@@ -39,6 +57,7 @@ def iter_packets(path):
         endian, tsdiv = PCAP_MAGICS[gh[:4]]
         rh = struct.Struct(endian + 'IIII')
         buf = b''
+        prev = None
         while True:
             blk = f.read(CHUNK)
             if not blk:
@@ -54,9 +73,13 @@ def iter_packets(path):
                     raise ValueError(f'{path}: caplen {caplen} at {i} — desync')
                 if n - i - 16 < caplen:
                     break
-                yield (ts_s + ts_f / tsdiv, wirelen,
-                       strip_fcs(buf[i + 16:i + 16 + caplen]))
+                body = strip_fcs(buf[i + 16:i + 16 + caplen])
                 i += 16 + caplen
+                if not keep_mirror_copies:
+                    if body == prev:
+                        continue          # the mirror's second copy of one frame
+                    prev = body
+                yield (ts_s + ts_f / tsdiv, wirelen, body)
             buf = buf[i:]
 
 
