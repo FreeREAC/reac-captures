@@ -36,9 +36,11 @@ API=${API:-http://127.0.0.1:8800}
 HERE=$(cd "$(dirname "$0")" && pwd)
 LOG=${LOG:-$HERE/bank2-per-boot.log}
 
-# console channel -> box port, after the operator's patch of ports 5-16 onto ch5-16
-BANK1_CH=5;  BANK1_SLOT=5      # port 5  -> wire 0x24
-BANK2_CH=9;  BANK2_SLOT=9      # port 9  -> wire 0x28, the first slot of the dead bank
+# console channel -> box port. The patch puts the S-1608's ports 1-12 on ch9-20, so the
+# console channel is the port plus 8. Re-read it before trusting these two if the patch moves:
+#   curl -s localhost:8800/api/patch/input/input/<ch>   ->  capture_AUX<n> is port n+1
+BANK1_CH=13; BANK1_SLOT=5      # port 5  -> wire 0x24, inside the bank that works
+BANK2_CH=17; BANK2_SLOT=9      # port 9  -> wire 0x28, the first slot of the dead bank
 REF_SLOT=2                     # untouched, read in every capture as the reference
 
 say () { echo "$(date -Is) $*" | tee -a "$LOG"; }
