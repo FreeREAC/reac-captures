@@ -47,6 +47,32 @@ Goldens where a real desk drove an S-1608 and head-amp landed:
 `m200-s1608-headamp/*.pcap`, `m200i-s1608-48k-*`, and for the upper bank
 `m200-headamp-1357_16-toggle3` (names its own scene and lights slots 1, 3, 7, 16).
 
+**RESULT, run 2026-08-22.** `opdiff.py` over 8 "golden" and 13 "ours" captures:
+
+```
+ONLY the real desk sends (present in >=1 golden, 0 of ours):
+    (nothing)
+ONLY reac-pw sends:
+    cdea 0103 000d   (in 6/13 of ours)
+```
+
+**There is no op TYPE a real desk sends that reac-pw never sends.** We send a superset, and
+the one extra is the ENROLL group map `0103 000d` — already known inert on this box (all
+three `01 03` parsers in `S-1608_alldecomp.c` reject it on their opcode gate; it arrives
+`0x10` and they want `1`, `0x80/0x82`, `0`). So the difference is NOT a missing op. It is in
+CONTENT, ORDER or repetition — and content is largely exonerated, which leaves ORDER, the
+thing the operator says is the law of this protocol.
+
+**CAVEAT ON THE GOLDEN SET, and it is not small.** `opdiff.py` discriminates by FILENAME
+PREFIX. Six of its eight "goldens" are the `2026-07-21` `m200-*` captures — and reac-pw was
+impersonating the real M-200 MAC `00:40:ab:c9:cc:03` from that date. Some of those may be US,
+in which case one of them reads as a golden while being reac-pw refusing. Before building on
+this diff, re-partition the corpus by a desk MAC reac-pw never impersonated (M-300
+`c9:d8:5b`, M-5000 `ca:15:4c`) — noting those drove the OTHER S-1608, `c4:80:3b`.
+
+So the cleanest evidence would be a fresh capture of a real desk setting 48 V on
+`c4:80:41`, which is Question 1's session anyway.
+
 Known already, and to be re-checked rather than re-derived:
 - the `op-0403 tag-0101` head-amp records we emit are BYTE-IDENTICAL to what an M-200i,
   M-300 and M-5000 each write, masked across CH/PARAM/VALUE and both checksums
