@@ -61,8 +61,12 @@ rms () {  # rms <slot>  -> dBFS for that slot, from the wire
 		| grep -oP "^slot +$1: +\K-?[0-9.]+"
 }
 
+# ONLY the gain. The operator lights phantom across the box to watch the LEDs while testing,
+# and pad may be set deliberately too — a probe that clears either is destroying the operator's
+# own instrument. Twice on 2026-08-22 a sweep wrote pad:false and phantom:false and put out the
+# lights someone was reading.
 set_gain () { curl -s --max-time 5 -X PATCH "$API/api/channel/input/$1/headAmp" \
-	-H 'content-type: application/json' -d "{\"gainDb\":$2,\"pad\":false}" >/dev/null; }
+	-H 'content-type: application/json' -d "{\"gainDb\":$2}" >/dev/null; }
 
 # sweep <console-ch> <slot> -> "lo hi delta ref_lo ref_hi"
 #
