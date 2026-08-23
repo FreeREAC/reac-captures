@@ -1,0 +1,19 @@
+2026-08-22T21:02:36+02:00 one master on enp131s0 — good. Power-cycle the box when you like; Ctrl-C to stop.
+2026-08-22T21:02:36+02:00 link DOWN — box power-cycling
+2026-08-22T21:02:38+02:00 link UP — boot #1, capturing the establish and settling 45 s
+2026-08-22T21:03:58+02:00 boot #1  join=0x01x1
+2026-08-22T21:03:58+02:00     bank1 port5 (lo hi delta ref_lo ref_hi): -106.1 -106.0 +0.1 -105.4 -105.7
+2026-08-22T21:03:58+02:00     bank2 port9 (lo hi delta ref_lo ref_hi): -106.1 -106.2 -0.1 -106.0 -106.2
+2026-08-22T21:03:58+02:00     read: delta >= +25 dB is a live preamp; ref must not move.
+2026-08-22T21:08:33+02:00 link DOWN — box power-cycling
+2026-08-22T21:08:51+02:00 link UP — boot #2, capturing the establish and settling 45 s
+2026-08-22T21:10:10+02:00 boot #2  join=0x01x1
+2026-08-22T21:10:10+02:00     bank1 port5 (lo hi delta ref_lo ref_hi): -106.1 -106.2 -0.1 -105.7 -106.0
+2026-08-22T21:10:10+02:00     bank2 port9 (lo hi delta ref_lo ref_hi): -90.8 -200.0 -109.2 -106.2 -105.2
+2026-08-22T21:10:10+02:00     read: delta >= +25 dB is a live preamp; ref must not move.
+2026-08-22T21:21:51+02:00 link DOWN — box power-cycling
+2026-08-22T21:22:05+02:00 link UP — boot #3, capturing the establish and settling 45 s
+2026-08-22T21:23:26+02:00 boot #3  join=0x01x1
+2026-08-22T21:23:26+02:00     bank1 port5 (lo hi delta ref_lo ref_hi): -106.2 -105.9 +0.3 -106.0 -106.0
+2026-08-22T21:23:26+02:00     bank2 port9 (lo hi delta ref_lo ref_hi): -105.7 -105.9 -0.2 -105.7 -106.0
+2026-08-22T21:23:26+02:00     read: delta >= +25 dB is a live preamp; ref must not move.
