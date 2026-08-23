@@ -283,15 +283,17 @@ capture moved `cksum=2170/2170` to `cksum=2160/2160` and turned `run-corpus.sh` 
 ### The 2 GB question
 
 **Four files exceeded GitHub's 2 GiB per-file LFS limit** in the raw set — `reacpw-reconnect`
-(9.1 GB), `ctl2.pcap` (4.8 GB), `m200-pad-v2` (3.5 GB), `m200-pad-sweep` (2.6 GB) — and two more
-exceed 2x10^9 bytes if the limit is read decimally (`s1608-master-first-link` 2.055 GB,
-`m200-BIDIR-coldboot` 2.005 GB; the earlier note in this file said "five" and missed the latter).
+(9.118 GB), `ctl2.pcap` (4.758 GB), `m200-pad-v2` (3.517 GB), `m200-pad-sweep` (2.637 GB). Two
+more raw files exceed 2x10^9 bytes if the limit is read decimally (`s1608-master-first-link`
+2.055 GB, `m200-BIDIR-coldboot` 2.005 GB), but **they were never committed**, so they were never
+the push's problem: a scan of every LFS pointer in the history found **four** over the limit and
+no more. The count of six is a fact about the raw set, not about this repository's history.
 
 **The distilled set clears the limit with four orders of magnitude to spare: the largest file is
 still `ctl2.pcap`, now 46.8 MB, and the next largest is 7.5 MB.** The
 oversized objects were nonetheless still *committed*, so `.git/lfs` carried them and the history
 was unpushable however small the working tree became. Distilling the working tree does not rewrite
-history; that rewrite is recorded in the next section.
+history; that rewrite is below.
 
 **Grants are now sampled, and that is what closed the gap.** `ctl2.pcap` was 442 MB of the
 666.5 MB total, and it was not slack: every one of its 6,626,869 records is a control frame (no
@@ -302,6 +304,36 @@ An earlier draft of this file estimated that decision would land the corpus near
 not: **the floor is 271.3 MB**, because the 572,576 control frames in `ctl2` that are *not* grants
 are kept in full, and they are 37.8 MB on their own on top of the 224.5 MB the other 84 captures
 already occupy. The 220 MB figure assumed a saving on frames the rule does not touch.
+
+### The LFS history rewrite, 2026-08-23
+
+The working tree had been small since the distillation, and the repository was still unpushable,
+because `git push` offers **every LFS object the history references**, not the ones the tip needs.
+Four pointers over the limit sat in 19 commits between 2026-08-21 and 2026-08-22.
+
+`git filter-repo` rewrote them out. The rule was narrow on purpose: a blob callback read every LFS
+pointer in the history, and where the pointer declared more than 2x10^9 bytes it replaced that
+pointer — and nothing else — with a short note naming the object's **sha256 and byte count** and
+saying where the bytes are. Nothing was deleted blindly: each of those four digests is an entry in
+`~/Devel/audio/reac-captures-raw/SHA256SUMS.txt`, so the note is a working reference to the file
+it replaced rather than a hole.
+
+What was checked afterwards, rather than assumed:
+
+- **The tip is untouched.** `HEAD^{tree}` is the same object id before and after the rewrite,
+  `9b79632`, so the 85 distilled captures, the manifest and every finding are bit-for-bit what
+  they were. Nothing at the tip carried an oversized pointer, so nothing at the tip could move.
+- **All 56 commits survive**, and author name, author email, author date, committer name,
+  committer email, committer date and subject are **identical across every one of them** — diffed
+  against a bundle of the pre-rewrite history, not eyeballed.
+- **No LFS pointer over the limit remains**: 107 pointers, 0 above 2x10^9. The largest object the
+  history now offers is `m200-anchor-openwindow` at 1.146 GB, comfortably inside 2 GiB.
+- **Four notes, four blobs.** Exactly one replacement per oversized object.
+
+The pre-rewrite history is preserved outside the repository as a verified git bundle at
+`~/Devel/audio/reac-captures-pre-lfs-rewrite.bundle` (3.3 MB — the history is tiny; the 30 GB was
+all LFS storage). `.git/lfs` still holds the four large objects locally; they are simply no longer
+reachable from any commit, so no push will ever offer them.
 
 ### Where the raw corpus is
 
