@@ -1,0 +1,5 @@
+dropped privs to tcpdump
+tcpdump: listening on enp128s20f0u6, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+6626869 packets captured
+6627459 packets received by filter
+565 packets dropped by kernel
