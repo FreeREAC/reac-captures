@@ -4,9 +4,9 @@ Generated 2026-08-23 by lane CAP; distilled 2026-08-23 by lane DIST. One row per
 pair, event, date, truncation, size raw and distilled, and what it is evidence FOR. A capture
 nobody can identify is nearly worthless; this file is what stops that.
 
-**The captures in this repository are DISTILLED.** Same 85 names, same relative paths, 666.5 MB
-instead of 47.9 GB. Every one of the 6,910,123 control frames is still here; the audio is
-sampled. The rule and its proof are at the foot of this file. The raw 47.9 GB set lives outside
+**The captures in this repository are DISTILLED.** Same 85 names, same relative paths, 271.3 MB
+instead of 47.9 GB. Every control frame that is not a `grant` is still here — all 852,274 of
+them; the audio is sampled, and so are the grants. The rule and its proof are at the foot of this file. The raw 47.9 GB set lives outside
 git at `~/Devel/audio/reac-captures-raw/` with its own README and a full `SHA256SUMS.txt`.
 
 ## How to read a row
@@ -37,26 +37,26 @@ git at `~/Devel/audio/reac-captures-raw/` with its own README and a full `SHA256
 | | files | raw | distilled |
 |---|---:|---:|---:|
 | `captures/` | 47 | 20.4 GB | 124.9 MB |
-| `m200-headamp-re/` | 19 | 6.9 GB | 483.7 MB |
+| `m200-headamp-re/` | 19 | 6.9 GB | 88.6 MB |
 | `m200-s1608-headamp/` | 16 | 20.3 GB | 57.2 MB |
 | `m200-scene-recall-re/` | 1 | 190.1 MB | 369.6 KB |
 | `s1608-bank-2026-08-22/` | 2 | 125.0 MB | 278.0 KB |
-| **total** | **85** | **47,907,786,044 (47.9 GB)** | **666,519,750 (666.5 MB)** |
+| **total** | **85** | **47,907,786,044 (47.9 GB)** | **271,331,352 (271.3 MB)** |
 
-**71.9x smaller, and not one control frame fewer.** What each number does across the
-distillation:
+**176.6x smaller.** Not one control frame was dropped except `grant`, which is sampled the same
+way audio is. What each number does across the distillation:
 
 | | raw | distilled | |
 |---|---:|---:|---|
-| control frames | 6,910,123 | **6,910,123** | every one kept |
+| control frames | 6,910,123 | 922,420 | every one kept except `grant` |
 | scene_transfer | 778,751 | **778,751** | identical |
 | config_announce | 305 | **305** | identical |
 | group_map | 107 | **107** | identical |
 | record_fragment | 40 | **40** | identical |
-| grant | 6,057,849 | **6,057,849** | identical |
+| grant | 6,057,849 | 70,146 | sampled — this is the 395 MB |
 | head-amp records | 10,101 | **10,101** | identical |
 | filler frames | 38,417,760 | 174,743 | sampled — this is the 47 GB |
-| pcap records | 45,327,906 | 7,084,889 | |
+| pcap records | 45,327,906 | 1,097,186 | |
 | audio frames decoded | 36,732,190 | 185,590 | sampled, contiguous |
 
 Truncated in every record: **14 of 85**. Independently confirmed two ways — a direct
@@ -121,7 +121,7 @@ agree on the same 12 files of the 83 that predate this manifest.
 |---|---|---|---|---:|---|---|---|
 | `m200-s1608-headamp-48v-pad-sens-2026-07-17.pcap` | ? x ? | ?/? | 2026-07-17 | 57.6 KB → **26.4 KB** | **TRUNCATED snaplen=128** | committed(LFS) | m200-headamp-re/HEADAMP-GROUND-TRUTH-2026-07-17.md |
 | `m200i-s0808-48k-mirror__ctl-session1-precut.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 5.5 MB → **3.3 MB** | full | committed(LFS) | session 1 control-plane extract (pre power-cut); 00-timeline.md, DECODE.md |
-| `m200i-s0808-48k-mirror__ctl2.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 4.8 GB → **442.0 MB** | full | committed(LFS) | THE HEAD-AMP RE MASTER CAPTURE. 12 citers: libreac reac_ctrlblk.c, reac-pw reac_grant.c + test_reac_headamp.c, PLACEMENT-EVIDENCE.md, 4 openmixer design docs. Session 2 of the 2026-07-16 head-amp night |
+| `m200i-s0808-48k-mirror__ctl2.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 4.8 GB → **46.8 MB** | full | committed(LFS) | THE HEAD-AMP RE MASTER CAPTURE. 12 citers: libreac reac_ctrlblk.c, reac-pw reac_grant.c + test_reac_headamp.c, PLACEMENT-EVIDENCE.md, 4 openmixer design docs. Session 2 of the 2026-07-16 head-amp night |
 | `m200i-s0808-48k-mirror__enrol-01-control.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 96 KB → **96 KB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s0808-48k-mirror__enrol-02-control.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 96 KB → **96 KB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s0808-48k-mirror__enrol-03-control.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 93 KB → **93 KB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
@@ -182,8 +182,8 @@ measures, not a second spelling of it.
 
 ### The rule
 
-1. **Every frame that is not FILLER is kept — all 6,910,123 of them.** No sampling, no dedup, no
-   exceptions. Each is cut to its first **50 bytes**: ethernet[0:14], counter[14:16], type[16:18],
+1. **Every frame that is not FILLER and not a `grant` is kept — all 852,274 of them.** No
+   sampling, no dedup, no exceptions. Each is cut to its first **50 bytes**: ethernet[0:14], counter[14:16], type[16:18],
    control block[18:50]. Fifty is `REAC_CTRL_BLOCK_END`, the offset where audio begins, so those
    bytes are the whole of what any control reader ever looks at — `reac_ctrl_parse`, the block
    checksum, the head-amp record, the declared port table and the box identity all read inside
@@ -194,7 +194,26 @@ measures, not a second spelling of it.
    such a record as a control block with no audio: the corpus already contained captures taken at
    snaplen 64/128/200/400 and they were first-class in it.
 
-2. **Audio is sampled**: 4 contiguous runs of 250 whole frames, per distinct wire geometry, spaced
+2. **Grants are sampled, per control-opcode key.** One capture, `ctl2.pcap`, was 6.6M control
+   records of which 6,054,293 were `grant` — a single record repeating through 241 join cycles —
+   and at 50 bytes each those were 400 MB of the corpus on their own. They are sampled exactly as
+   audio is: 128 contiguous runs of 500, spaced evenly through the file. *Contiguous* because a
+   grant defect is a relationship between adjacent grants — how long a burst runs, whether the
+   counter stays contiguous across it, where in the join cycle it stops — and scattered singles
+   cannot show one. *Spaced* because the grants of one join cycle say nothing about the next.
+
+   The sampling bucket is the control triple `L<op0>.<op1>.<sel>`, **the same key the corpus gate
+   reports**, so a rare grant subtype is never sampled away: a bucket that fits inside the budget
+   is kept entire. In `ctl2` that separates 6,053,140 `L4.3.02` grants, which are sampled to
+   65,437, from 1,153 `L4.3.00` grants, which are kept in full. Bucketing on anything coarser
+   would have spent the whole budget on the common record and thrown the rare one away — and the
+   rare subtype is where a defect is most likely to hide.
+
+   A grant that falls inside a sampled **audio** run is kept whole and exempt from grant sampling:
+   those frames are what `dn=`/`up=` decode, and thinning them here would move the audio tallies
+   from the control arm, which is exactly the confusion the two self-tests exist to keep apart.
+
+3. **Audio is sampled**: 4 contiguous runs of 250 whole frames, per distinct wire geometry, spaced
    evenly through each file. Per *geometry* because a REAC file interleaves streams of different
    widths (40ch downstream 1492 B, 16ch upstream 628 B, 8ch 340 B, 32ch 1204 B) and a run must be
    contiguous *within* the stream it samples. *Spaced* because the head of a capture is the
@@ -202,7 +221,7 @@ measures, not a second spelling of it.
    because braid and lane defects are a relationship between adjacent frames; scattered singles
    cannot show one.
 
-3. **Non-REAC records are kept whole** — there are 23 and they are cheaper to keep than to explain.
+4. **Non-REAC records are kept whole** — there are 23 and they are cheaper to keep than to explain.
 
 Timestamps are copied byte for byte, never regenerated: the counter-contiguity and clock-drift
 findings rest on them. The pcap global header is copied verbatim, so link-type, endianness and
@@ -213,16 +232,29 @@ the file's own snaplen survive.
 Both whole-corpus baselines were regenerated and then diffed against the raw ones **field by
 field**, across all 85 files:
 
-- **Six fields moved: `records`, `reac`, `filler`, `trunc`, `dn`, `up`.** Those are exactly the
-  quantities the rule is allowed to move — how many records there are, how many were filler, how
-  many now carry a snaplen, and how much audio was decoded.
-- **Zero violations.** Every per-class control count, every checksum tally, every head-amp count
-  and parameter split, the declared port tables, the `decl` geometry and the box match are
-  **identical** before and after. The classification partition is untouched: old-probe 779,163 =
-  scene_transfer 778,751 + config_announce 305 + group_map 107, and 40 record_fragments.
+- **Dropping filler moved `records`, `reac`, `filler`, `trunc`, `dn`, `up`** — exactly the
+  quantities that rule is allowed to move.
+- **Sampling grants moved six fields and no others**, each by **exactly 5,987,703**, which is
+  precisely the number of grants removed: `records` 7,084,889 → 1,097,186, `reac` 7,084,866 →
+  1,097,163, `trunc` 6,899,276 → 911,573, `grant` 6,057,849 → 70,146, `cksum` 6,910,123 →
+  922,420, and in `ctl2` the one L-key the sampled grants carry, `L4.3.02` 6,053,140 → 65,437.
+  A grant is checksum-bearing, so `cksum` loses the same count from numerator and denominator
+  alike; it is still 922,420/922,420, with not one bad checksum.
+- **The non-grant control frames are exactly conserved: 852,274 before and 852,274 after.**
+  That is the whole claim in one number — 6,910,123 − 6,057,849 = 922,420 − 70,146.
+- **Zero violations.** `filler`, `scene_transfer` (778,751), `master_hb`, `master_announce`,
+  `headamp` (10,101), `box_hb`, `config_announce` (305), `group_map` (107), `record_fragment`
+  (40), every head-amp parameter split, the declared port tables (812,903), the `decl` geometry,
+  the box match and **both audio tallies** (`dn` 111,613, `up` 73,977) are **identical** before
+  and after. A grant sets neither the port table (which reads `op0==0x01`) nor the head-amp record
+  nor the box identity, so none of them could move. `L4.3.00` held at 3,173 — the rare grant
+  subtype survived whole.
+- **Only one of the 85 baseline rows changed**, in both gates: `ctl2.pcap`. The other 84 are
+  byte-identical.
 - **The two implementations still agree.** libreac's C checker and the Kaitai grammar
-  independently report the same 185,590 whole frames and the same 6,899,276 truncated control
-  blocks over the distilled set.
+  independently report the same 185,590 whole frames and the same 911,573 truncated control
+  blocks over the distilled set — and the Kaitai gate, run against the *old* baseline, reported
+  the same 5,987,703 delta from the other side before it was re-recorded.
 
 ### The gates, and that they can still fail
 
@@ -230,7 +262,7 @@ field**, across all 85 files:
 |---|---|---|
 | `libreac tools/run-corpus.sh` | green, 85 captures | `--self-test` red (control arm) |
 | | | `--self-test-audio` red (audio arm) |
-| `reac-protocol spec/corpus-check.py` | green, 85 files fully clean | `--self-test` rejects all 185,590 frames and all 6,899,276 blocks |
+| `reac-protocol spec/corpus-check.py` | green, 85 files fully clean | `--self-test` rejects all 185,590 frames and all 911,573 blocks |
 
 Two things were fixed while proving this, and both were gates that could not fail:
 
@@ -241,7 +273,7 @@ Two things were fixed while proving this, and both were gates that could not fai
   `reac_frame_inspect` actually validates, and then requires the audio tallies to move *and* the
   control counts to hold still.
 - **`spec/corpus-check.py` read only the first 4000 frames per file.** That cap existed because
-  the corpus was 47.9 GB. It is now 666 MB and an uncapped run takes about a minute, so the
+  the corpus was 47.9 GB. It is now 271 MB and an uncapped run takes well under a minute, so the
   default is 0 — every frame. A cap silently turns "the corpus parses" into "the first 4000
   frames parse".
 
@@ -256,15 +288,20 @@ exceed 2x10^9 bytes if the limit is read decimally (`s1608-master-first-link` 2.
 `m200-BIDIR-coldboot` 2.005 GB; the earlier note in this file said "five" and missed the latter).
 
 **The distilled set clears the limit with four orders of magnitude to spare: the largest file is
-now `ctl2.pcap` at 442.0 MB.** But **all four of the oversized objects are already committed**, so
-`.git/lfs` still carries them and this history is very likely still unpushable. Distilling the
-working tree does not rewrite history. Making this repo pushable is a separate job — an LFS
-history rewrite — and it is not done here.
+still `ctl2.pcap`, now 46.8 MB, and the next largest is 7.5 MB.** The
+oversized objects were nonetheless still *committed*, so `.git/lfs` carried them and the history
+was unpushable however small the working tree became. Distilling the working tree does not rewrite
+history; that rewrite is recorded in the next section.
 
-`ctl2.pcap` is 442 MB of the 666 MB total, and that is not slack: **every one of its 6,626,869
-records is a control frame** (no filler at all), 6,054,293 of them `grant`. Under "keep every
-control frame" it cannot get smaller. If grants may ever be sampled, that one decision takes the
-corpus to roughly 220 MB; it was not taken here, because the brief said every control frame.
+**Grants are now sampled, and that is what closed the gap.** `ctl2.pcap` was 442 MB of the
+666.5 MB total, and it was not slack: every one of its 6,626,869 records is a control frame (no
+filler at all), 6,054,293 of them `grant`. Under a flat "keep every control frame" it could not
+get smaller. Sampling grants takes it to 46.8 MB and the corpus to **271.3 MB**.
+
+An earlier draft of this file estimated that decision would land the corpus near 220 MB. It does
+not: **the floor is 271.3 MB**, because the 572,576 control frames in `ctl2` that are *not* grants
+are kept in full, and they are 37.8 MB on their own on top of the 224.5 MB the other 84 captures
+already occupy. The 220 MB figure assumed a saving on frames the rule does not touch.
 
 ### Where the raw corpus is
 
