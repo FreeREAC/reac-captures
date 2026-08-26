@@ -46,7 +46,10 @@ Capture **either** of these and it is settled:
   it is unambiguous evidence), or
 - an **M-5000 at 48 kHz** (`ca:15:4c`)
 
-Read byte 19 of any `cfea` frame from the desk. If it stayed at the family's usual
+Read byte 19 of any `cfea` frame from the desk.
+
+**CORRECTION 2026-08-26 (operator):** M-300 at 96k is IMPOSSIBLE — the V-Mixer family is hardware-limited to 48 kHz. The only off-family capture is M-5000 (OHRCA) at 48 kHz, and its answer is forced: an M-5000 at 48k drives its box at 48k, which requires cfea[19]=0x00 (the box follows the byte); if the byte were the family, M-5000 would always send 0x01 and could never run a box at 48k. So the byte is the rate class by logic + rig; an M-5000@48k capture only confirms.
+ If it stayed at the family's usual
 value while the rate changed, the byte is the family. If it moved with the rate, it is
 the rate class.
 
