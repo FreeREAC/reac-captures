@@ -18,6 +18,18 @@ existing corpus **cannot** answer, and one capture each would close them.
 name ran exactly one rate, so "the console byte is the family" and "the console byte
 is the rate class" predict the whole corpus identically.
 
+## UPDATE 2026-08-26 — rig + tool answered it FOR OUR BOX (real-desk capture still open)
+
+Ran `analysis/rate_field_hunt.py` over reac-pw driving the S-0808 at 48k vs 96k (full-frame
+captures): cfea[19] (+checksum) is the ONLY master byte that differs, and the box's own
+frames are byte-IDENTICAL across rates. On the rig cfea[19]=0 -> box 48k, =1 -> box 96k,
+cadence-independent, and a live flip re-paces the box. So for OUR box the byte is the rate
+class, and reac-pw now derives cfea[19]=f(rate) (commit 0c0f4c9). The DECIDING capture is
+still needed — this is reac-pw driving, not a real M-5000 at 48k / M-300 at 96k, so whether
+a real desk emits the byte as rate-class or family is unconfirmed. 44.1 also still missing;
+our box maps cfea[19]=0 to 48k (binary field), so a rig-driven 44.1 lands the box at 48k —
+a real desk at 44.1 is the only way to pin the third pace.
+
 ## 1. THE DECIDING CAPTURE — a desk at an off-family rate
 
 `cfea` block byte **19** is `0x00` for M-200i/M-300 and `0x01` for M-5000. On the rig
