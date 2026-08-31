@@ -1,0 +1,88 @@
+=== role-change capture: rival-arrives on enp128s20f0u2, 60s, 20260831-215902
+--- link:  	Speed: 100Mb/s 	Link detected: yes 
+--- daemon before:
+d’ag. 31 21:58:39.999245 msi reac-pw[924674]: reac-master: [40917.948954] still PROBING: rx_box_frames=120143187 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:58:49.999246 msi reac-pw[924674]: reac-master: [40927.948954] still PROBING: rx_box_frames=120213285 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:58:59.999544 msi reac-pw[924674]: reac-master: [40937.948955] still PROBING: rx_box_frames=120283385 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+
+>>> CAPTURE STARTS NOW. After ~10 s, do this:
+>>>   Flip the OTHER box's REAC Mode switch to M and power-cycle it.
+>>> WATCH THE BOX: relays audible? REAC LED blinking? Write it below — the journal
+>>> cannot tell a cold connect from a re-adoption, and only your eyes can.
+
+dropped privs to tcpdump
+tcpdump: listening on enp128s20f0u2, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+959457 packets captured
+959504 packets received by filter
+0 packets dropped by kernel
+--- tcpdump exit 124   size: 1.3G
+--- daemon after:
+d’ag. 31 21:59:09.999281 msi reac-pw[924674]: reac-master: [40947.948954] still PROBING: rx_box_frames=120353482 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:59:19.999360 msi reac-pw[924674]: reac-master: [40957.948954] still PROBING: rx_box_frames=120423578 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:59:29.999323 msi reac-pw[924674]: reac-master: [40967.948955] still PROBING: rx_box_frames=120493669 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:59:39.999550 msi reac-pw[924674]: reac-master: [40977.948956] still PROBING: rx_box_frames=120563761 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:59:42.631732 msi reac-pw[924674]: reac-master: [40980.519381] box JOIN seen (cdea 04 03, unicast from 00:40:ab:c4:80:3b) -> ESTABLISHED
+d’ag. 31 21:59:42.631732 msi reac-pw[924674]: reac-master: [40980.619381] box JOIN seen (cdea 04 03, unicast from 00:40:ab:c4:80:3b) -> ESTABLISHED
+d’ag. 31 21:59:49.999368 msi reac-pw[924674]: reac-master: [40987.948954] still PROBING: rx_box_frames=120633861 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:59:59.999314 msi reac-pw[924674]: reac-master: [40997.948954] still PROBING: rx_box_frames=120703959 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+--- FRAMES CAPTURED: 81553836
+
+WRITE HERE what the box physically did (relays / LED / audio), then add an entry to
+MANIFEST.md naming this capture from its measured facts:
+  box did: 
+
+## Measured from this capture, 2026-08-31
+
+**The condition:** the S-4000S (00:40:ab:c4:08:bc) had its REAC Mode switch on **M**. The
+operator set it there by hand — this is the founding incident reproduced DELIBERATELY, the first
+time a box mastering the wire has been recorded on purpose.
+
+**What the console published while this ran** (`/reac/segment/default`):
+
+    masterState  foreign
+    rivalKind    unknown        <-- NOT `box`
+    refusal      rival-master-unknown
+
+**What the daemon logged:**
+
+    reac-disco: master 00:40:ab:c4:08:bc model=unknown
+    reac-master: still PROBING: box present, not joining — bounce the box PHY
+
+**Frame census over 200 000 frames** (source -> dest : length):
+
+    100005  00:14:5c:9b:28:2d -> Broadcast : 1492   <- US (the NIC MAC), 40ch master downstream
+     94113  00:40:ab:c4:08:bc -> Broadcast : 1206   <- the box
+      5882  00:40:ab:c4:08:bc -> Broadcast : 1204   <- the box, 32ch S-4000S width
+
+Both 1204 and 1206 are AUDIO frames (a leading counter, then repeating sample words) — the split
+is a small trailer variance, not two geometries. **The box does NOT masquerade as a desk**: it
+keeps its own 32-channel width while mastering. An early reading of this capture claimed
+otherwise and was wrong; the 1492s are ours.
+
+## THE FINDING, and it is a defect in §2b's premise
+
+§2b rules that a rival master is classified BY ITS GEOMETRY, so that a desk can be joined and a
+stagebox-on-M can be refused with the remedy that names the switch. **On this capture that
+classification does not fire**: the box keeps its 32-channel geometry, which should read `box`,
+and `rivalKind` still reads `unknown`. The operator therefore gets the generic
+`rival-master-unknown` refusal instead of "set the REAC Mode switch to S and power-cycle".
+
+Not yet root-caused. Two candidates, and the capture can settle it:
+  1. the classifier reads geometry only from CONTROL frames (`cdea`/`cfea` families) and this box
+     emits none while mastering, so it never gets a width to judge;
+  2. it does emit them and the width parse rejects them for another reason.
+
+`reac-disco` logging `model=unknown` alongside `master` points at (1).
+
+**This is exactly the knowledge §8a was blocked on.** Before a role can be a settable field, the
+console has to be able to say WHAT it is refusing, and today it cannot tell a box on M from an
+unidentifiable master.
+
+## Where the raw capture lives
+
+The full 1.3 GB pcap is ~99.99 % AUDIO frames and is NOT in this repo — it sits at
+`~/.local/share/reac-captures-raw/role-rival-arrives-20260831-215902.pcap` on the rig. What is
+committed here is the control extract (`-ctrl.pcap`, 57 KB, 3 570 frames) and these notes, which
+together carry the finding. Re-extract from the raw with:
+
+    tcpdump -r <raw>.pcap -w out.pcap 'ether[14:2] = 0xcdea or ether[14:2] = 0xcfea or ether[14:2] = 0x0403'
