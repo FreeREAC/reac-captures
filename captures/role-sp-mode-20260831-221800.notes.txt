@@ -141,3 +141,38 @@ is a different case and would need its own measurement.
 
 (A first, 0.5 s measurement of the M box read +1000 ppm; the 2.5 s measure above gives +363 ppm.
 Short windows over a jittery capture exaggerate. Measure cadence over seconds, not frames.)
+
+
+## ANSWERED — what "REAC master" means on an S-4000S (firmware RE, 2026-08-31)
+
+`reac-firmware-re/CLOCK-SYNC.md`, from the decompiled S-4000S image:
+
+> **S-4000S** — `CMasterReacMsgParser` vs `CSlave1ReacMsgParser` + `Clock Driver` + `Tuning Task`
+> — **slave on uplink, master on split outs**
+>
+> "it runs a master *and* a slave REAC parser plus a dedicated Clock Driver/Tuning Task —
+> clock-slave on the uplink, re-driving the recovered word-clock as master on its split outputs."
+
+**M is the SPLITTER role, not "act as a console".** The box is clock-slave on its uplink and
+master on its SPLIT OUTPUTS: it recovers word clock from an incoming console and re-drives it
+onward to a second console. Our segment was its split OUTPUT leg, where it expects to feed a
+downstream device rather than negotiate with an upstream one.
+
+Every measurement above follows from that:
+
+| measured | explained |
+|---|---|
+| broadcasts its UPSTREAM geometry, never master-downstream | re-driving a stream, not originating a console's |
+| zero control frames in 20 000 | a split output runs no handshake, it just emits |
+| never grants, never accepts a grant | not negotiating on this leg at all |
+| free-runs +363 ppm | its uplink was unplugged — no clock to recover and re-drive |
+| REAC LED lit and steady | its port genuinely is fine |
+
+It also unifies M and SP, which looked like separate mysteries: **both are SPLIT behaviours.**
+SP distributes across two ports; M makes the box clock master of the split's downstream leg.
+Neither is a console, which is why nothing pairs with it from either end.
+
+**Consequence for arbitration §2b:** a box on M is not a rival console and not a pace master —
+it is a splitter with no uplink. Refusing it remains correct, and the remedy is still "set the
+REAC Mode switch to S and power-cycle". The classification gap stands: the console still cannot
+distinguish this from an unidentifiable master, because the box emits nothing to identify it by.
