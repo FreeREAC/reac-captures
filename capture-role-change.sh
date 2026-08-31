@@ -12,7 +12,7 @@
 # sidecar with the daemon's state before and after, so the pcap is interpretable a year on.
 set -u
 
-ARM="${1:?arm: rival-arrives | we-cede | identity-change}"
+ARM="${1:?arm: rival-arrives | we-cede | identity-change | sp-mode}"
 NIC="${2:?nic, e.g. enp131s0 — NOT the USB AX88179, it lies about enrolment}"
 SECS="${3:-90}"
 STAMP=$(date +%Y%m%d-%H%M%S)
@@ -31,6 +31,7 @@ case "$ARM" in
   rival-arrives)   ACT="Flip the OTHER box's REAC Mode switch to M and power-cycle it." ;;
   we-cede)         ACT="Run: systemctl --user stop reac-pw   (then start it again at the halfway mark)" ;;
   identity-change) ACT="Restart reac-pw with a different REAC_NAME on this NIC." ;;
+  sp-mode)         ACT="POWER-CYCLE the box (its REAC Mode switch is already on SP). The switch is latched at BOOT — measured 2026-08-31: moving it live changed nothing." ;;
   *) echo "unknown arm: $ARM"; exit 2 ;;
 esac
 
