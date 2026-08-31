@@ -62,3 +62,26 @@ writes says "set it to S and power-cycle" — the power-cycle is required, not c
 This capture is ~84 M frames of OUR OWN master downstream and almost nothing else, since the box
 was silent throughout. Its value is the NEGATIVE result plus the daemon's state transition; the
 raw pcap carries no box frames worth keeping.
+
+
+## Recovery, and what it cost
+
+Getting the box back took several attempts, and each failed attempt is a measurement:
+
+1. M -> S, no power cycle: no change (the box kept mastering).
+2. S -> SP, power cycled: box went silent on this port.
+3. SP -> S, power cycled: STILL silent — the switch was not fully seated, and a partial seat
+   behaves exactly like SP.
+4. S fully seated, power cycled: enrolled, `reac-disco: model=s4000s (ours)`, and a physical
+   loopback measured 110 dB of separation.
+
+**Throughout 2 and 3 the REAC LED was lit and STEADY — identical to synched.** The lamp reports
+the box's own view of its link, not whether it is transmitting to us. Three indicators disagreed
+with the wire on this rig today: the enrolment log on the USB NIC, a deaf pw-record probe, and
+this LED. The wire was right every time.
+
+**And the daemon never saw the link cycle.** The kernel logged `Link status is: 0` then `1` for
+every power cycle; reac-pw logged nothing and stayed in PROBING (issue #95, no link-state watch).
+A box only cold-connects on link-up, so a master that cannot see a link-up cannot re-arm for it —
+which is why a daemon RESTART was needed after a box reboot that should have been sufficient on
+its own. That is the sharpest case yet for fixing #95.
