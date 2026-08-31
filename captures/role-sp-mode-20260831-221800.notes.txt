@@ -1,0 +1,64 @@
+=== role-change capture: sp-mode on enp128s20f0u2, 100s, 20260831-221800
+--- link:  	Speed: 100Mb/s 	Link detected: yes 
+--- daemon before:
+d’ag. 31 22:17:39.999244 msi reac-pw[924674]: reac-master: [42057.954056] still PROBING: rx_box_frames=128134525 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:17:49.999239 msi reac-pw[924674]: reac-master: [42067.954056] still PROBING: rx_box_frames=128204625 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:17:59.999384 msi reac-pw[924674]: reac-master: [42077.954056] still PROBING: rx_box_frames=128274724 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+
+>>> CAPTURE STARTS NOW. After ~10 s, do this:
+>>>   POWER-CYCLE the box (its REAC Mode switch is already on SP). The switch is latched at BOOT — measured 2026-08-31: moving it live changed nothing.
+>>> WATCH THE BOX: relays audible? REAC LED blinking? Write it below — the journal
+>>> cannot tell a cold connect from a re-adoption, and only your eyes can.
+
+dropped privs to tcpdump
+tcpdump: listening on enp128s20f0u2, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+931730 packets captured
+931800 packets received by filter
+0 packets dropped by kernel
+--- tcpdump exit 124   size: 1.3G
+--- daemon after:
+d’ag. 31 22:18:29.999322 msi reac-pw[924674]: reac-master: [42107.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:18:39.999298 msi reac-pw[924674]: reac-master: [42117.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:18:49.999310 msi reac-pw[924674]: reac-master: [42127.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:18:59.999359 msi reac-pw[924674]: reac-master: [42137.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:19:09.999246 msi reac-pw[924674]: reac-master: [42147.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:19:19.999508 msi reac-pw[924674]: reac-master: [42157.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:19:29.999276 msi reac-pw[924674]: reac-master: [42167.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:19:39.999289 msi reac-pw[924674]: reac-master: [42177.954056] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+--- FRAMES CAPTURED: 84152072
+
+WRITE HERE what the box physically did (relays / LED / audio), then add an entry to
+MANIFEST.md naming this capture from its measured facts:
+  box did: 
+
+## Measured 2026-08-31 — what SP does on this box
+
+Operator moved the S-4000S's REAC Mode switch M -> S -> SP, power-cycling only for the last.
+
+**On SP the box TRANSMITS NOTHING on this port.** Link stays up at 100 Mb/s full duplex, and an
+8 s tcpdump sees only OUR frames:
+
+    3000  00:14:5c:9b:28:2d : 1492    <- us, 40ch master downstream
+       0  00:40:ab:c4:08:bc           <- the box: silent
+
+The daemon's own message changes accordingly — from `box present, not joining` (M mode: frames
+arriving, no JOIN) to **`no sustained presence`** with `rx_box_frames` FROZEN at 128 446 627.
+
+SP is SPLIT: the box divides its I/O across TWO REAC ports so two consoles (FOH and monitors)
+can share one stagebox. With one cable, in the port SP assigns to the other half, the box is
+simply not there from this segment's view. Coherent behaviour, not a fault — but **a box on SP
+needs both ports patched**, and a single-cable rig cannot use SP at all.
+
+## And it confirms the boot-latch, in both directions
+
+- M -> S with NO power cycle: nothing changed. The box kept mastering, `rx_joins` frozen at 482.
+- S -> SP WITH a power cycle: behaviour changed completely.
+
+**The REAC Mode switch is read at BOOT and never re-read.** That is why every remedy this project
+writes says "set it to S and power-cycle" — the power-cycle is required, not caution.
+
+## Corpus note
+
+This capture is ~84 M frames of OUR OWN master downstream and almost nothing else, since the box
+was silent throughout. Its value is the NEGATIVE result plus the daemon's state transition; the
+raw pcap carries no box frames worth keeping.
