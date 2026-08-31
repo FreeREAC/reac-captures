@@ -113,3 +113,31 @@ the wire shows; the box's intent is not established.
 
 Practically: **a box on M is unusable from this console in any configuration.** Set the switch to
 S, fully seated, and power-cycle.
+
+
+## M is not a PACE master — measured 2026-08-31
+
+**Pace is always set on the mixer** (operator). A box takes its pace from the mixer it is enrolled
+with, either carried in the handshake or deduced from the mixer's cadence. So a box with no mixer
+has nothing to follow, and that is exactly what the wire shows:
+
+| box | frame cadence | offset from nominal 8000 |
+|---|---|---|
+| S-1608, ENROLLED to us | 7999.9 f/s | **-16 ppm** |
+| S-4000S on M, no mixer | 8002.9 f/s | **+363 ppm** |
+
+An enrolled box holds within 16 ppm because it is taking our pace. The box on M is twenty times
+further out — a free-running crystal with nothing to lock to.
+
+**So M does not make a box a pace master, and there is nothing to "sync to".** Everything observed
+is consistent with M implying only small things rather than "act as a console": it keeps sending
+its UPSTREAM geometry, never issues a grant, never accepts one, emits zero control frames in
+20 000, and does not discipline its clock. None of that is console behaviour.
+
+An earlier note here reasoned toward building a clock-source tier that follows an unenrolled
+peer's cadence. On this evidence that would be following an unlocked oscillator — worse than
+free-running, not better. **The idea is withdrawn.** If a real DESK ever masters a segment, that
+is a different case and would need its own measurement.
+
+(A first, 0.5 s measurement of the M box read +1000 ppm; the 2.5 s measure above gives +363 ppm.
+Short windows over a jittery capture exaggerate. Measure cadence over seconds, not frames.)
