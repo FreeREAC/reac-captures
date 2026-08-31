@@ -85,3 +85,31 @@ every power cycle; reac-pw logged nothing and stayed in PROBING (issue #95, no l
 A box only cold-connects on link-up, so a master that cannot see a link-up cannot re-arm for it —
 which is why a daemon RESTART was needed after a box reboot that should have been sufficient on
 its own. That is the sharpest case yet for fixing #95.
+
+
+## Neither end pairs with a box on M — tried BOTH, 2026-08-31
+
+With the S-4000S on M, both roles were configured against it and neither established:
+
+| we ran as | we transmitted | the box did |
+|---|---|---|
+| MASTER (our default) | 1492 master downstream, broadcast | broadcast only, `rx_joins=0` — never cold-connected |
+| SLAVE 16-ch | 628 upstream, UNICAST to its MAC | broadcast only, never granted |
+| SLAVE 32-ch | 1204 upstream, UNICAST to its MAC | broadcast only, never granted |
+
+Our side behaved correctly in every arm — the slave FSM reached `COLDCONNECT` and emitted the
+right width to the right address, and `reac_slave.h` is explicit that slave role is still the
+MIXER ("the mixer's own input channels ... only WHO drives the handshake + the clock differs").
+
+**The box's own frames are the interesting part: it broadcasts 1206/1204 — its UPSTREAM
+geometry, what a box sends TO a mixer.** It never emits master-downstream frames. So on M it is
+not running a console's send pattern; it sends box-shaped traffic, unsolicited and unaddressed.
+That is consistent with it neither accepting a grant nor issuing one.
+
+**Open question for someone who knows the hardware:** what M actually means on an S-4000S. It may
+not be "act as a console" — it could be a clock-source selection, or a split/standalone mode,
+which would explain a box that talks like a box but pairs with nothing. Everything above is what
+the wire shows; the box's intent is not established.
+
+Practically: **a box on M is unusable from this console in any configuration.** Set the switch to
+S, fully seated, and power-cycle.
