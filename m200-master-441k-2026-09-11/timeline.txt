@@ -1,0 +1,27 @@
+11:36:02 44.1 k session capture started (mirror, VLAN 12, snaplen 512). Console clock back to 192 k (done 11:35). Operator: M-200 to master at 44.1 k, S-1608 rebooted into S. Our slave on enp131s0.12 should auto-detect 44.1 k.
+11:37:13 S-1608 off the mirror (reboot into S). 11:37:28 M-200 master at 48 k; our slave on enp131s0.12 re-detected 48 k (4511 pps) and joined it.
+11:39:15 MEASURED from frame timestamps: M-200 3675.0 pps = 44100 Hz exactly. Our slave on enp131s0.12 follows it. S-1608 flapping on the mirror (present / partial / absent) — joining?
+11:39:45 S-1608 silent on the mirror (3 samples, no frames) while the M-200 masters at 44.1 k; our slave established to the desk. Row /reac/segment/enp131s0.12 still says pace 96000 / free-run while the wire is 44.1 k — the row's pace is the configured value, not the detected one (console gap to file).
+11:41:43 operator: S-1608 rebooted (into S, desk mastering at 44.1 k)
+11:43:21 desk shows NO SYNC with the S-1608 at 44.1 k (box rebooted into S, silent everywhere). Operator: trying a DIRECT desk-box cable for ~1 min (off the switch, off the mirror) to see whether the box syncs at 44.1 k at all.
+11:45:02 DIRECT cable desk<->box: synced immediately at 44.1 k (operator). So the S-1608 runs 44.1 k; through the switch it never joined after its reboot. Suspect: the box cold-connects ONLY at link-up (2026-08-31 finding) and its switch port was not forwarding yet (STP listening/learning ~30 s) when it sent its JOIN — the JOIN was dropped and the box never retried. Fix on the switch: edge/portfast on the stagebox ports; workaround: bounce the box cable ~40 s after plugging.
+11:45:32 operator suspects OUR slave on VLAN 12 clocks the box. Test: enp131s0.12 DOWN (our daemon off VLAN 12), box back through the switch.
+11:46:31 operator: rebooting both desk and box, back through the switch, our daemon off VLAN 12
+11:47:26 operator: SYNCHED through the switch with our daemon off VLAN 12 (both rebooted)
+11:48:05 mirror NIC DOWN (cable out of port 7) — mirror capture blind since ~11:45; trunk shows M-200 broadcasting on VLAN 12 (master), box unicast not visible on the trunk by design. Desk: synched (operator).
+11:48:40 mirror cable back (operator: all is in)
+11:48:54 TEST: enp131s0.12 UP — our slave rejoins VLAN 12 while desk+box are synced at 44.1 k; box rate sampled every 5 s
+  11:48:54 S-1608 3675 pps (44098 Hz)
+  11:48:55 S-1608 3675 pps (44094 Hz)
+  11:48:57 S-1608 3675 pps (44102 Hz)
+  11:48:59 S-1608 3675 pps (44095 Hz)
+  11:49:01 S-1608 3675 pps (44103 Hz)
+  11:49:02 S-1608 3675 pps (44095 Hz)
+  11:49:04 S-1608 3675 pps (44095 Hz)
+  11:49:06 S-1608 3675 pps (44105 Hz)
+  11:49:08 S-1608 3675 pps (44097 Hz)
+11:49:32 RESULT: box held 3675 pps (44.1 k) through all 9 samples while our slave announced, cold-connected and joined. Our presence does not break an ESTABLISHED sync at 44.1 k. Caveat: the failed case at 11:38 was the box BOOTING with our slave present (and the desk re-clocking at the same time); the success at 11:47 was a boot with us absent. The decisive trial is a box reboot with our slave present.
+11:49:48 daemon on enp131s0.12: 'recovered REAC rate = 44100 Hz (3675 pps)'; row pace 44100 / foreign-master (the earlier 96000 was timing, not a gap). DECISIVE TRIAL: box reboot through the switch WITH our slave present.
+  11:51:48 box went silent (reboot started) after 120 s
+  11:51:49 S-1608 BACK with our slave present: 3675 pps -> 44103 Hz
+  12:02:13 NO GAP: the box never stopped sending in 10 min — no reboot seen
