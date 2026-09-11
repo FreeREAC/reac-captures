@@ -1,0 +1,1 @@
+raw (not in git): /home2/pau/reac-captures-run2/m200-master-441k-continuous.pcap (7.8 GB, 11:35-12:06, VLAN 12, snaplen 512) and m200-441k-headamp-ch16.pcap (580 MB, 12:06-12:09). The trace here is headamp_trace over the tag-stripped head-amp file.
