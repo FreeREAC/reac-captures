@@ -1,0 +1,7 @@
+11:29:20 capture started (mirror, VLAN 12, snaplen 512) — operator: console clock to 48 k, then capture. Box state at start: S-1608 in M mode pacing 96 k, M-200 slave, our slave joined the box.
+11:31:14 console clock -> 48 k via /clock/force (graph 48000/256, drop-in rewritten); VLAN 11 (S-4000) re-mastered at 48 k via role recorder -> rate 48000 -> role mixer
+11:32:46 operator: box synched
+11:33:50 VLAN 11: console role=mixer left the env pin at slave (role_hunting on a silent box) — pin hand-set to master in reac-pw.env; console defect to file
+11:34:11 FINDING (operator, on the M-200 as REAC slave of the S-1608 on M): the desk CANNOT set pad, 48V or sens on the box's inputs — the controls are unavailable; only fader gain (digital) works. Roland's own desk agrees with the 2026-09-10 measurement: a box on M has no head-amp master. A box whose preamps a desk must set runs in S mode.
+11:34:30 operator: 'master box does not offer preamp' — confirmed from the desk
+11:36:02 session closed at 3.5 GB raw on /home2 (box on M 96 k, M-200 slave, our slave, head-amp controls unavailable on the desk); next: 44.1 k in m200-master-441k-2026-09-11
