@@ -1,0 +1,29 @@
+=== role-change capture: rival-arrives on enp131s0, 90s, 20260831-215553
+--- link:  	Speed: 100Mb/s 	Link detected: yes 
+--- daemon before:
+
+>>> CAPTURE STARTS NOW. After ~10 s, do this:
+>>>   Flip the OTHER box's REAC Mode switch to M and power-cycle it.
+>>> WATCH THE BOX: relays audible? REAC LED blinking? Write it below — the journal
+>>> cannot tell a cold connect from a re-adoption, and only your eyes can.
+
+dropped privs to tcpdump
+tcpdump: listening on enp131s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+1438170 packets captured
+1438438 packets received by filter
+0 packets dropped by kernel
+--- tcpdump exit 124   size: 1.5G
+--- daemon after:
+d’ag. 31 21:56:13.399261 msi reac-pw[924674]: reac-master: [40771.311456] box JOIN seen (cdea 04 03, unicast from 00:40:ab:c4:08:bc) -> ESTABLISHED
+d’ag. 31 21:56:13.599436 msi reac-pw[924674]: reac-master: [40771.411205] box JOIN seen (cdea 04 03, unicast from 00:40:ab:c4:08:bc) -> ESTABLISHED
+d’ag. 31 21:56:29.999515 msi reac-pw[924674]: reac-master: [40787.949080] ESTABLISHED -> PROBING (drop: peer-gone)
+d’ag. 31 21:56:39.999471 msi reac-pw[924674]: reac-master: [40797.948954] still PROBING: rx_box_frames=119301623 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:56:49.999542 msi reac-pw[924674]: reac-master: [40807.948954] still PROBING: rx_box_frames=119372108 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:56:59.999309 msi reac-pw[924674]: reac-master: [40817.948954] still PROBING: rx_box_frames=119442208 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:57:09.999448 msi reac-pw[924674]: reac-master: [40827.948954] still PROBING: rx_box_frames=119512306 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 21:57:19.999529 msi reac-pw[924674]: reac-master: [40837.948955] still PROBING: rx_box_frames=119582404 rx_joins=482 (box present, not joining — bounce the box PHY: it only cold-connects on link-up)
+--- FRAMES CAPTURED: 96357390
+
+WRITE HERE what the box physically did (relays / LED / audio), then add an entry to
+MANIFEST.md naming this capture from its measured facts:
+  box did: 

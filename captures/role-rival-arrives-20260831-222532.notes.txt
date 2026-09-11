@@ -1,0 +1,32 @@
+=== role-change capture: rival-arrives on enp128s20f0u2, 80s, 20260831-222532
+--- link:  	Speed: 100Mb/s 	Link detected: yes 
+--- daemon before:
+d’ag. 31 22:25:09.999243 msi reac-pw[924674]: reac-master: [42507.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:25:19.999332 msi reac-pw[924674]: reac-master: [42517.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:25:29.999283 msi reac-pw[924674]: reac-master: [42527.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+
+>>> CAPTURE STARTS NOW. After ~10 s, do this:
+>>>   Flip the OTHER box's REAC Mode switch to M and power-cycle it.
+>>> WATCH THE BOX: relays audible? REAC LED blinking? Write it below — the journal
+>>> cannot tell a cold connect from a re-adoption, and only your eyes can.
+
+dropped privs to tcpdump
+tcpdump: listening on enp128s20f0u2, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+544177 packets captured
+544295 packets received by filter
+0 packets dropped by kernel
+--- tcpdump exit 124   size: 783M
+--- daemon after:
+d’ag. 31 22:25:39.999250 msi reac-pw[924674]: reac-master: [42537.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:25:49.999321 msi reac-pw[924674]: reac-master: [42547.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:25:59.999572 msi reac-pw[924674]: reac-master: [42557.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:26:09.999304 msi reac-pw[924674]: reac-master: [42567.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:26:19.999312 msi reac-pw[924674]: reac-master: [42577.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:26:29.999348 msi reac-pw[924674]: reac-master: [42587.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:26:39.999504 msi reac-pw[924674]: reac-master: [42597.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+d’ag. 31 22:26:49.999687 msi reac-pw[924674]: reac-master: [42607.955187] still PROBING: rx_box_frames=128446627 rx_joins=482 (no sustained presence — bounce the box PHY: it only cold-connects on link-up)
+--- FRAMES CAPTURED: 51152638
+
+WRITE HERE what the box physically did (relays / LED / audio), then add an entry to
+MANIFEST.md naming this capture from its measured facts:
+  box did: 
