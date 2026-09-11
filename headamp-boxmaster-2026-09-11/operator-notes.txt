@@ -1,0 +1,7 @@
+Operator corrections during the run (M-200 master on VLAN 12, S-1608, mirror on port 7, 2026-09-11 11:0x):
+- seg01 "input 15 gain +10dB": the gain was moved on INPUT 16, not 15. Channel for the gain steps is 16.
+- seg02 "input 15 gain back": the operator touched SENS first, then set input 16 gain to -24 dB (not the original value).
+- seg03 "input 16 48V ON": 48V was already on; the operator switched it OFF then ON before the capture. Box lamp on input 16: LIT, as expected (operator).
+- S-1608 (00:40:ab:c4:80:3b): firmware 2.200, REAC version 3.302 (operator, read off the box/desk 11:0x). M-200 master, 48 kHz wire.
+- seg05 "input 15 pad ON": pad ON on INPUT 16; the operator touched gain again before switching the pad on (gain value not reported).
+- seg06 "input 15 pad OFF": pad OFF on INPUT 16.

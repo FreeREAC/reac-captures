@@ -1,0 +1,92 @@
+{
+ "capture": "headamp-20260911-090027",
+ "created": "20260911-090027Z",
+ "iface": "enp128s20f0u2",
+ "master": "M-200",
+ "box": "S-1608",
+ "seconds": 5.0,
+ "segments": [
+  {
+   "index": 0,
+   "label": "enrolled idle (desk joined, no control moved)",
+   "control": "none",
+   "channel": null,
+   "value": null,
+   "unit": null,
+   "pcap": "seg00-none.pcap",
+   "seconds": 5.0,
+   "frames": 51359
+  },
+  {
+   "index": 1,
+   "label": "input 16 gain +10dB",
+   "control": "gain",
+   "channel": 16,
+   "value": 10,
+   "unit": "dB",
+   "pcap": "seg01-gain.pcap",
+   "seconds": 5.0,
+   "frames": 139651
+  },
+  {
+   "index": 2,
+   "label": "input 16 gain to -24dB (after a sens move)",
+   "control": "gain",
+   "channel": 16,
+   "value": -24,
+   "unit": "dB",
+   "pcap": "seg02-gain.pcap",
+   "seconds": 5.0,
+   "frames": 139758
+  },
+  {
+   "index": 3,
+   "label": "input 16 48V ON (was on; off then on)",
+   "control": "48v",
+   "channel": 16,
+   "value": "on",
+   "unit": null,
+   "pcap": "seg03-48v.pcap",
+   "seconds": 5.0,
+   "frames": 139747
+  },
+  {
+   "index": 4,
+   "label": "input 16 48V OFF",
+   "control": "48v",
+   "channel": 16,
+   "value": "off",
+   "unit": null,
+   "pcap": "seg04-48v.pcap",
+   "seconds": 5.0,
+   "frames": 139717
+  },
+  {
+   "index": 5,
+   "label": "input 16 pad ON (gain touched again first)",
+   "control": "pad",
+   "channel": 16,
+   "value": "on",
+   "unit": null,
+   "pcap": "seg05-pad.pcap",
+   "seconds": 5.0,
+   "frames": 139823
+  },
+  {
+   "index": 6,
+   "label": "input 16 pad OFF",
+   "control": "pad",
+   "channel": 16,
+   "value": "off",
+   "unit": null,
+   "pcap": "seg06-pad.pcap",
+   "seconds": 5.0,
+   "frames": 139687
+  }
+ ],
+ "operator_notes": "../operator-notes.txt; every control was moved on INPUT 16",
+ "box_firmware": "2.200",
+ "box_reac_version": "3.302",
+ "wire_rate_hz": 48000,
+ "mirror": "switch port 7 mirrors port 4 (M-200) both directions, tags kept; VLAN 11 traffic also present"
+}
