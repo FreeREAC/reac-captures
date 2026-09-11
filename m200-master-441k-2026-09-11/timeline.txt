@@ -25,3 +25,14 @@
   11:51:48 box went silent (reboot started) after 120 s
   11:51:49 S-1608 BACK with our slave present: 3675 pps -> 44103 Hz
   12:02:13 NO GAP: the box never stopped sending in 10 min — no reboot seen
+12:03:33 operator: rebooting the box only, our slave PRESENT on VLAN 12 (decisive trial)
+12:05:12 DECISIVE: box rebooted with our slave present -> NOT SYNCED (desk), silent on the mirror since 12:03:45. With us absent (11:47) it synced at once; added after the box (11:48) nothing broke. ORDER-DEPENDENT: a box booting while reac-pw already holds a slave place on the desk's segment does not enrol. P0 for the rig-recording runbook (joining as a slave can lock a venue's box out after a power-cycle). Mitigation now: enp131s0.12 DOWN, bounce the box, then bring ours back.
+  12:05:14 S-1608 BACK after 88 s of silence (our slave had LEFT at 12:04:5x, desk rebooted 12:05:04): 3675 pps -> 44098 Hz
+12:05:33 right after enp131s0.12 DOWN the mirror showed S1608 -> M200 unicast (box talking to the desk again); operator then rebooted the M-200 (12:05:04 both off, 12:05:14 both back)
+12:06:11 operator: ENROLLED (box + desk at 44.1 k, our slave absent). Capture closed at 7.8 GB on /home2. enp131s0.12 left DOWN; order rule: box enrolled first, then us.
+12:06:27 operator: 'I can control ch16 preamp' (desk master at 44.1 k). Capture restarted into m200-441k-headamp-ch16.pcap for the head-amp moves on input 16.
+12:07:23 input 16 gain +10 dB (done)
+12:07:36 operator: all remaining preamp moves on input 16 done between 12:07:23 and now, in the plan's order (gain back, 48V on, 48V off, pad on, pad off) — attribute by order in the trace, not by stamp
+12:07:49 control: box cable bounce with our slave ABSENT (enp131s0.12 down)
+  12:08:40 S-1608 BACK after 36 s, our slave ABSENT: 3675 pps -> 44097 Hz
+12:09:15 SYNCHED after the cable bounce with our slave absent (back 10 s after replug, same switch port) — port timing ruled out; our slave present during the box's BOOT is the blocker (2 fails with us, 2 enrolments without). Head-amp capture closed.
