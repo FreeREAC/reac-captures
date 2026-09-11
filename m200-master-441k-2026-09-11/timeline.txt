@@ -36,3 +36,5 @@
 12:07:49 control: box cable bounce with our slave ABSENT (enp131s0.12 down)
   12:08:40 S-1608 BACK after 36 s, our slave ABSENT: 3675 pps -> 44097 Hz
 12:09:15 SYNCHED after the cable bounce with our slave absent (back 10 s after replug, same switch port) — port timing ruled out; our slave present during the box's BOOT is the blocker (2 fails with us, 2 enrolments without). Head-amp capture closed.
+12:12:24 enp131s0.12 UP again after the box enrolled (operator: go for it)
+12:15:52 our slave re-added after the box's enrolment this time stayed in COLDCONNECT for 2+ min (no grant from the M-200; at 11:48 the same gesture was ESTABLISHED in seconds). Observation, not a conclusion. enp131s0.12 set DOWN again as the safe state for the venue (a box power-cycle must not find us on its VLAN).
