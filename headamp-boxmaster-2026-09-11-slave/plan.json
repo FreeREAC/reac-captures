@@ -1,0 +1,16 @@
+[
+ {"label": "enrolled idle (desk joined, no control moved)", "control": "none", "channel": null, "value": null, "unit": null,
+  "prompt": "Desk enrolled to the box, every head-amp flat. Touch nothing."},
+ {"label": "input 15 gain +10dB", "control": "gain", "channel": 15, "value": 10, "unit": "dB",
+  "prompt": "On the desk set input 15 gain +10 dB. Nothing else."},
+ {"label": "input 15 gain back", "control": "gain", "channel": 15, "value": 0, "unit": "dB",
+  "prompt": "Return input 15 gain to where it was."},
+ {"label": "input 16 48V ON", "control": "48v", "channel": 16, "value": "on", "unit": null,
+  "prompt": "Switch 48V ON on input 16. Watch the box's lamp and say what it did."},
+ {"label": "input 16 48V OFF", "control": "48v", "channel": 16, "value": "off", "unit": null,
+  "prompt": "Switch 48V OFF on input 16."},
+ {"label": "input 15 pad ON", "control": "pad", "channel": 15, "value": "on", "unit": null,
+  "prompt": "Pad ON on input 15."},
+ {"label": "input 15 pad OFF", "control": "pad", "channel": 15, "value": "off", "unit": null,
+  "prompt": "Pad OFF on input 15."}
+]

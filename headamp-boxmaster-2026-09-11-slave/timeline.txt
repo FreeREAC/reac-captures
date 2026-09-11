@@ -1,0 +1,9 @@
+11:14:18 capture started: S-1608 being switched off, to be turned to M; M-200 to be set REAC slave
+11:14:19 S-1608 back on the mirror (vid 12), sending at about twice the M-200's rate — box streaming as MASTER; M-200 still present
+11:14:38 operator: M-200 set to REAC slave, S-1608 to master. Wire: S-1608 broadcasts (master downstream), M-200 sends unicast to the box (slave upstream)
+11:15:22 operator: M-200 shows a wrong sample rate; measured S-1608 ~0 pps, M-200 ~0 pps (4000 pps = 48 k, 8000 = 96 k)
+11:16:30 MEASURED on the mirror: S-1608 (master) ~8000 pps = 96 kHz; M-200 (slave) ~4000 pps = 48 kHz; S-4000 on VLAN 11 (our 96 k master) ~8000 pps as control. Mismatch confirmed: the box masters at 96 k, the desk is 48 k.
+11:21:03 S-1608 off the mirror (operator flipping to S, then live to M)
+11:22:30 part1 closed at 3.0 GB (11:14–11:21:3x, full frames). GAP ~11:21:30–11:22:30 unrecorded. part2 started on /home2 at snaplen 512. Operator unplugged and replugged the box.
+11:23:04 part1 REMOVED (operator: bad capture, box at 96 k cannot sync the M-200). part2 continues at snaplen 512 on /home2 until the box paces 48 k, then a fresh file for the real run.
+11:27:22 FINDING: the S-1608 reads M/S only at boot (operator); every M-mode boot today paced 96 k (measured ~8000 pps vs the M-200's 4000), including straight after a 48 k session under the M-200. No rate switch on the box. => an S-1608 in M mode paces 96 k; the 48 k M-200 cannot slave to it; the slave-mode head-amp capture needs the M-5000. part2 closed here as the evidence.
