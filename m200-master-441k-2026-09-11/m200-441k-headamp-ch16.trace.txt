@@ -1,0 +1,161 @@
+ 25.754587 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=phantom value=0x00 seg=3 ctr=45588 cap=508 orig=1494 TRUNC
+ 26.764606 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=phantom value=0x01 seg=3 ctr=49300 cap=508 orig=1492 TRUNC
+ 29.285276 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=pad     value=0x01 seg=3 ctr=58563 cap=508 orig=1494 TRUNC
+ 30.245774 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=pad     value=0x00 seg=3 ctr=62093 cap=508 orig=1492 TRUNC
+ 33.996588 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x09 seg=3 ctr=10341 cap=508 orig=1492 TRUNC
+ 34.056796 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x08 seg=3 ctr=10562 cap=508 orig=1494 TRUNC
+ 34.106864 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x07 seg=3 ctr=10746 cap=508 orig=1494 TRUNC
+ 34.146577 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x06 seg=3 ctr=10892 cap=508 orig=1494 TRUNC
+ 34.186873 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x05 seg=3 ctr=11040 cap=508 orig=1494 TRUNC
+ 34.226801 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x04 seg=3 ctr=11187 cap=508 orig=1492 TRUNC
+ 34.266594 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x03 seg=3 ctr=11333 cap=508 orig=1494 TRUNC
+ 34.306874 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x02 seg=3 ctr=11481 cap=508 orig=1494 TRUNC
+ 34.336806 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x01 seg=3 ctr=11591 cap=508 orig=1494 TRUNC
+ 34.376806 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x00 seg=3 ctr=11738 cap=508 orig=1494 TRUNC
+ 35.106887 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x01 seg=3 ctr=14421 cap=508 orig=1494 TRUNC
+ 35.147153 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x02 seg=3 ctr=14569 cap=508 orig=1494 TRUNC
+ 35.226887 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x03 seg=3 ctr=14862 cap=508 orig=1494 TRUNC
+ 35.267156 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x04 seg=3 ctr=15010 cap=508 orig=1494 TRUNC
+ 35.287296 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x05 seg=3 ctr=15084 cap=508 orig=1494 TRUNC
+ 35.316896 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x06 seg=3 ctr=15193 cap=508 orig=1494 TRUNC
+ 35.327020 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x07 seg=3 ctr=15230 cap=508 orig=1494 TRUNC
+ 35.356898 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x08 seg=3 ctr=15340 cap=508 orig=1494 TRUNC
+ 35.377032 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x09 seg=3 ctr=15414 cap=508 orig=1494 TRUNC
+ 35.407022 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0a seg=3 ctr=15524 cap=508 orig=1494 TRUNC
+ 35.747168 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0b seg=3 ctr=16774 cap=508 orig=1494 TRUNC
+ 35.757171 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0c seg=3 ctr=16811 cap=508 orig=1492 TRUNC
+ 35.777039 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0d seg=3 ctr=16884 cap=508 orig=1492 TRUNC
+ 35.787169 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0e seg=3 ctr=16921 cap=508 orig=1494 TRUNC
+ 35.797174 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0f seg=3 ctr=16958 cap=508 orig=1492 TRUNC
+ 35.817040 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x10 seg=3 ctr=17031 cap=508 orig=1492 TRUNC
+ 35.847297 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x11 seg=3 ctr=17142 cap=508 orig=1494 TRUNC
+ 35.887301 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x12 seg=3 ctr=17289 cap=508 orig=1494 TRUNC
+ 35.927063 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x13 seg=3 ctr=17435 cap=508 orig=1494 TRUNC
+ 35.967299 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x14 seg=3 ctr=17583 cap=508 orig=1494 TRUNC
+ 36.267422 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x15 seg=3 ctr=18686 cap=508 orig=1494 TRUNC
+ 36.277549 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x16 seg=3 ctr=18723 cap=508 orig=1494 TRUNC
+ 36.287299 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x17 seg=3 ctr=18759 cap=508 orig=1494 TRUNC
+ 36.297407 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x18 seg=3 ctr=18796 cap=508 orig=1494 TRUNC
+ 36.307183 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x19 seg=3 ctr=18832 cap=508 orig=1494 TRUNC
+ 36.317182 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1a seg=3 ctr=18869 cap=508 orig=1492 TRUNC
+ 36.327302 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1b seg=3 ctr=18906 cap=508 orig=1494 TRUNC
+ 36.337397 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1c seg=3 ctr=18943 cap=508 orig=1494 TRUNC
+ 36.367299 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1d seg=3 ctr=19053 cap=508 orig=1494 TRUNC
+ 36.617661 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1e seg=3 ctr=19973 cap=508 orig=1494 TRUNC
+ 36.627429 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1f seg=3 ctr=20009 cap=508 orig=1494 TRUNC
+ 36.637557 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x20 seg=3 ctr=20046 cap=508 orig=1494 TRUNC
+ 36.647559 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x21 seg=3 ctr=20083 cap=508 orig=1492 TRUNC
+ 36.657430 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x22 seg=3 ctr=20119 cap=508 orig=1494 TRUNC
+ 36.667409 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x23 seg=3 ctr=20156 cap=508 orig=1494 TRUNC
+ 36.677554 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x24 seg=3 ctr=20193 cap=508 orig=1494 TRUNC
+ 36.687562 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x25 seg=3 ctr=20230 cap=508 orig=1492 TRUNC
+ 36.697673 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x26 seg=3 ctr=20267 cap=508 orig=1494 TRUNC
+ 36.707429 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x27 seg=3 ctr=20303 cap=508 orig=1494 TRUNC
+ 37.107678 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x28 seg=3 ctr=21774 cap=508 orig=1492 TRUNC
+ 37.167564 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x27 seg=3 ctr=21994 cap=508 orig=1492 TRUNC
+ 37.177670 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x26 seg=3 ctr=22031 cap=508 orig=1494 TRUNC
+ 37.187442 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x25 seg=3 ctr=22067 cap=508 orig=1494 TRUNC
+ 37.197565 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x24 seg=3 ctr=22104 cap=508 orig=1494 TRUNC
+ 37.207567 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x23 seg=3 ctr=22141 cap=508 orig=1492 TRUNC
+ 37.217437 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x22 seg=3 ctr=22177 cap=508 orig=1494 TRUNC
+ 37.227439 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x20 seg=3 ctr=22214 cap=508 orig=1494 TRUNC
+ 37.237810 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1f seg=3 ctr=22252 cap=508 orig=1494 TRUNC
+ 37.247579 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1e seg=3 ctr=22288 cap=508 orig=1492 TRUNC
+ 37.517569 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1d seg=3 ctr=23280 cap=508 orig=1494 TRUNC
+ 37.537685 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1c seg=3 ctr=23354 cap=508 orig=1494 TRUNC
+ 37.547686 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1b seg=3 ctr=23391 cap=508 orig=1492 TRUNC
+ 37.557816 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x1a seg=3 ctr=23428 cap=508 orig=1494 TRUNC
+ 37.567570 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x19 seg=3 ctr=23464 cap=508 orig=1492 TRUNC
+ 37.577689 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x18 seg=3 ctr=23501 cap=508 orig=1494 TRUNC
+ 37.587685 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x17 seg=3 ctr=23538 cap=508 orig=1492 TRUNC
+ 37.597817 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x16 seg=3 ctr=23575 cap=508 orig=1494 TRUNC
+ 37.607574 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x15 seg=3 ctr=23611 cap=508 orig=1492 TRUNC
+ 37.617689 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x14 seg=3 ctr=23648 cap=508 orig=1494 TRUNC
+ 37.877579 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x13 seg=3 ctr=24603 cap=508 orig=1494 TRUNC
+ 37.887584 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x12 seg=3 ctr=24640 cap=508 orig=1492 TRUNC
+ 37.897954 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x11 seg=3 ctr=24678 cap=508 orig=1494 TRUNC
+ 37.907694 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x10 seg=3 ctr=24714 cap=508 orig=1492 TRUNC
+ 37.917824 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0f seg=3 ctr=24751 cap=508 orig=1494 TRUNC
+ 37.927830 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0e seg=3 ctr=24788 cap=508 orig=1492 TRUNC
+ 37.937955 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0d seg=3 ctr=24825 cap=508 orig=1494 TRUNC
+ 37.947693 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0b seg=3 ctr=24861 cap=508 orig=1492 TRUNC
+ 37.957825 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0a seg=3 ctr=24898 cap=508 orig=1494 TRUNC
+ 37.967578 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x08 seg=3 ctr=24934 cap=508 orig=1492 TRUNC
+ 37.977697 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x07 seg=3 ctr=24971 cap=508 orig=1494 TRUNC
+ 37.987696 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x06 seg=3 ctr=25008 cap=508 orig=1492 TRUNC
+ 38.007833 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x05 seg=3 ctr=25082 cap=508 orig=1492 TRUNC
+ 38.227699 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x04 seg=3 ctr=25890 cap=508 orig=1492 TRUNC
+ 38.238093 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x03 seg=3 ctr=25928 cap=508 orig=1494 TRUNC
+ 38.257964 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x02 seg=3 ctr=26001 cap=508 orig=1494 TRUNC
+ 38.267967 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x00 seg=3 ctr=26038 cap=508 orig=1492 TRUNC
+ 39.267992 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x01 seg=3 ctr=29713 cap=508 orig=1492 TRUNC
+ 39.278118 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x02 seg=3 ctr=29750 cap=508 orig=1494 TRUNC
+ 39.288129 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x03 seg=3 ctr=29787 cap=508 orig=1492 TRUNC
+ 39.298251 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x04 seg=3 ctr=29824 cap=508 orig=1494 TRUNC
+ 39.308337 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x05 seg=3 ctr=29861 cap=508 orig=1494 TRUNC
+ 39.318121 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x06 seg=3 ctr=29897 cap=508 orig=1494 TRUNC
+ 39.338246 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x07 seg=3 ctr=29971 cap=508 orig=1494 TRUNC
+ 39.348259 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x08 seg=3 ctr=30008 cap=508 orig=1492 TRUNC
+ 39.578250 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x09 seg=3 ctr=30853 cap=508 orig=1494 TRUNC
+ 39.598126 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0a seg=3 ctr=30926 cap=508 orig=1494 TRUNC
+ 39.608130 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0b seg=3 ctr=30963 cap=508 orig=1492 TRUNC
+ 39.628001 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0c seg=3 ctr=31036 cap=508 orig=1492 TRUNC
+ 39.638129 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0d seg=3 ctr=31073 cap=508 orig=1494 TRUNC
+ 39.667999 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0e seg=3 ctr=31183 cap=508 orig=1492 TRUNC
+ 41.338514 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0d seg=3 ctr=37322 cap=508 orig=1494 TRUNC
+ 41.698520 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0c seg=3 ctr=38645 cap=508 orig=1494 TRUNC
+ 41.958680 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0b seg=3 ctr=39601 cap=508 orig=1494 TRUNC
+ 42.318667 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0a seg=3 ctr=40924 cap=508 orig=1494 TRUNC
+ 46.339757 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=pad     value=0x01 seg=3 ctr=55701 cap=508 orig=1494 TRUNC
+ 46.960189 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=pad     value=0x00 seg=3 ctr=57981 cap=508 orig=1494 TRUNC
+ 49.621192 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=phantom value=0x00 seg=3 ctr=2224 cap=508 orig=1494 TRUNC
+ 50.481021 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=phantom value=0x01 seg=3 ctr=5384 cap=508 orig=1492 TRUNC
+137.958833 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x20 param=phantom value=0x01 seg=3 ctr=63240 cap=508 orig=1492 TRUNC
+137.959166 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x20 param=pad     value=0x00 seg=3 ctr=63241 cap=508 orig=1494 TRUNC
+137.959376 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x20 param=sens    value=0x20 seg=3 ctr=63242 cap=508 orig=1492 TRUNC
+137.964065 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x21 param=phantom value=0x01 seg=3 ctr=63259 cap=508 orig=1494 TRUNC
+137.964311 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x21 param=pad     value=0x00 seg=3 ctr=63260 cap=508 orig=1494 TRUNC
+137.964547 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x21 param=sens    value=0x0d seg=3 ctr=63261 cap=508 orig=1492 TRUNC
+137.974161 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x22 param=phantom value=0x01 seg=3 ctr=63296 cap=508 orig=1494 TRUNC
+137.974350 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x22 param=pad     value=0x00 seg=3 ctr=63297 cap=508 orig=1494 TRUNC
+137.974689 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x22 param=sens    value=0x23 seg=3 ctr=63298 cap=508 orig=1494 TRUNC
+137.983655 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x23 param=phantom value=0x00 seg=3 ctr=63331 cap=508 orig=1494 TRUNC
+137.983913 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x23 param=pad     value=0x00 seg=3 ctr=63332 cap=508 orig=1494 TRUNC
+137.984154 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x23 param=sens    value=0x12 seg=3 ctr=63333 cap=508 orig=1492 TRUNC
+137.993727 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x24 param=phantom value=0x01 seg=3 ctr=63368 cap=508 orig=1494 TRUNC
+137.993937 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x24 param=pad     value=0x00 seg=3 ctr=63369 cap=508 orig=1492 TRUNC
+137.994284 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x24 param=sens    value=0x0c seg=3 ctr=63370 cap=508 orig=1494 TRUNC
+138.004003 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x25 param=phantom value=0x01 seg=3 ctr=63406 cap=508 orig=1492 TRUNC
+13headamp_trace: records=1098823 reac=1098822 headamp=160 fragments=0 grants=16 short_of_block=0 bad_record_cksum=0
+8.004348 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x25 param=pad     value=0x00 seg=3 ctr=63407 cap=508 orig=1494 TRUNC
+138.004600 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x25 param=sens    value=0x00 seg=3 ctr=63408 cap=508 orig=1494 TRUNC
+138.013898 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x26 param=phantom value=0x01 seg=3 ctr=63442 cap=508 orig=1494 TRUNC
+138.014071 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x26 param=pad     value=0x00 seg=3 ctr=63443 cap=508 orig=1492 TRUNC
+138.014403 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x26 param=sens    value=0x26 seg=3 ctr=63444 cap=508 orig=1494 TRUNC
+138.023602 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x27 param=phantom value=0x01 seg=3 ctr=63478 cap=508 orig=1494 TRUNC
+138.023942 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x27 param=pad     value=0x00 seg=3 ctr=63479 cap=508 orig=1494 TRUNC
+138.024162 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x27 param=sens    value=0x16 seg=3 ctr=63480 cap=508 orig=1492 TRUNC
+138.033727 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x28 param=phantom value=0x01 seg=3 ctr=63515 cap=508 orig=1494 TRUNC
+138.033936 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x28 param=pad     value=0x01 seg=3 ctr=63516 cap=508 orig=1492 TRUNC
+138.034285 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x28 param=sens    value=0x1a seg=3 ctr=63517 cap=508 orig=1494 TRUNC
+138.044005 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x29 param=phantom value=0x01 seg=3 ctr=63553 cap=508 orig=1492 TRUNC
+138.044349 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x29 param=pad     value=0x00 seg=3 ctr=63554 cap=508 orig=1494 TRUNC
+138.044604 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x29 param=sens    value=0x00 seg=3 ctr=63555 cap=508 orig=1494 TRUNC
+138.053794 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2a param=phantom value=0x00 seg=3 ctr=63589 cap=508 orig=1492 TRUNC
+138.054158 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2a param=pad     value=0x00 seg=3 ctr=63590 cap=508 orig=1494 TRUNC
+138.054350 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2a param=sens    value=0x0f seg=3 ctr=63591 cap=508 orig=1494 TRUNC
+138.063657 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2b param=phantom value=0x01 seg=3 ctr=63625 cap=508 orig=1494 TRUNC
+138.063915 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2b param=pad     value=0x00 seg=3 ctr=63626 cap=508 orig=1494 TRUNC
+138.064152 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2b param=sens    value=0x04 seg=3 ctr=63627 cap=508 orig=1492 TRUNC
+138.073929 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2c param=phantom value=0x00 seg=3 ctr=63663 cap=508 orig=1492 TRUNC
+138.074285 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2c param=pad     value=0x00 seg=3 ctr=63664 cap=508 orig=1494 TRUNC
+138.074552 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2c param=sens    value=0x0e seg=3 ctr=63665 cap=508 orig=1494 TRUNC
+138.084067 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2d param=phantom value=0x01 seg=3 ctr=63700 cap=508 orig=1494 TRUNC
+138.084285 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2d param=pad     value=0x00 seg=3 ctr=63701 cap=508 orig=1494 TRUNC
+138.084545 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2d param=sens    value=0x00 seg=3 ctr=63702 cap=508 orig=1492 TRUNC
+138.093797 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2e param=phantom value=0x01 seg=3 ctr=63736 cap=508 orig=1492 TRUNC
+138.094182 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2e param=pad     value=0x00 seg=3 ctr=63737 cap=508 orig=1494 TRUNC
+138.094353 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2e param=sens    value=0x09 seg=3 ctr=63738 cap=508 orig=1494 TRUNC
+138.103630 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=phantom value=0x01 seg=3 ctr=63772 cap=508 orig=1494 TRUNC
+138.103934 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=pad     value=0x00 seg=3 ctr=63773 cap=508 orig=1494 TRUNC
+138.104157 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x2f param=sens    value=0x0a seg=3 ctr=63774 cap=508 orig=1492 TRUNC
