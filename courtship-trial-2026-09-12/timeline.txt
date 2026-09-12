@@ -1,0 +1,11 @@
+06:17:26 trial dir opened. Claim under test: with reac-pw 1.0.1 (bounded courtship: 4 s cold-connect, 10 s off the wire) as a SLAVE on the desk's VLAN 12, an S-1608 that reboots enrols with the M-200 within ~20 s; control = the same reboot with our slave absent. Both on the mirror (port 7 → USB NIC), VLAN 12, snaplen 512.
+06:48:34 capture started (mirror, VLAN 12, snaplen 512). M-200 on VLAN 12 at 44.1 k (3675 pps). Our daemon 1.0.1 was master of VLAN 12 holding the S-1608; now PATCH role=recorder.
+06:49:27 SETUP DONE: our 1.0.1 slave ESTABLISHED to the M-200 (44.1 k); S-1608 unicasting to the M-200 (enrolled). TRIAL 1: box reboot WITH our slave present.
+  06:50:10 box SILENT (reboot seen)
+  06:53:11 S-1608 STILL NOT talking to the desk 180 s after the gap, our slave present
+06:53:22 our slave stayed ESTABLISHED (granted) through the box's reboot: the bounded courtship never engaged — it governs an UNGRANTED slave only.
+06:53:47 CONTROL: enp131s0.12 DOWN (our slave leaves); box expected to enrol within ~10 s
+06:54:08 prepared TRIAL 2: REAC_BOX_CHANNELS_enp131s0.12=8 (our slave will announce an 8-input geometry, unlike the S-1608's 16) — applied at the next daemon restart
+  06:53:56 S-1608 unicasting to the desk 9 s after our slave left
+06:55:06 TRIAL 2 setup: daemon restarted with REAC_BOX_CHANNELS_enp131s0.12=8, .12 up — see the states/frame sizes above this line in the transcript
+06:55:40 TRIAL 2 SETUP RESULT: announcing 8 inputs, the M-200 does NOT grant our slave (it keeps the S-1608's 16-in session; our frames are 346/344 B broadcast announces only); the 1.0.1 bounded courtship is ENGAGING LIVE beside a real desk: COLDCONNECT -> BACKOFF -> FLOOD_ANNOUNCE cycles. S-1608 stays enrolled (634 B unicast). So trial 2 = the true test of the 1.0.1 claim: an UNGRANTED, backing-off slave beside the desk while the box reboots. PAUSED (operator: out of tokens, resume 15:00). Rig left as is: M-200 master VLAN 12 at 44.1 k, box enrolled, our 8-in slave courting/backing off, capture running to /home2.
