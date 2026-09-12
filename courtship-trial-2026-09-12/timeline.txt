@@ -17,3 +17,4 @@ reac_slave: [enp131s0.12] STATE BACKOFF -> FLOOD_ANNOUNCE
 reac_slave: [enp131s0.12] STATE FLOOD_ANNOUNCE -> COLDCONNECT
 reac_slave: [enp131s0.12] STATE COLDCONNECT -> TX_MUTE
 reac_slave: [enp131s0.12] STATE TX_MUTE -> ESTABLISHED
+07:00:37 NOTE: the watch line above that says 'our backing-off slave PRESENT — ENROLLED' fired AFTER enp131s0.12 was taken DOWN at 07:00:09; the box enrolled because we LEFT (desk shows enrolled — operator). Both trials: our slave present = no enrolment; absent = enrolled in ~10 s.
