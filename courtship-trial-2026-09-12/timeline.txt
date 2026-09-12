@@ -9,3 +9,11 @@
   06:53:56 S-1608 unicasting to the desk 9 s after our slave left
 06:55:06 TRIAL 2 setup: daemon restarted with REAC_BOX_CHANNELS_enp131s0.12=8, .12 up — see the states/frame sizes above this line in the transcript
 06:55:40 TRIAL 2 SETUP RESULT: announcing 8 inputs, the M-200 does NOT grant our slave (it keeps the S-1608's 16-in session; our frames are 346/344 B broadcast announces only); the 1.0.1 bounded courtship is ENGAGING LIVE beside a real desk: COLDCONNECT -> BACKOFF -> FLOOD_ANNOUNCE cycles. S-1608 stays enrolled (634 B unicast). So trial 2 = the true test of the 1.0.1 claim: an UNGRANTED, backing-off slave beside the desk while the box reboots. PAUSED (operator: out of tokens, resume 15:00). Rig left as is: M-200 master VLAN 12 at 44.1 k, box enrolled, our 8-in slave courting/backing off, capture running to /home2.
+06:57:50 TRIAL 2: operator rebooting the S-1608 with our UNGRANTED, backing-off 8-in slave present
+06:57:52 box SILENT (reboot seen)
+07:00:09 TRIAL 2 VERDICT (wire): after the box's reboot the M-200 GRANTED our courting 8-in slave (US -> M200 unicast from ~06:59), the box absent; operator power-cycled the box again ('recycled again') — still absent. The bounded courtship does not solve the box-reboot case: the desk grants whoever courts while its box is away, and a granted slave then blocks the box. Product rule stands: a recorder slave must not court a desk's box slot while that desk's box may return. enp131s0.12 DOWN now so the box can enrol.
+07:00:17 TRIAL 2 RESULT: S-1608 unicasting to the desk 145 s after the gap, our backing-off slave PRESENT — ENROLLED
+reac_slave: [enp131s0.12] STATE BACKOFF -> FLOOD_ANNOUNCE
+reac_slave: [enp131s0.12] STATE FLOOD_ANNOUNCE -> COLDCONNECT
+reac_slave: [enp131s0.12] STATE COLDCONNECT -> TX_MUTE
+reac_slave: [enp131s0.12] STATE TX_MUTE -> ESTABLISHED
