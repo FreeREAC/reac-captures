@@ -1,0 +1,23 @@
+=== REAC head-amp byte-diff: headamp-20260911-090027 ===
+master=M-200 box=S-1608  segments=7
+
+segments:
+  [ 0] enrolled idle (desk joined, no control moved) ctrl=none      ch=None val=None  frames=17
+  [ 1] input 15 gain +10dB          ctrl=gain      ch=15   val=10    frames=48
+  [ 2] input 15 gain back           ctrl=gain      ch=15   val=0     frames=48
+  [ 3] input 16 48V ON              ctrl=48v       ch=16   val=on    frames=49
+  [ 4] input 16 48V OFF             ctrl=48v       ch=16   val=off   frames=49
+  [ 5] input 15 pad ON              ctrl=pad       ch=15   val=on    frames=49
+  [ 6] input 15 pad OFF             ctrl=pad       ch=15   val=off   frames=51
+
+diff signature (src, kind, op0, op1, op_len, sel): 34:5a:60:9f:9e:be + ('master_announce', 255, 255, 256, 1)
+(checksum byte frame[49] excluded from diffs — master re-derives it)
+
+=== CONTROL BYTE MAP ===
+  [medium] gain             'input 15 gain +10dB': block[16] (frame[34]) 0x08 -> 0x20 @ 10dB
+  [medium] gain             'input 15 gain back': block[16] (frame[34]) 0x08 -> 0x20 @ 0dB
+  [medium] 48v              'input 16 48V ON': flag block[16] (frame[34]) 0x08 -> 0x20 (bit 0x28 = bit#5)
+  [medium] 48v              'input 16 48V OFF': flag block[16] (frame[34]) 0x08 -> 0x20 (bit 0x28 = bit#5)
+  [medium] pad              'input 15 pad ON': block[16] (frame[34]) 0x08 -> 0x20
+  [medium] pad              'input 15 pad OFF': block[16] (frame[34]) 0x08 -> 0x20
+  [medium] gain-law         CH15 GAIN LAW: byte = 0.000*dB + 16.5  (0.000 byte/dB, max residual 15.50) at block[16]/frame[34]
