@@ -1,13 +1,11 @@
-# reac-captures (PRIVATE)
+# reac-captures
 
 Raw REAC packet captures from our rig — the ground truth that the decoders, the
 [reac-protocol](https://github.com/FreeREAC/reac-protocol) wire-format docs, and the firmware
 reverse-engineering are checked against.
 
-**Private, not for publication.** These hold the real rig device MACs, so they cannot go in a
-public repo as-is. Small, MAC-sanitized slices are extracted from here into public test fixtures
-(e.g. `reac-aes67/tests/fixtures/real_reac_stream.pcap`); the full raw captures stay here. We own
-the appliances captured — legitimate capture of our own traffic.
+**Licence: CC0 1.0 Universal** (see LICENSE). The captures are frames from our own Roland gear on
+our own network; the device MACs in them are those of that gear.
 
 All streams are REAC (EtherType `0x8819`), source OUI `00:40:ab` (Roland). The downstream master
 broadcast is a fixed 40-channel / 1492-byte frame; a stagebox's upstream return is a smaller,
