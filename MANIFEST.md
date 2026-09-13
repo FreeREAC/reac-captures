@@ -1,6 +1,6 @@
 # MANIFEST — the REAC capture corpus
 
-Generated 2026-08-23 by lane CAP; distilled 2026-08-23 by lane DIST. One row per capture: device
+One row per capture: device
 pair, event, date, truncation, size raw and distilled, and what it is evidence FOR. A capture
 nobody can identify is nearly worthless; this file is what stops that.
 
@@ -175,10 +175,10 @@ agree on the same 12 files of the 83 that predate this manifest.
 
 ## The distillation — what was done, and what proves it
 
-Done 2026-08-23 by the lane that owns the corpus gates, because distilling moves their baselines
-and the move has to be proved rather than asserted. Tool: `analysis/distil.c`, which links
-**libreac's own classifier** so the classification preserved here is the same one the gate
-measures, not a second spelling of it.
+Distilling moves the whole-corpus baselines that `libreac tools/run-corpus.sh` and
+`reac-protocol spec/corpus-check.py` gate against, so the move is proved rather than asserted
+below. Tool: `analysis/distil.c`, which links **libreac's own classifier** so the classification
+preserved here is the same one the gate measures, not a second spelling of it.
 
 ### The rule
 
@@ -229,111 +229,35 @@ the file's own snaplen survive.
 
 ### The proof it is a distillation and not a loss
 
-Both whole-corpus baselines were regenerated and then diffed against the raw ones **field by
-field**, across all 85 files:
-
-- **Dropping filler moved `records`, `reac`, `filler`, `trunc`, `dn`, `up`** — exactly the
-  quantities that rule is allowed to move.
-- **Sampling grants moved six fields and no others**, each by **exactly 5,987,703**, which is
-  precisely the number of grants removed: `records` 7,084,889 → 1,097,186, `reac` 7,084,866 →
-  1,097,163, `trunc` 6,899,276 → 911,573, `grant` 6,057,849 → 70,146, `cksum` 6,910,123 →
-  922,420, and in `ctl2` the one L-key the sampled grants carry, `L4.3.02` 6,053,140 → 65,437.
-  A grant is checksum-bearing, so `cksum` loses the same count from numerator and denominator
-  alike; it is still 922,420/922,420, with not one bad checksum.
-- **The non-grant control frames are exactly conserved: 852,274 before and 852,274 after.**
-  That is the whole claim in one number — 6,910,123 − 6,057,849 = 922,420 − 70,146.
-- **Zero violations.** `filler`, `scene_transfer` (778,751), `master_hb`, `master_announce`,
-  `headamp` (10,101), `box_hb`, `config_announce` (305), `group_map` (107), `record_fragment`
-  (40), every head-amp parameter split, the declared port tables (812,903), the `decl` geometry,
-  the box match and **both audio tallies** (`dn` 111,613, `up` 73,977) are **identical** before
-  and after. A grant sets neither the port table (which reads `op0==0x01`) nor the head-amp record
-  nor the box identity, so none of them could move. `L4.3.00` held at 3,173 — the rare grant
-  subtype survived whole.
-- **Only one of the 85 baseline rows changed**, in both gates: `ctl2.pcap`. The other 84 are
-  byte-identical.
-- **The two implementations still agree.** libreac's C checker and the Kaitai grammar
-  independently report the same 185,590 whole frames and the same 911,573 truncated control
-  blocks over the distilled set — and the Kaitai gate, run against the *old* baseline, reported
-  the same 5,987,703 delta from the other side before it was re-recorded.
+Both whole-corpus baselines were regenerated and diffed against the raw ones field by field,
+across all 85 files. Dropping filler and sampling grants moved exactly the fields the rule in
+§"The rule" is allowed to move, by exactly the count of frames each step removed, and nothing
+else: every other class (`scene_transfer` 778,751, `headamp` 10,101, `config_announce` 305,
+`group_map` 107, `record_fragment` 40, the declared port tables, both audio tallies) is
+byte-identical before and after. Only one of the 85 baseline rows changed in either gate
+(`ctl2.pcap`); the other 84 are byte-identical. libreac's C checker and the Kaitai grammar
+independently report the same 185,590 whole frames and the same 911,573 truncated control blocks
+over the distilled set.
 
 ### The gates, and that they can still fail
 
 | gate | over the distilled corpus | sabotaged |
 |---|---|---|
-| `libreac tools/run-corpus.sh` | green, 85 captures | `--self-test` red (control arm) |
-| | | `--self-test-audio` red (audio arm) |
+| `libreac tools/run-corpus.sh` | green, 85 captures | `--self-test` red (control arm), `--self-test-audio` red (audio arm) |
 | `reac-protocol spec/corpus-check.py` | green, 85 files fully clean | `--self-test` rejects all 185,590 frames and all 911,573 blocks |
 
-Two things were fixed while proving this, and both were gates that could not fail:
+`spec/corpus-check.py` reads every frame of every file (no cap): the corpus is 271 MB, well under
+a minute to scan uncapped. `--self-test-audio` sabotages a frame's end marker and requires the
+audio tallies to move while the control counts hold still — the audio decoders never read the
+control block, so a control-only sabotage cannot exercise that arm.
 
-- **libreac's `--self-test` never proved the audio arm.** It flips a control-block byte, and the
-  audio decoders read [50:] and never look at the control block — so `dn=`/`up=` could not move,
-  and the report would have looked identical over a corpus carrying no decodable audio at all.
-  `--self-test-audio` was added: it flips the frame's **end marker**, which is the field
-  `reac_frame_inspect` actually validates, and then requires the audio tallies to move *and* the
-  control counts to hold still.
-- **`spec/corpus-check.py` read only the first 4000 frames per file.** That cap existed because
-  the corpus was 47.9 GB. It is now 271 MB and an uncapped run takes well under a minute, so the
-  default is 0 — every frame. A cap silently turns "the corpus parses" into "the first 4000
-  frames parse".
+### The 2 GiB LFS limit
 
-And the gate was shown to catch a real loss: removing **10** control frames from one distilled
-capture moved `cksum=2170/2170` to `cksum=2160/2160` and turned `run-corpus.sh` red.
-
-### The 2 GB question
-
-**Four files exceeded GitHub's 2 GiB per-file LFS limit** in the raw set — `reacpw-reconnect`
-(9.118 GB), `ctl2.pcap` (4.758 GB), `m200-pad-v2` (3.517 GB), `m200-pad-sweep` (2.637 GB). Two
-more raw files exceed 2x10^9 bytes if the limit is read decimally (`s1608-master-first-link`
-2.055 GB, `m200-BIDIR-coldboot` 2.005 GB), but **they were never committed**, so they were never
-the push's problem: a scan of every LFS pointer in the history found **four** over the limit and
-no more. The count of six is a fact about the raw set, not about this repository's history.
-
-**The distilled set clears the limit with four orders of magnitude to spare: the largest file is
-still `ctl2.pcap`, now 46.8 MB, and the next largest is 7.5 MB.** The
-oversized objects were nonetheless still *committed*, so `.git/lfs` carried them and the history
-was unpushable however small the working tree became. Distilling the working tree does not rewrite
-history; that rewrite is below.
-
-**Grants are now sampled, and that is what closed the gap.** `ctl2.pcap` was 442 MB of the
-666.5 MB total, and it was not slack: every one of its 6,626,869 records is a control frame (no
-filler at all), 6,054,293 of them `grant`. Under a flat "keep every control frame" it could not
-get smaller. Sampling grants takes it to 46.8 MB and the corpus to **271.3 MB**.
-
-An earlier draft of this file estimated that decision would land the corpus near 220 MB. It does
-not: **the floor is 271.3 MB**, because the 572,576 control frames in `ctl2` that are *not* grants
-are kept in full, and they are 37.8 MB on their own on top of the 224.5 MB the other 84 captures
-already occupy. The 220 MB figure assumed a saving on frames the rule does not touch.
-
-### The LFS history rewrite, 2026-08-23
-
-The working tree had been small since the distillation, and the repository was still unpushable,
-because `git push` offers **every LFS object the history references**, not the ones the tip needs.
-Four pointers over the limit sat in 19 commits between 2026-08-21 and 2026-08-22.
-
-`git filter-repo` rewrote them out. The rule was narrow on purpose: a blob callback read every LFS
-pointer in the history, and where the pointer declared more than 2x10^9 bytes it replaced that
-pointer — and nothing else — with a short note naming the object's **sha256 and byte count** and
-saying where the bytes are. Nothing was deleted blindly: each of those four digests is an entry in
-`~/Devel/audio/reac-captures-raw/SHA256SUMS.txt`, so the note is a working reference to the file
-it replaced rather than a hole.
-
-What was checked afterwards, rather than assumed:
-
-- **The tip is untouched.** `HEAD^{tree}` is the same object id before and after the rewrite,
-  `9b79632`, so the 85 distilled captures, the manifest and every finding are bit-for-bit what
-  they were. Nothing at the tip carried an oversized pointer, so nothing at the tip could move.
-- **All 56 commits survive**, and author name, author email, author date, committer name,
-  committer email, committer date and subject are **identical across every one of them** — diffed
-  against a bundle of the pre-rewrite history, not eyeballed.
-- **No LFS pointer over the limit remains**: 107 pointers, 0 above 2x10^9. The largest object the
-  history now offers is `m200-anchor-openwindow` at 1.146 GB, comfortably inside 2 GiB.
-- **Four notes, four blobs.** Exactly one replacement per oversized object.
-
-The pre-rewrite history is preserved outside the repository as a verified git bundle at
-`~/Devel/audio/reac-captures-pre-lfs-rewrite.bundle` (3.3 MB — the history is tiny; the 30 GB was
-all LFS storage). `.git/lfs` still holds the four large objects locally; they are simply no longer
-reachable from any commit, so no push will ever offer them.
+GitHub refuses an LFS object over 2 GiB. The distilled set clears it with four orders of
+magnitude to spare — the largest committed object is `ctl2.pcap` at 46.8 MB. History carries no
+pointer over the limit either: it was rewritten with `git filter-repo` to replace the handful of
+oversized raw-era LFS pointers with a note giving each object's sha256 and byte count, all of
+which resolve against `~/Devel/audio/reac-captures-raw/SHA256SUMS.txt`.
 
 ### Where the raw corpus is
 
@@ -348,7 +272,7 @@ All **85** captures are named in BOTH whole-corpus regression baselines (`librea
 tests/corpus-baseline.txt`, now 85 lines with per-file record and checksum counts, and
 `reac-protocol spec/corpus-baseline.json`, now 85 files). Deleting any capture turns those gates
 red. There are no duplicates to reclaim and no orphans: the corpus was already curated and renamed
-from measured facts on 2026-08-21 (`CAPTURE-PLAN-next.md`, `analysis/name_from_facts.py`).
+from measured facts (`analysis/name_from_facts.py`).
 
 Both baselines were 83 lines until 2026-08-23 and the corpus was 85 — `s1608-bank-2026-08-22/`
 had landed without them. libreac's gate was RED for that reason before any distillation began;
