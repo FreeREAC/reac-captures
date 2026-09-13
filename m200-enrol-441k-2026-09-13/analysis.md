@@ -1,4 +1,14 @@
-# M-200 at 44.1 kHz — an S-1608 enrolment, read out
+# M-200 at 44.1 kHz — two enrolments, read out
+
+Two captures, both the same M-200 at 44.1 kHz, both a cable bounce into a re-enrolment:
+
+| dir | box | records | window |
+|---|---|---|---|
+| `m200-enrol-441k-2026-09-13` | S-1608 `00:40:ab:c4:80:3b`, 16 in | 295 950 | 1789327533 – 580 |
+| `m200-enrol-s4000-441k-2026-09-13` | S-4000S `00:40:ab:c4:06:80`, 32 in | 291 525 | 1789330629 – 674 |
+
+The S-4000S session carries the ENROLL group map the S-1608 session does not, and closes §1.
+Both read 3675 pps. Everything below is the S-1608 session unless the S-4000S one is named.
 
 Capture: `enrol-bounce-slice.pcap`, 295 950 records, 295 949 REAC frames, every one 802.1Q
 tagged (VLAN 12), snaplen 512. Master `00:40:ab:c9:cc:03` (M-200), box `00:40:ab:c4:80:3b`
@@ -69,29 +79,49 @@ Our own two MACs are the only rows that break it: `00:40:ab:00:00:01` and
 `34:5a:60:9f:9e:be` emit `pace=0x01` while writing marker `0x00` in 11 sweeps. That is a
 libreac/reac-pw defect, not a counterexample.
 
-### ENROLL[8] — not resolvable from this capture
+### ENROLL[8] is the fourth carrier — `0x02` at 44.1 kHz
 
-**Zero** ENROLL group maps (`cdea`, link 1, opcode `0x10`) in the slice. Presence control in the
-same pass: `group_map_scan enrol-bounce-slice.pcap matrix-m200-s0808.pcap` reports
-`group_maps=2`, both from this same console MAC, `console=0x00`, at t=1783783848.749 — **209 ms
-after** that box's commit report. Here the 30 s after the commit report are fully captured, so
-the window is covered and the absence is real.
+`m200-enrol-s4000-441k-2026-09-13`, t = **1789330642.379775**, src `00:40:ab:c9:cc:03`, one
+group map, whole 34-byte template:
 
-**Why there is none: the box, not the rate.** Across 108 files the corpus holds 107 group maps,
-and every one is addressed to an 8-input or a 32-input declarer:
+```
+cd ea 01 03 00 0d 10 | 04 02 41 41 41 41 00 00 00 00 00 c3 | 00 … 12
+```
 
-- `04 00 41 00 00 00 00 00 c3 c3 c3 c3` — 8-wide, console byte `0x00`
-- `04 00 41 41 41 41 00 00 00 00 00 c3` — 32-wide, console byte `0x00`
-- the same two with console byte `0x01` from the M-5000
+`group_map_scan` reads it back as `console=0x02 n=1 inputs=4x8=32 out_groups=1`. It lands
+209.5 ms after the box's commit report at 1789330642.170256 — the same offset as the 48 kHz
+S-0808 map (209 ms), which is the presence control in the same pass.
 
-Twenty-two files carry an S-1608 as the only box — five of them full enrolments
+**Same console, same map width, one byte apart:**
+
+| rate | console | box | `cfea` pace | ENROLL[8] | map bytes |
+|---|---|---|---|---|---|
+| 44.1 k | M-200 `c9:cc:03` | S-4000S, 32 in | `0x02` | **`0x02`** | `04 02 41 41 41 41 00 00 00 00 00 c3` |
+| 48 k | M-200 `c9:cc:03` | S-4000S, 32 in | `0x00` | `0x00` | `04 00 41 41 41 41 00 00 00 00 00 c3` |
+| 48 k | M-200 `c9:cc:03` | S-0808, 8 in | `0x00` | `0x00` | `04 00 41 00 00 00 00 00 c3 c3 c3 c3` |
+| 96 k | M-5000 `ca:15:4c` | S-4000S, 32 in | `0x01` | `0x01` | `04 01 41 41 41 41 00 00 00 00 00 c3` |
+| 96 k | M-5000 `ca:15:4c` | S-0808, 8 in | `0x01` | `0x01` | `04 01 41 00 00 00 00 00 c3 c3 c3 c3` |
+
+The two 32-wide rows are the same console MAC and the same box class and differ in exactly one
+byte, ENROLL[8]. The byte is the **pace code** — a fourth carrier of it, not a console
+generation. `0x01` only ever read as "OHRCA" because the M-5000 is the desk that runs 96 kHz.
+
+**The map shape.** `04` is constant. ENROLL[8] is the pace code. Then five input-group slots and
+five output-group slots — 5 × 8 = 40, the console's own fabric width: `0x41` front-packed, one
+per group of eight enrolled inputs, `0xc3` back-packed in every slot that is not an input. An
+8-input box draws `1 × 41` then `4 × c3`; a 32-input box draws `4 × 41` then `1 × c3`. Width
+moves the split between the two runs and changes nothing else.
+
+### No console sends a group map to a 16-input box
+
+The S-1608 session carries **zero** group maps across its whole 47 s, 30 s of it after the box's
+commit report. That is not a rate effect and not a capture gap: across 109 files the corpus holds
+108 group maps and every one is addressed to an 8-input or a 32-input declarer. Twenty-two files
+carry an S-1608 as the only box — five of them full enrolments
 (`real-m200-s1608-coldboot`, `m200-s1608-BIDIR-coldboot`, `m200-s1608-COLDCONNECT-clean`,
-`m200-s1608-establish-today`, and this one) — and **not one carries a group map**. No console
-in the corpus has ever sent an ENROLL group map to a 16-input box. The 16-wide row remains a
-prediction of the width rule with no wire behind it, and may describe a frame that is never sent.
-
-Settling capture: **an M-200 at 44.1 kHz enrolling an S-0808 or an S-4000S.** A 44.1 kHz session
-with an S-1608 will not produce one however long it runs.
+`m200-s1608-establish-today`, and the S-1608 session here) — and not one carries a map. The
+16-wide row `2 × 41` is a prediction of the width rule with no wire behind it, and may describe
+a frame that is never sent.
 
 ## 2. The enrolment records
 
@@ -144,6 +174,36 @@ Compared against `m200-s1608-headamp/m200i-s1608-48k-mirror__m200-s1608-establis
 **Nothing in the enrolment record set is twelve wide.** The only twelve-wide structure that
 reaches the wire in this session is the box's own commit-report inventory. The console's
 post-grant burst addresses head-amp **per channel**, 16 of them, not per group of four.
+
+### 16-input box versus 32-input box, same console, same rate
+
+The S-4000S session runs the same sequence. Console burst from 1789330645.373902:
+grant → CH base ×3 → head-mark → six `0500` RQ1 → the rest of the sweep, ending 1789330645.687940.
+
+| | S-1608, 16 in | S-4000S, 32 in |
+|---|---|---|
+| console records | 56 | **104** |
+| grant `0100` | `06 00 01 00` | `06 00 01 00` — identical |
+| head-mark `0000` | `03 00 00 00` | `03 00 00 00` — identical |
+| `0500` RQ1 ×6 | `00 00 04`, `06 00 08`, `10 00 11`, `10 11 09`, `11 00 11`, `11 11 09` | byte-identical |
+| head-amp sweep | 48 records, CH `0x20`–`0x2f` | **96 records, CH `0x00`–`0x1f`** |
+| ENROLL group map | none | one, `4 × 41` |
+| box records | 7 (join sent three times, `01`/`01`/`09`) | 5 (join once, `06 00 01 00`) |
+| box commit report | `82`, code `0x02`, cells `02 02 02 02 01 01 03×6` | `84`, code `0x00`, cells `02×8 01 01 03 03` |
+| box `0500` `0x0016` | `00 00 02 02 00 00` | `00 00 02 05 00 00` |
+| box `0500` `0x001a` | `06 00 00 00 00 02 00 03 00 02` | `06 00 00 00 00 02 00 01 00 02` |
+| scene body | 8904 B | **byte-identical, 0 of 8904 differ** |
+
+So the console side splits cleanly. **Width-independent, byte for byte:** the grant, the head
+mark, the six identity requests, and the whole scene body — the body carries no trace of which
+box is enrolled. **Width-dependent:** the head-amp sweep, whose base is the box's slot base
+(`0x20` for an S-1608, `0x00` for an S-4000S) and whose length is 3 × the input width; and the
+ENROLL group map, which is sent for 8 and 32 and not at all for 16.
+
+The S-4000S session also reproduces the rest of §1 and §3 independently: `cfea` pace `0x02` on
+all 46 announces, chanmap `fe` marker `0x02` on all 6 sweeps, two complete 8904-byte scene bodies
+(t = 1789330638.783331 and 641.477842) that are byte-identical to each other, to the three from
+the S-1608 session, and carry the same three ASCII runs and `revision = 0x0002`.
 
 ## 3. XVSCEN and SYSPARAM
 
@@ -205,6 +265,8 @@ capture is wasted. The box-to-box session attempted on 2026-09-13
 
 ## What this changes in the published description
 
+0. `spec/reac.ksy` `enroll_page.console_field` — it is the **pace code**, reading `0x02` at
+   44.1 kHz, not a console generation.
 1. `wire-format.md` — `XVSCEN` is refuted, by the reassembled-body search the paragraph itself
    names as the settling measurement.
 2. `wire-format.md` — the `SCENE` / `SYSPARAM` question inside the bulk data is settled: the tags
@@ -215,8 +277,8 @@ capture is wasted. The box-to-box session attempted on 2026-09-13
    `0x02`, and is collinear with the `cfea` pace code on every real talker in the corpus.
 5. `spec/reac.ksy` `scene_body.revision` — the `n=1` caveat at 44.1 kHz is lifted, and the
    whole-body diff against 48 kHz is one byte.
-6. `spec/reac.ksy` `enroll_page.console_field` — still unmeasured at 44.1 kHz, and the reason is
-   now known: no console sends a group map to a 16-input box.
+6. `spec/reac.ksy` `enroll_page.console_field` — the group map is sent for an 8- and a 32-input
+   box and never for a 16-input one, which is why it took a second capture to measure.
 
 `spec/protocol-facts.yaml` `CONSOLE_FIELD_GATES_RATE` still says "44.1 kHz has NO distinct value
 on either field … 44.1 is a graph/RME rate, not a REAC-wire rate". Three carriers now read
