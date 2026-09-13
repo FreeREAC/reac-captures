@@ -1,49 +1,72 @@
 # reac-captures (PRIVATE)
 
-Raw REAC packet captures from our rig, kept for **testing and protocol
-verification** — the ground truth our decoders, the wire-format docs, and the
-firmware RE (`reac-firmware-re`) are checked against.
+Raw REAC packet captures from our rig — the ground truth that the decoders, the
+[reac-protocol](https://github.com/FreeREAC/reac-protocol) wire-format docs, and the firmware
+reverse-engineering are checked against.
 
-**Private, not for publication.** These hold the real rig device MACs (the
-sanitization tokens), so they cannot go in a public repo as-is. Small,
-MAC-sanitized slices are extracted from here into the public test fixtures
-(e.g. `reac-aes67/tests/fixtures/real_reac_stream.pcap`); the full raw captures
-stay here. We own the appliances — legitimate capture of our own traffic.
+**Private, not for publication.** These hold the real rig device MACs, so they cannot go in a
+public repo as-is. Small, MAC-sanitized slices are extracted from here into public test fixtures
+(e.g. `reac-aes67/tests/fixtures/real_reac_stream.pcap`); the full raw captures stay here. We own
+the appliances captured — legitimate capture of our own traffic.
 
-All streams are REAC (EtherType `0x8819`), source OUI `00:40:ab` (Roland). The
-downstream master broadcast is a fixed 40-channel / 1492-byte frame; a stagebox's
-upstream return is a smaller, box-dependent frame (16-ch → 628 B, 8-ch → 340 B).
+All streams are REAC (EtherType `0x8819`), source OUI `00:40:ab` (Roland). The downstream master
+broadcast is a fixed 40-channel / 1492-byte frame; a stagebox's upstream return is a smaller,
+box-dependent frame (16-ch → 628 B, 8-ch → 340 B).
 
-## Catalogue
+## Organisation
 
-| File | Size | Streams | Rate | Notes |
-|------|------|---------|------|-------|
-| `real_reac_stream.pcap` | 6 KB | 40-ch downstream | 48k | 4 frames; the sanitized public CI fixture lives downstream of this |
-| `zoneA-48k.pcap` | 68 MB | 40-ch downstream **+ 16-ch upstream** (628 B) | 48k | both directions, 4000 pps each; the canonical mixed-stream test |
-| `zoneB-48k.pcap` | 44 MB | 40-ch downstream **+ 8-ch upstream** (340 B) | 48k | a smaller (8-ch) stagebox return |
-| `reac-jitter-sample.pcap` | 2.4 MB | 64-B control frames | — | no audio payload; for re-pacer jitter/timing tests |
-| `wired-reac-a-bothdirs-2026-06-09.pcap` | 166 MB | 40-ch downstream + 16-ch upstream | see note | wired tap, both directions; recipe-(f) reference |
-| `wired-reac-loud-bothdirs-2026-06-09.pcap` | 166 MB | 40-ch downstream + 16-ch upstream | see note | as above, loud signal level |
+The corpus is split across a general `captures/` directory and per-investigation directories
+(`<topic>-<date>/`, e.g. `m200-s1608-headamp/`, `courtship-trial-2026-09-12/`) that hold their own
+captures alongside the notes and analysis written from them. A directory's own notes are evidence
+for its captures — read them together, never edit a capture.
 
-> **Note on the `*-bothdirs-*` captures.** The downstream frames clock at
-> ~16000 pps and the upstream at ~8000 pps — i.e. 2× the single-stream rates.
-> That is consistent with either a 96 k capture or a dual-point merge that sees
-> each frame twice. Confirm the per-stream rate (de-duplicate / split by capture
-> point) before using these for exact timing work.
+**[MANIFEST.md](MANIFEST.md)** is the catalogue: one row per capture with its device pair, event,
+date, truncation, raw and distilled size, and what it is evidence for — read it before assuming a
+file's contents from its name. It also documents the distillation (below) and the proof that it
+lost no control frame. A capture directory added after the manifest's last update (`git log --
+MANIFEST.md`) is not yet catalogued there.
+
+## Naming
+
+`<console>-<box>-<rate>-<tap>__<original-name>-<date>.pcap` — device pair as MEASURED from the
+MACs in the file (not as labelled by hand), sample rate, and `tap` (`clean` = single capture
+point, `mirror` = a port mirror carrying both directions, so every frame appears twice — a rate
+read as packets-per-second off one is 2x wrong). `analysis/name_from_facts.py` derives this from a
+capture's own contents. Investigation directories that capture a specific experiment rather than a
+generic session use a more descriptive name instead (see `capture-role-change.sh` and
+`CAPTURE-PLAN-role-change.md` for one such convention, with `.notes.txt` sidecars).
+
+## Distillation and LFS
+
+`*.pcap`, `*.pcapng` and `*.cap` are LFS-tracked (`.gitattributes`). The captures committed here
+are **distilled**: every control frame is kept except `grant`, which — like the audio payload —
+is sampled rather than dropped, because the full corpus is 47.9 GB and does not fit GitHub's LFS
+limits. MANIFEST.md's "The distillation" section states the exact rule (what is kept whole, what
+is sampled, and why) and the proof that distilling changed only the fields the rule allows to
+change. The undistilled raw set lives outside git at `~/Devel/audio/reac-captures-raw/`, with its
+own README and a `SHA256SUMS.txt`.
 
 ## Use
 
 ```
 # split a capture by stream (frame size) before analysing one direction:
-tshark -r captures/zoneA-48k.pcap -Y 'frame.len==1492' -w /tmp/downstream.pcap   # 40-ch master
-tshark -r captures/zoneA-48k.pcap -Y 'frame.len==628'  -w /tmp/upstream16.pcap   # 16-ch box return
+tshark -r captures/<file>.pcap -Y 'frame.len==1492' -w /tmp/downstream.pcap   # 40-ch master
+tshark -r captures/<file>.pcap -Y 'frame.len==628'  -w /tmp/upstream16.pcap   # 16-ch box return
 ```
 
-To refresh a public fixture: take a few frames, rewrite the rig MACs to the
-stand-in `00:40:ab:c4:80:f6` (keep OUI `00:40:ab`), and drop into the consuming
-repo's `tests/fixtures/`.
+`analysis/` holds corpus-wide extractors — a streaming pcap reader, a placement scanner, and the
+naming/table generators — that read the whole corpus without loading any one file into memory; see
+[analysis/README.md](analysis/README.md).
 
-## Adding captures
+To refresh a public fixture: take a few frames, rewrite the rig MACs to the stand-in
+`00:40:ab:c4:80:f6` (keep OUI `00:40:ab`), and drop the result into the consuming repo's
+`tests/fixtures/`.
 
-Name `<scope>-<rate|kind>-<date>.pcap`, note the streams + rate + how it was
-tapped here, and keep the raw original (LFS-tracked by extension).
+## Adding a capture
+
+1. Capture on a wired tap where possible (`clean`, not `mirror`); note which you took.
+2. Name it from measured facts (see Naming above), or write a `.notes.txt` sidecar recording the
+   device pair, event and what was physically observed if the name alone can't carry it.
+3. Add a row to `MANIFEST.md`: device pair, event, date, truncation, size, and what the capture is
+   evidence for. A capture nobody can identify from the manifest is close to worthless.
+4. `*.pcap`/`*.pcapng`/`*.cap` are LFS-tracked automatically; commit as normal.
