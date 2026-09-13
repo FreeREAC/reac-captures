@@ -1,0 +1,9 @@
+19:32:43 enp131s0.12 DOWN (S-1608 released, silent); capture started on the mirror, VLAN 12, snaplen 512. Waiting for the M-200 on a VLAN 12 access port at 44.1 k, then a cable bounce of the S-1608.
+20:31:55 mirror NIC enp128s20f0u2 NO-CARRIER: the USB NIC is not on the mirror port; pcap still 0 bytes. Operator asked to replug it.
+21:04:19 mirror up. FOUND enp131s0.12 UP again (re-raised, not by hand): our master at 96 k on VLAN 12 beside the M-200 (00:40:ab:c9:cc:03) at 44.1 k; S-1608 silent. Took .12 DOWN again.
+21:04:59 operator: S-1608 cable bounced, 'synched to m200'.
+21:06:12 capture stopped (60 s steady state after enrolment).
+21:07:02 FIRST RUN LOST: /home2 filled to 100% by a phone video sync (Images/2026/09/1x, ~15 GB, 17:49-18:00); the pcap held 30 frames. Restarted the capture on /var/tmp; the S-1608 must be bounced again.
+21:25:56 operator: S-1608 cable bounced (second run, on /var/tmp).
+21:27:05 capture stopped (60 s steady state after the second bounce).
+21:28:01 S-1608 silence gap in the full capture: 13.066 s, 1789327535.553 -> 1789327548.620 (link down -> first frame after the bounce). Slice enrol-bounce-slice.pcap = 1789327533..1789327580 (2.5 s before the drop to 31 s after the first frame back).
