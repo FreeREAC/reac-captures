@@ -9,3 +9,10 @@ VLAN 13: no frames
 19:14:53 our daemon had minted enp131s0.13 and mastered the S-1608 (S mode) there; enp131s0.13 set DOWN so we leave VLAN 13
 19:16:11 operator: forget M/S — boxes are S, WE enrol them. enp131s0.13 UP again.
 19:20:03 box-to-box test DROPPED (operator: boxes stay S, we enrol). All three boxes enrolled to us: S-4000S on 11, new S-4000S on 12, S-1608 on 13 (VLAN 13 needed a hand-made device + mixer). Operator now swapping the S-1608 and the new box between VLANs 12/13. Capture stopped.
+22:28:33 SECOND ATTEMPT (0x80 selector arm). reac-pw STOPPED (inactive). VLAN 12: M-200 unplugged; S-1608 (00:40:ab:c4:80:3b) set to M and rebooted; S-4000S (00:40:ab:c4:06:80) in S. Capture on the mirror, snaplen 512, /var/tmp.
+22:32:10 operator: S-4000S bounced on its REAC main port (box-to-box, S-1608 on M, daemon stopped).
+22:32:38 S-4000S re-enrolled to the S-1608 (box-to-box; took >25 s after the bounce, vs ~13 s with the M-200). Next: operator moves the S-4000S cable from its REAC main port to its backup port, capture kept rolling, to compare the two ports' enrolment.
+22:33:07 operator: S-4000S cable moved to its REAC backup port.
+22:33:59 capture stopped on the operator's word; reac-pw started again: active.
+22:34:19 S-4000S gaps in the full capture: main-port bounce 42.620 s (1789331505.045 -> 1789331547.665), backup-port move 12.283 s (1789331570.922 -> 1789331583.205). Slices: enrol-main-port-slice.pcap = 1789331503..1789331568, enrol-backup-port-slice.pcap = 1789331568..1789331614. No frame from our MAC (daemon stopped).
+22:34:20 capture stopped; reac-pw started again: active.
