@@ -7,3 +7,5 @@
 21:25:56 operator: S-1608 cable bounced (second run, on /var/tmp).
 21:27:05 capture stopped (60 s steady state after the second bounce).
 21:28:01 S-1608 silence gap in the full capture: 13.066 s, 1789327535.553 -> 1789327548.620 (link down -> first frame after the bounce). Slice enrol-bounce-slice.pcap = 1789327533..1789327580 (2.5 s before the drop to 31 s after the first frame back).
+23:58:02 TAP PROOF: 60 s mirror count of frames from our MAC per VLAN (above); VLAN 11 = mixer (positive control), VLAN 12 = tap.
+23:58:09 result: vlan 11, frames from our MAC: 495805;vlan 13, frames from our MAC: 495807;vlan 12 frames from our MAC: 0;
