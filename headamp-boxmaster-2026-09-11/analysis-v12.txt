@@ -1,0 +1,31 @@
+=== REAC head-amp byte-diff: headamp-20260911-090027 ===
+master=M-200 box=S-1608  segments=7
+
+segments:
+  [ 0] enrolled idle (desk joined, no control moved) ctrl=none      ch=None val=None  frames=15
+  [ 1] input 16 gain +10dB          ctrl=gain      ch=16   val=10    frames=33
+  [ 2] input 16 gain to -24dB (after a sens move) ctrl=gain      ch=16   val=-24   frames=33
+  [ 3] input 16 48V ON (was on; off then on) ctrl=48v       ch=16   val=on    frames=34
+  [ 4] input 16 48V OFF             ctrl=48v       ch=16   val=off   frames=34
+  [ 5] input 16 pad ON (gain touched again first) ctrl=pad       ch=16   val=on    frames=34
+  [ 6] input 16 pad OFF             ctrl=pad       ch=16   val=off   frames=34
+
+diff signature (src, kind, op0, op1, op_len, sel): 00:40:ab:c9:cc:03 + ('master_hb', 1, 3, 25, 1)
+(checksum byte frame[49] excluded from diffs — master re-derives it)
+
+=== CONTROL BYTE MAP ===
+  [none  ] gain             segment 'input 16 gain +10dB': NO byte moved vs baseline (control not on this signature, or state not live in the steady heartbeat — capture the toggle TRANSIENT too)
+  [medium] gain             'input 16 gain to -24dB (after a sens move)': block[5] (frame[23]) 0x11 -> 0x0e @ -24dB
+  [medium] 48v              'input 16 48V ON (was on; off then on)': flag block[5] (frame[23]) 0x11 -> 0x0d (bit 0x1c = bit#4)
+  [medium] 48v              'input 16 48V OFF': flag block[5] (frame[23]) 0x11 -> 0x2d (bit 0x3c = bit#5)
+  [none  ] pad              segment 'input 16 pad ON (gain touched again first)': NO byte moved vs baseline (control not on this signature, or state not live in the steady heartbeat — capture the toggle TRANSIENT too)
+  [medium] pad              'input 16 pad OFF': block[5] (frame[23]) 0x11 -> 0x2c
+
+=== NOTES ===
+  - segment 'enrolled idle (desk joined, no control moved)': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 gain +10dB': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 gain to -24dB (after a sens move)': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 48V ON (was on; off then on)': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 48V OFF': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 pad ON (gain touched again first)': modal block only 1/5 frames (unstable — hold the control steady longer)
+  - segment 'input 16 pad OFF': modal block only 1/5 frames (unstable — hold the control steady longer)
