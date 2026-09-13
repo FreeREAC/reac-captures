@@ -1,0 +1,11 @@
+19:00:07 capture started (mirror port 7 → USB NIC, VLAN 13, snaplen 512). Setup: spare S-4000 (3208? model to read off the wire) in M mode + S-1608 in S mode on VLAN 13, no console. Waiting for the operator to power the S-4000.
+19:00:58 operator: S-4000 switched ON (M mode)
+19:02:25 operator: USB NIC plugged into the mirror port; restarting the S-4000 (boot will be captured)
+19:03:16 operator: S-4000 restarted (done)
+19:10:55 operator: second S-4000 (3208) plugged on VLAN 13, on, M mode
+VLAN 13: no frames
+    800 00:40:ab:c4:80:3b > 34:5a:60:9f:9e:be
+19:13:15 VLAN 13 live (sources above)
+19:14:53 our daemon had minted enp131s0.13 and mastered the S-1608 (S mode) there; enp131s0.13 set DOWN so we leave VLAN 13
+19:16:11 operator: forget M/S — boxes are S, WE enrol them. enp131s0.13 UP again.
+19:20:03 box-to-box test DROPPED (operator: boxes stay S, we enrol). All three boxes enrolled to us: S-4000S on 11, new S-4000S on 12, S-1608 on 13 (VLAN 13 needed a hand-made device + mixer). Operator now swapping the S-1608 and the new box between VLANs 12/13. Capture stopped.
