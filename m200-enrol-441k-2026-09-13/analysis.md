@@ -224,10 +224,12 @@ The only ASCII runs of 4 or more printable bytes in all 8904 bytes:
 | `0x0368` | `SYSP` |
 | `0x037c` | `SCEN` |
 
-**There is no `XVSCEN`, no `SYSPARAM` and no `SCENE` anywhere in the body.** The tags are four
-bytes each, and each is followed by `version` `u2le` = 1 and `key` `u2le` = 0; `SYSP`'s `flag` at
-+8 is 0. This is the search `wire-format.md:203` asks for and the answer is negative, with three
-positives found by the same pass.
+**There is no `XVSCEN`, no `SYSPARAM` and no `SCENE` anywhere in a console's body.** The tags are
+four bytes each, and each is followed by `version` `u2le` = 1 and `key` `u2le` = 0; `SYSP`'s
+`flag` at +8 is 0. This is the search `wire-format.md:203` asks for and on a console the answer
+is negative, with three positives found by the same pass. **`XVSCEN` is not a tag but it is not
+imaginary either — see §5**, where a box in master mode fills two bytes the console leaves zero
+and the ASCII reader runs them into `SCEN`.
 
 Structure as recovered:
 
@@ -247,26 +249,186 @@ This also lifts the `n=1` caveat on `revision` at 44.1 kHz: three headers, all `
 
 ## 4. The `0x80` selector arm
 
-**Not exercised here, and not anywhere in the corpus.** The S-1608 declares with opcode `0x82`,
-once, at 1789327550.105055. Across 108 files / 5 295 229 REAC frames there are **zero** link-1
-`0x80` declarations; the same scan finds `0x82` in 36 files and `0x84` in 17.
+**Not exercised under a console, anywhere in the corpus.** The S-1608 declares with opcode
+`0x82`, once, at 1789327550.105055. Across the 108 console-bearing files / 5 295 229 REAC frames
+there are **zero** link-1 `0x80` declarations; the same scan finds `0x82` in 36 files and `0x84`
+in 17. The arm is the box firmware's second branch in `FUN_0c003c8a`, taken only when the peer is
+a box rather than a desk — and that pairing is now captured. See §5.
 
-The arm is the box firmware's second branch in `FUN_0c003c8a`, and the only declaration of it on
-record is `libreac`'s `reac_ctrl_build_config_announce_box_master`, whose two golden blocks came
-from `box-to-box-enroll.pcap` (2026-09-09) — a file that no longer exists on this machine.
+## 5. Box to box, no console — the `0x80` arm on the wire
 
-The topology that exercises it: **a box enrolling to another box in M mode, no console on the
-segment** — an S-0808 in M with an S-1608 in S, or the reverse, on one VLAN. It is the declaration
-a box sends *to a box master*, not to a desk, and it differs from the desk form in two fields:
-selector `0x82` → `0x80`, and the port table gains a leading `0x00` (`02 02 02 02 02 01 01 …`
-becomes `00 02 02 02 02 01 01 …`). A console anywhere on the segment takes the first arm and the
-capture is wasted. The box-to-box session attempted on 2026-09-13
-(`box-to-box-2026-09-13/timeline.txt`) was dropped before any box was put in M mode.
+`box-to-box-2026-09-13`, VLAN 12, snaplen 512, reac-pw stopped so no frame of ours exists in
+either file. S-1608 `00:40:ab:c4:80:3b` set to **M** and rebooted; S-4000S `00:40:ab:c4:06:80`
+in S. Two enrolments of the same pair: `enrol-main-port-slice.pcap` (692 609 records, cable
+bounced on the box's REAC **main** port) and `enrol-backup-port-slice.pcap` (631 303 records,
+cable moved to the box's **backup** port).
+
+### The declaration: selector `0x80`, and `0x83` is not the S-4000's second arm
+
+The S-4000S declares, in both enrolments, byte for byte:
+
+```
+cd ea | 01 03 00 10 80 00 00 00 02 02 02 02 02 02 02 02 01 01 03 03 00 03 00 00 00 01 00 … 50
+```
+
+The **same physical box** declaring to the M-200 two hours earlier
+(`m200-enrol-s4000-441k-2026-09-13`, t = 1789330642.170256) reads:
+
+```
+cd ea | 01 03 00 10 84 00 00 00 02 02 02 02 02 02 02 02 01 01 03 03 00 03 00 00 00 01 00 … 4c
+```
+
+**One byte moves, the selector — `0x84` to `0x80` — and the checksum follows it** (`0x4c` +
+`0x04` = `0x50`, the exact compensation). `board_config_code` is `0x00` in both arms and the
+twelve cells are identical, so this capture cannot speak to the zeroing the image describes.
+
+Two corrections follow. `spec/reac.ksy` predicts the S-4000's second literal is **`0x83`**
+(`DAT_0c013752`); measured, it is `0x80` — the same value as the S-1608's second arm, so the
+second arm is one shared constant and not a per-model pair. And `libreac`'s
+`reac_ctrl_build_config_announce_box_master` describes the desk→box-master delta as "the
+selector, and one entry of the port-type table (five `02` become four, with a `00` ahead of
+them)": the byte that moves there is `board_config_code`, not a cell, and for a model whose code
+is already `0x00` nothing but the selector moves.
+
+### The exchange, with no console on the segment
+
+The S-1608 master announces `cfea … 10 08 01 00 01 00 …` once a second (median 1.008 s):
+`slot_total` **`0x10`** (16, its own width, against a console's `0x28`), `box_in_width` `0x08`,
+pace `0x01` (96 kHz), `box_count` `0x0001`. That announce is **byte-identical in every one of the
+110 announces across both files** — it never changes to the 32-input box that enrolled, and
+`box_count` never falls to 0 through a 42-second absence. A console does both within seconds.
+
+No ENROLL group map is sent at all (op `0x10` count 0 in both files; control, op `0x01` sweeps
+present in the same scan).
+
+The grant is three records and they are the box's own, echoed back 1.9 ms later:
+
+| t (main) | who | tag | payload |
+|---|---|---|---|
+| 1789331549.471677 | box | `0100` | `06 00 01 00` |
+| 1789331549.471805 | box | `0000` | `03 00 00 00` |
+| 1789331549.471929 | box | `0302` | `00 01 00` |
+| 1789331549.473576 | **master** | `0100` | `06 00 01 00` |
+| 1789331549.473680 | **master** | `0000` | `03 00 00 00` |
+| 1789331549.473802 | **master** | `0302` | `00 01 00` |
+
+That is the whole link-4 exchange. **No head-amp sweep and no identity requests**: a console
+sends 56 (16-in box) or 104 (32-in box) records here; a box master sends three, and all three are
+echoes. The echo is not quite literal — on the backup-port enrolment the box joins with
+`06 00 **03** 00` and the master still answers `06 00 **01** 00`, so the join value is normalised
+to `0x01` exactly as a console normalises it, while the head mark and the box-ready record are
+returned byte for byte.
+
+The master also emits one `0100` `06 00 01 00` record 33 ms (main) / 74 ms (backup) after the
+box's last frame — it notices the loss at once, and then does nothing about it for the rest of
+the gap.
+
+### The box master's scene body
+
+Two transfers per enrolment, and the **first one is short**: 337 frames, 24 + 335 × 26 + 14 =
+**8748** bytes against a declared `0x22c8` = 8904. The second, 2.290 s later, is complete at 343
+frames / 8904. Identical in both enrolments, and it is not capture loss — the frame counter is
+contiguous across every frame of both transfers, and the only two counter gaps in each file fall
+outside them.
+
+The complete body is **byte-identical between the main-port and the backup-port enrolment** (0 of
+8904 differ). Against the M-200's body at 44.1 kHz it differs in **76 bytes**:
+
+| where | M-200 | S-1608 on M |
+|---|---|---|
+| +0x008 `map_a_arg` | `04 00` | `02 00` |
+| +0x00b (`unknown_0a`) | `80` | `00` |
+| +0x014 `revision` | `02` (44.1 k) | `01` (96 k) |
+| +0x01a slots | 32 input cells | 16 input, 8 output, 56 absent |
+| +0x33c | `00 00 00 00` | **`c0 a8 01 01`** = 192.168.1.1 |
+| +0x340 `master_id` | its own MAC | its own MAC |
+| +0x346 | `00 00 00 00` | **`c0 a8 01 02`** = 192.168.1.2 |
+| +0x34a | zeros | the same MAC again |
+| +0x360, +0x364 (`map_b`) | zero | `33 08`, `47 01` |
+| +0x37a (`sysp.rest` tail) | `00 00` | **`59 56`** |
+
+`revision` `0x0001` at 96 kHz, `cfea` pace `0x01` and the chanmap `fe` marker `0x01` agree on a
+box master too — the rate-class reading holds on a device that is not a console at all.
+
+The `c0 a8` pair is the "`0xc0 0xa8` (= 192.168) address prefix repeated twice" of
+`wire-format.md`, now located: **+0x33c and +0x346, each a 4-byte IPv4 immediately followed by a
+6-byte MAC**, with `master_id` at +0x340 being the first pair's MAC. A console leaves both
+addresses and the second MAC slot zero. And `scene_body.map_b` (+0x35a), which the ksy calls
+"all zero on every capture, so the SHAPE is INFERRED", is not all zero here.
+
+### `XVSCEN` explained
+
+`scene_sysp` is 20 bytes: `tag(4) SYSP`, `version`, `key`, `flag`, then 11 bytes the ksy calls
+`rest`. Its **last two bytes, at +0x37a, read `59 56` on a box master** and `00 00` on every
+console. `SCEN` begins at +0x37c. So an ASCII scan of a box-master body returns a six-character
+run:
+
+```
+0378  00 00 59 56 53 43 45 4e  01 00 00 00        ..YVSCEN....
+```
+
+`YVSCEN`, not `XVSCEN` — `0x59` where the earlier notes record `0x58`. Either way **there is no
+six-byte tag**: the run is two bytes of `sysp.rest` abutting the four-byte `SCEN` tag, and the
+box's commit gates on `SCEN` at +0x37c, not on the run. The name in the old notes came from
+reading a real byte sequence in a body like this one. `SYSPARAM` and `SCENE` remain absent
+everywhere.
+
+### The chanmap value byte is not always zero
+
+The ksy records "over 183 872 chanmap records in 72 captures the value byte is `0x00` every
+single time, and the flags byte takes only `0x28` and `0x38` on real slots". That is a fact about
+consoles. The S-1608 in master mode writes, on its own op-`0x01` sweeps in the main-port file,
+flags `0x18` (72), `0x28` (144), `0x30` (151), `0x38` (72) and **value `0x20` on 151 of 448
+records**; the S-4000S echoes the same values back in its op-`0x81` replies. Control in the same
+pass: the M-200 driving the same S-4000S writes only `0x28`/`0x38` and value `0x00`, 288 of 288.
+The capability the two box images carry is exercised — by a box master, never by a desk.
+
+### Main port versus backup port
+
+**Nothing in either enrolment names the port.** The declaration, the scene body, the grant
+exchange, the announce and the chanmap content are identical; the only differing byte in the whole
+sequence is the box's join value, `06 00 01 00` on the main port and `06 00 03 00` on the backup,
+which is the climbing join alphabet and not a port field.
+
+### 42.620 s against 12.283 s
+
+Measured from the frames:
+
+| | main port | backup port |
+|---|---|---|
+| box silent | 42.620 s | 12.283 s |
+| box's last frame → master's first scene transfer | **+39.979 s** | **+9.642 s** |
+| master's first scene transfer → box's first frame | +2.641 s | +2.641 s |
+| box's first frame → its `0x80` declaration | +0.683 s | +0.683 s |
+| declaration → the box's link-4 burst | +1.124 s | +1.123 s |
+| box's burst → the master's echo | +1.9 ms | +1.9 ms |
+
+Everything from the master's first scene transfer onward is identical to the millisecond, twice.
+**The entire difference sits before it**, in a stretch where the only traffic is the master's own
+`cfea`, chanmap sweeps and filler — and that traffic does not change: `box_count` stays 1,
+`box_in_width` stays `0x08`, the announce stays byte-identical. The one wire-visible precursor is
+the master's chanmap cadence, which runs at 1.000 s and stretches to 2.000 s before the push, then
+pauses for 6.376 s — the same 6.376 s in both files — with the scene transfer inside that pause.
+The stretch begins at box-last **+30.9 s** on the main port and **+0.6 s** on the backup port.
+
+So the box waits on the master for the fixed part, and the master's own start is what differs.
+**What makes the master start is not on the wire.** A PHY link-up puts no REAC frame on the
+segment, and the capture cannot see the cable. The settling measurement is the same session with
+switch port-state transitions logged against the capture clock, or a per-cable inline tap.
 
 ## What this changes in the published description
 
 0. `spec/reac.ksy` `enroll_page.console_field` — it is the **pace code**, reading `0x02` at
    44.1 kHz, not a console generation.
+0b. `spec/reac.ksy` `commit_report_page.selector` — the S-4000's second arm is `0x80`, not the
+   predicted `0x83`, and the second arm is one constant shared with the S-1608.
+0c. `spec/reac.ksy` `chanmap_entry` — the value byte is not always `0x00` and the flags byte is
+   not only `0x28`/`0x38`: a box master writes value `0x20` and flags `0x18`/`0x30`.
+0d. `spec/reac.ksy` `scene_sysp.rest` — its last two bytes read `59 56` on a box master, which is
+   where `XVSCEN` comes from; there is no six-byte tag. `scene_body.map_b` is not always zero.
+0e. `wire-format.md` — the `0xc0 0xa8` pair is at +0x33c and +0x346 of the scene body, each an
+   IPv4 followed by a MAC; and a box master grants by echoing the joining box's three records,
+   normalising only the join value, with no head-amp sweep and no identity requests.
 1. `wire-format.md` — `XVSCEN` is refuted, by the reassembled-body search the paragraph itself
    names as the settling measurement.
 2. `wire-format.md` — the `SCENE` / `SYSPARAM` question inside the bulk data is settled: the tags
