@@ -1,0 +1,8 @@
+21:51:59 capture started on the mirror, VLAN 12, snaplen 512, /var/tmp. M-200 (00:40:ab:c9:cc:03) at 44.1 k is the master. Operator swaps the S-1608 (00:40:ab:c4:80:3b) out of VLAN 12 and plugs the S-4000 (00:40:ab:c4:06:80, from VLAN 13) in. Goal: ENROLL[8] at 44.1 k via the group map a console sends an 8/32-input box.
+21:53:54 operator starting the swap (VLAN 12 silent at this point: no M-200 broadcast seen; S-4000 still on VLAN 13).
+21:54:14 operator: swap done.
+21:56:18 FOUND: reac-pw re-adopted enp131s0.12 at 21:53:54 on a trunk rescan (triggered by the swap's link events on .13), and the REAC_ROLE_enp131s0.12=master pin drove it UP again (libreac reac_vlan_up sets IFF_UP on an adopted device). Our master served the S-1608 then the S-4000S on VLAN 12 for ~30 s. Took .12 DOWN again 21:54:25. Rescans are event-driven (the first run held .12 down for 2 h beside the M-200), so a bounce of the S-4000 alone will not re-raise it. The M-200 was NOT broadcasting on VLAN 12 during the swap (27 VLAN 12 frames at the rescan).
+22:14:38 operator: M-200 replugged.
+22:16:33 reac-pw STOPPED for this capture: on the M-200's replug the daemon re-adopted enp131s0.12 despite the admin-down, courted the M-200 as a SLAVE and was GRANTED (reac_slave ESTABLISHED at 22:0x:29); ip link down is undone on every hearing event. The daemon cannot yet tap a foreign master (tap role merged, not deployed). VLANs 11 and 13 are unserved while it is stopped.
+22:17:31 operator: S-4000 cable bounced (daemon stopped, VLAN 12 = M-200 + S-4000 only).
+22:18:43 capture stopped (60 s after the bounce); reac-pw started again: active.
