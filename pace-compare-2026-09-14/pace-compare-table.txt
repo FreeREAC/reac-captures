@@ -1,0 +1,60 @@
+pace_hist --self-test: 5 cases pass (perfect grid silent, 3 injected stalls all found, edges, mean/sd, overflow)
+== thread: preparing: true
+== thread: capturing 60 s on enp128s20f0u2
+== thread: done -> /var/tmp/pace-2026-09-14/thread
+== etf: preparing: /tmp/claude-1000/-home-pau-Devel-audio-openmixer/0c7500e7-e499-4b11-99ae-7bf409b78582/scratchpad/prepare-etf.sh
+ActiveState=active NRestarts=0 
+reac-pacer: slot-debt catch-up ON (8 slots = 1000 us at 8000 fps)
+reac-pacer: backend ETF — SO_TXTIME on CLOCK_TAI (kernel TAI offset 37 s), qdisc etf, lead 2500 us, launch grid exact at 8000 fps (125000 + 
+reac_pacer: SCHED_FIFO prio 45 (built-in) — below the PipeWire graph (driver 60, clients 55)
+reac-pacer: slot-debt catch-up ON (8 slots = 1000 us at 8000 fps)
+qdisc etf 8003: root refcnt 2 clockid TAI delta 300000 offload off deadline_mode off skip_sock_check on
+== etf: capturing 60 s on enp128s20f0u2
+== etf: done -> /var/tmp/pace-2026-09-14/etf
+
+pacer comparison -- /var/tmp/pace-2026-09-14, 8000 fps, 60 s window
+metric                                thread               etf
+-------------------------- ----------------- -----------------
+WIRE (mirror capture, one instrument, both arms)
+  frames                             1416984           1433159
+  span (s)                            59.043            59.795
+  packet rate (pps)                23999.051         23967.885
+  rate snapped (Hz)                      n/a               n/a
+  interval mean (us)                  41.668            41.722
+  interval sd (us)                    67.861            93.671
+  interval max (us)                 2337.000         77505.000
+  p50 (us)                                 0                 0
+  p99 (us)                               157               153
+  p99.9 (us)                             675               677
+  late >=1.5x /s                     73.4715           67.9991
+  late >=4x /s                       29.2497           29.1831
+  catch-up /s                     16162.1403        16131.8195
+TX DEVICE QDISC (what the kernel was actually doing with the launch time)
+    thread:    noqueue 0:
+    etf:       etf 8003:
+PACER (the arm's own telemetry -- a self-report, by construction)
+    thread:    line in the window
+    etf:       line in the window
+CPU over the window (100 jiffies = 1 s of one core on this kernel)
+  daemon process (jiffies)              1512              1473
+  system busy (jiffies)                23521             18145
+  system idle (jiffies)               117651            125455
+
+  The kernel arm's cadence runs in an hrtimer callback and appears in NO
+  process's counters: read its cost in the system row, never the process row.
+  A process row that fell to nearly nothing while the system row held is work
+  that moved, not work that vanished.
+
+  The ETF arm keeps its thread, so its process row should NOT fall much: what
+  moved there is the release instant, not the work. Its qdisc row is the row
+  that says whether it was an ETF measurement at all -- `etf` means the launch
+  times were honoured, anything else (`noqueue`, `fq_codel`, `-`) means every
+  SCM_TXTIME was stamped and thrown away and the arm measured the thread.
+
+  On a NIC without ETF hardware offload -- the desk's RTL8125 is one, no PHC,
+  software timestamping only -- the ETF arm measures the KERNEL's hrtimer
+  release. It cannot measure a hardware launch, and no row here should be read
+  as if it had.
+
+  Resolution: 1 us (classic pcap). A difference smaller than a microsecond is
+  below this instrument and must not be claimed from this table.

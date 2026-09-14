@@ -1,0 +1,6 @@
+arm=thread
+tcpdump_rc=0
+pid=3541156
+sys_busy_jiffies=23521
+sys_idle_jiffies=117651
+proc_jiffies=1512
