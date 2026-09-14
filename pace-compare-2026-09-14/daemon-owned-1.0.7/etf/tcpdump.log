@@ -1,0 +1,5 @@
+tcpdump: listening on enp131s0.12, link-type EN10MB (Ethernet), snapshot length 128 bytes
+Maximum file limit reached: 1
+952297 packets captured
+953511 packets received by filter
+0 packets dropped by kernel

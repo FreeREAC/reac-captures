@@ -43,3 +43,6 @@
 # 2026-09-13 incident; that regime is untested.
 # Note: the first loaded attempt ran at 2500 us by a script bug (drop-in written in single quotes) — kept
 # as the 2500 row above; its USB twin ran after the load had ended and was discarded.
+
+# ---- 2026-09-14 21:40, reac-pw 1.0.7-1 + libreac 1.1.3-1 as SHIPPED (etf default, qdisc installed by the daemon itself), PCI VLAN 12, unloaded ----
+# PCI etf, daemon-owned    2500      1.10    125  125  126   130      0.08         0.00        0.08      -
