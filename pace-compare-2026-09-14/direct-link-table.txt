@@ -26,3 +26,20 @@
 #    drops every frame without a launch time (USB thread arm first run: 0 packets, box lost its master
 #    for the window). The qdisc and the backend are one setting; never leave one without the other.
 # 2. `tc qdisc replace` fails on an existing etf qdisc ("Change operation not supported"); use del + add.
+
+# ---- Under desk load, 2026-09-14 20:03–20:10 (operator: "run the ETF arm under desk load with the 1 ms lead") ----
+# Load = a looped web-ui vitest run, 4 workers at nice 19, on the desk (load average 6–9 over the windows;
+# load-start.txt / load-end.txt in each arm dir). Same 2.etf build, etf backend, TX-device capture.
+#
+# arm                        lead_us  iv_sd_us  p50  p90  p99  p999  late>=1.5x/s  late>=4x/s  catch-up/s  load
+# PCI etf, loaded             2500      3.37    125  126  128   139      1.08         0.10        1.33      6.1→8.5
+# PCI etf, loaded             1000      4.17    125  126  128   142      1.88         0.10        2.44      7.2→8.5
+# USB etf, loaded             1000      4.52    125  126  128   143      2.20         0.12        2.97      8.5→9.3
+# (unloaded etf, same day: sd 1.9–2.7, late>=1.5x 0.45/s, catch-up ~0.5/s; unloaded THREAD: 27–37/s, 41–96/s)
+#
+# Reading: at 1 ms lead under load the ETF arm stays 15x better than the unloaded thread arm on every late
+# metric and p99.9 moves by ~10 us. Halving the lead from 2.5 ms to 1 ms costs ~1/s more late wakes under
+# this load; the lead is not the limiting factor at either value. Load here is ~8, not the 142 of the
+# 2026-09-13 incident; that regime is untested.
+# Note: the first loaded attempt ran at 2500 us by a script bug (drop-in written in single quotes) — kept
+# as the 2500 row above; its USB twin ran after the load had ended and was discarded.

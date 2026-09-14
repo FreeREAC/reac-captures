@@ -1,0 +1,2 @@
+lead_us=1000 tag=-load-lead1000
+ 20:07:21 up 4 days,  4:41,  7 users,  load average: 7.24, 6.11, 4.64

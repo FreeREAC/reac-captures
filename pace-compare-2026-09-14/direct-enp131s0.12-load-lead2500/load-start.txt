@@ -1,0 +1,2 @@
+lead_us=2500 (drop-in bug: literal, ran at 2500) tag=-load-lead2500
+ 20:03:07 up 4 days,  4:37,  7 users,  load average: 6.13, 4.07, 3.65
