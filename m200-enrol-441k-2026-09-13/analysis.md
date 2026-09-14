@@ -416,6 +416,85 @@ So the box waits on the master for the fixed part, and the master's own start is
 segment, and the capture cannot see the cable. The settling measurement is the same session with
 switch port-state transitions logged against the capture clock, or a per-cable inline tap.
 
+## 6. A desk arriving on a live segment — arbitration Q4
+
+`desk-arrival-q4-2026-09-14/desk-arrival-slice.pcap`, 270 594 records, VLAN 12, full frames,
+44.1 kHz (`cfea` pace `0x02`, chanmap `fe` marker `0x02`). The M-200 `c9:cc:03` was unplugged and
+replugged; the S-4000S-3208 `c4:08:bc` stayed linked to the switch throughout and **its cable was
+never touched**. Our `.12` was a tap — no frame of ours in the file.
+
+### What the box does when the desk vanishes
+
+Desk's last frame 1789372381.641620. The box then:
+
+- sends **one** link-4 record, `tag 0100` `06 00 01 00`, at 1789372381.729980 — **+88.4 ms**;
+- sends nothing else: its op-`0x81` heartbeat stopped with the desk (last one 1789372381.271741)
+  and no control frame leaves it for the rest of the gap;
+- **keeps streaming**, 20 690 frames of full-width 1204-byte (32-channel) upstream audio, for
+  **5.629 s**;
+- then stops dead at 1789372387.270965 and is silent for 6.958 s.
+
+So the master-loss timeout is 5.629 s of carrying audio into a void, one re-assert record at the
+moment of loss, and then silence. It never bounces its own link and never cold-connects.
+
+### What the returning desk sends, and what wakes the box
+
+| t | who | frame |
+|---|---|---|
+| 1789372390.849028 | desk | first frame back — **filler** |
+| 1789372390.869148 | desk | **`cfea` announce**, `box_in_width 0x08`, `box_count 0x0000`, pace `0x02` (+20.1 ms) |
+| 1789372390.850151 – 391.526032 | desk | 338 scene MIDDLE chunks and a LAST — **with no FIRST**: the tail of a transfer it began while unplugged |
+| 1789372393.537566 – 394.220840 | desk | **one complete scene transfer**: FIRST declaring `0x22c8`, 341 chunks, LAST |
+| 1789372394.229195 | box | **first frame back**, +8.355 ms after that LAST |
+| 1789372394.229741 | box | its **state-4 commit report** `cdea 01 03 0010 84 …`, +0.55 ms later |
+| 1789372394.439302 | desk | the **ENROLL group map** `04 02 41 41 41 41 …`, +209.6 ms after the commit report |
+| 1789372395.927676 | box | its `cdea 04 03` burst: join `06 00 03 00`, head mark, box-ready (+1.489 s) |
+| 1789372397.433060 | desk | the **grant** `06 00 01 00`, then 103 more records (+1.505 s) |
+| 1789372397.442494 | box | its two `0500` identity answers |
+
+**A completed scene transfer is what captures an already-linked box, and the capture carries its
+own negative control.** The desk's first push after returning is missing its FIRST frame and the
+box does not answer it; the next push is complete and the box is transmitting 8.4 ms after its
+last chunk, with the PHY never having bounced. That is arbitration Q4 answered in the
+affirmative.
+
+**The box's first frame is a commit report, not a cold connect.** Its `cdea 04 03` records come
+1.698 s later, and only after the desk's ENROLL group map. A master that waits for a `04 03`
+JOIN from a warm box waits for something the box will not send first.
+
+**The ENROLL group map is what opens the box's upstream to full width.** Back on the wire the
+S-4000S sends 774 frames of 340-byte (`52 + 8 × 36`, 8-channel) upstream, from 1789372394.229195
+to 1789372394.439459 — and its first 1204-byte (32-channel) frame is at 1789372394.442304,
+**3.0 ms after the group map** at 1789372394.439302. The group map has a measured function, not
+only a shape.
+
+### Against reac-pw's master
+
+`libreac src/reac_master.c` enters PROBING on the first pacer slot and its comment states the
+premise this capture refutes: *"a master that waits for 'presence' deadlocks against a box whose
+PHY never bounced (§13b: the box only cold-connects on a real link-down/up)"*. **A box whose PHY
+never bounced rejoined here in 3.380 s**, and it did not cold-connect — it commit-reported. The
+`§13b` premise is false, so the honest surface in the arbitration spec's §3b ("bounce its link")
+and the daemon's `rx_box_frames=0` advice are both describing a limitation of our push, not of
+the box.
+
+The FSM is not the gap: `EDGE[REAC_M_PROBING][REAC_M_EV_CONFIG_EARLY]` already takes the warm
+relink, and `control_cadence`'s HUNT branch already emits HEAD → 341 chunks → TAIL at a
+`probe_stride` of `fps/500` (7 slots at 44.1 kHz, against the desk's measured 7.36). What a
+libreac lane now has is a reference to prove our push against, on the wire, with a box that is
+linked and silent:
+
+1. push while no box is known — announce `box_count=0`, `box_in_width=0x08`;
+2. the push must **complete** — FIRST declaring `0x22c8`, 341 chunks, LAST. An interrupted push
+   is measured here to produce nothing at all;
+3. expect the answer as a **config announce** within ~10 ms of the LAST, not a `04 03` JOIN;
+4. answer it with the **ENROLL group map within ~210 ms** — that is what widens the box's
+   upstream and what precedes its JOIN by 1.489 s;
+5. grant ~1.505 s after the JOIN burst.
+
+The pass/fail for that lane is `rx_box_frames > 0` with no cable touched, and the first box frame
+inside ~10 ms of a completed push.
+
 ## What this changes in the published description
 
 0. `spec/reac.ksy` `enroll_page.console_field` — it is the **pace code**, reading `0x02` at
@@ -429,6 +508,11 @@ switch port-state transitions logged against the capture clock, or a per-cable i
 0e. `wire-format.md` — the `0xc0 0xa8` pair is at +0x33c and +0x346 of the scene body, each an
    IPv4 followed by a MAC; and a box master grants by echoing the joining box's three records,
    normalising only the join value, with no head-amp sweep and no identity requests.
+0f. `spec/reac.ksy` `enroll_page` — the group map has a measured function: the box's upstream
+   goes from 8-channel to its declared 32 within 3.0 ms of receiving it.
+0g. A desk captures an already-linked box with no PHY bounce, and the trigger is a COMPLETED
+   scene transfer; the box answers with its commit report, not a cold connect. This answers
+   `openmixer docs/design/specs/2026-08-20-reac-master-arbitration.md` §6 Q4.
 1. `wire-format.md` — `XVSCEN` is refuted, by the reassembled-body search the paragraph itself
    names as the settling measurement.
 2. `wire-format.md` — the `SCENE` / `SYSPARAM` question inside the bulk data is settled: the tags
