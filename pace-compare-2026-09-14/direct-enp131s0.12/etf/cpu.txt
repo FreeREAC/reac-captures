@@ -1,0 +1,6 @@
+arm=etf
+tcpdump_rc=0
+pid=330114
+sys_busy_jiffies=19820
+sys_idle_jiffies=122623
+proc_jiffies=1275

@@ -1,0 +1,7 @@
+# pace_hist: resolution 1 us (classic pcap); nominal given
+# 952344 records were snaplen-truncated; timing unaffected
+src=34:5a:60:9f:9e:be frames=476165 span_s=59.522 pps=7999.834 rate_hz=96000
+  iv_mean_us=125.003 iv_min_us=0.000 iv_max_us=1264.000 iv_sd_us=2.661
+  p50_us=125 p90_us=125 p99_us=127 p999_us=136
+  nominal_us=125.000 late1p5=27 late2x=15 late4x=2 catchup=33
+  late1p5_ps=0.4536 late4x_ps=0.0336 catchup_ps=0.5544

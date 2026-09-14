@@ -1,0 +1,28 @@
+# Fair pacer comparison, 2026-09-14 evening — captured on the TX device, never the mirror.
+# Same build for every arm: libreac 1.1.2-2.etf + reac-pw 1.0.6-2.etf (lane/etf-pacing b6cfd93 =
+# main 1.0.6 incl. the #102 trunk fix + the pacer knob). thread = REACPW_PACER unset;
+# etf = REACPW_PACER=etf, LEAD_US=2500, `tc qdisc add dev X root etf clockid CLOCK_TAI delta 300000
+# skip_sock_check`. Both NICs software-only (no PHC): the etf arm measures the kernel hrtimer release.
+# Instrument: tools/pace_hist (1 us pcap resolution), --fps 8000, 60 s windows, one S-4000S-3208 per link.
+# PCI = enp131s0.12 (VLAN device on the RTL8125 trunk through the switch; the tap fires after that
+# device's qdisc, so after the ETF release; the parent NIC's own queue is common to both arms).
+# USB = enp128s20f0u2 (Realtek USB NIC, direct cable to the box).
+#
+# arm            iv_sd_us  p50  p90  p99  p999  late>=1.5x/s  late>=4x/s  catch-up/s  process jiffies
+# PCI thread        28.51  125  126  134   595      36.95        13.41       96.27        1612
+# PCI etf            2.66  125  125  127   136       0.45         0.03        0.55        1275
+# USB thread        15.29  125  126  131   308      27.01         2.34       41.31           -
+# USB etf            1.89  125  126  128   131       0.44         0.00        0.49           -
+# (USB thread control on the published 1.0.6-1, earlier today, direct-link-thread.txt:
+#  sd 17.17, p99 131, p999 338, late>=1.5x 29.77/s, late>=4x 3.36/s, catch-up 49.55/s — consistent.)
+#
+# Reading: the ETF release grid cuts the interval spread ~10x on both NICs and removes the late/catch-up
+# population almost entirely (0.45/s vs 27–37/s), while the daemon's own CPU does not rise. The earlier
+# mirror-side comparison (pace-compare-table.txt) that showed thread ≈ etf was measuring the mirror,
+# not the transmitter.
+#
+# Two hazards found while running it (both operational, both go in docs/ETF-PACING.md):
+# 1. A thread-backend daemon under a leftover etf qdisc transmits NOTHING: with skip_sock_check the qdisc
+#    drops every frame without a launch time (USB thread arm first run: 0 packets, box lost its master
+#    for the window). The qdisc and the backend are one setting; never leave one without the other.
+# 2. `tc qdisc replace` fails on an existing etf qdisc ("Change operation not supported"); use del + add.
