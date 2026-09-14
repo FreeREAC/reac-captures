@@ -1,0 +1,1008 @@
+== 2026-09-14T00:17:04 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:20:13 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:23:22 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:26:31 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:29:40 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:32:49 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:36:02 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:39:11 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:42:20 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:45:29 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:48:38 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:51:47 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:54:56 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T00:58:05 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:01:14 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:04:23 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:07:32 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:10:41 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:13:50 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:16:59 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:20:08 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:23:17 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:26:25 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:29:34 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:32:43 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:35:52 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:39:01 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:42:10 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:45:19 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:48:28 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:51:37 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:54:46 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T01:57:55 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:01:04 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:04:13 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:07:22 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:10:31 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:13:40 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:16:49 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:19:58 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:23:07 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:26:16 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:29:25 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:32:34 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:35:43 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:38:52 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:42:01 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:45:10 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:48:19 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:51:28 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:54:37 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T02:57:46 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:00:55 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:04:04 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:07:12 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:10:21 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:13:30 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:16:39 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:19:48 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:22:57 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:26:06 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:29:15 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:32:24 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:35:33 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:38:42 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:41:51 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:45:00 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:48:09 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:51:18 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:54:27 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T03:57:36 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:00:45 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:03:54 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:07:03 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:10:12 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:13:21 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:16:30 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:19:39 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:22:48 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:25:57 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:29:06 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:32:15 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:35:24 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:38:33 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:41:42 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:44:50 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:47:59 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:51:08 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:54:17 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T04:57:26 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:00:35 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:03:44 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:06:53 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:10:02 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:13:11 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:16:20 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:19:29 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:22:38 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:25:47 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:28:56 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:32:05 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:35:14 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:38:23 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:41:32 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:44:41 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:47:50 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:50:59 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:54:08 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T05:57:17 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:00:26 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:03:35 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:06:44 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:09:53 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:13:02 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:16:11 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:19:20 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:22:29 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:25:37 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:28:46 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:31:55 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:35:04 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:38:13 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:41:22 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:44:31 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:47:40 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:50:49 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:53:58 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T06:57:07 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:00:16 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:03:25 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:06:34 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:09:43 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:12:52 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:16:01 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:19:10 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:22:19 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:25:28 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:28:37 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:31:46 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:34:55 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:38:04 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:41:13 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:44:22 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:47:31 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:50:40 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:53:49 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T07:56:58 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:00:07 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:03:15 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:06:24 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:09:33 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:12:42 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:15:51 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:19:04 /var/tmp/reac-captures-run2/ha.pcap13
+180.553536 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=phantom value=0x01 seg=3 ctr=17932 cap=124 orig=1498 TRUNC vid=12
+180.553775 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=17933 cap=124 orig=1498 TRUNC vid=12
+180.554073 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=17934 cap=124 orig=1498 TRUNC vid=12
+180.563293 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=phantom value=0x01 seg=3 ctr=17968 cap=124 orig=1498 TRUNC vid=12
+180.563544 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=17969 cap=124 orig=1496 TRUNC vid=12
+180.563816 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x0d seg=3 ctr=17970 cap=124 orig=1496 TRUNC vid=12
+180.573401 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=phantom value=0x01 seg=3 ctr=18005 cap=124 orig=1498 TRUNC vid=12
+180.573633 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=18006 cap=124 orig=1498 TRUNC vid=12
+180.573905 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x23 seg=3 ctr=18007 cap=124 orig=1498 TRUNC vid=12
+180.583428 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=phantom value=0x00 seg=3 ctr=18042 cap=124 orig=1498 TRUNC vid=12
+180.583676 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=18043 cap=124 orig=1496 TRUNC vid=12
+180.584025 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x12 seg=3 ctr=18044 cap=124 orig=1498 TRUNC vid=12
+180.593538 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=phantom value=0x01 seg=3 ctr=18079 cap=124 orig=1498 TRUNC vid=12
+180.593777 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=18080 cap=124 orig=1498 TRUNC vid=12
+180.594076 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x0c seg=3 ctr=18081 cap=124 orig=1498 TRUNC vid=12
+180.603294 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=phantom value=0x01 seg=3 ctr=18115 cap=124 orig=1498 TRUNC vid=12
+180.603557 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=18116 cap=124 orig=1496 TRUNC vid=12
+180.603809 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x00 seg=3 ctr=18117 cap=124 orig=1496 TRUNC vid=12
+180.613436 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=phantom value=0x01 seg=3 ctr=18152 cap=124 orig=1498 TRUNC vid=12
+180.613633 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=18153 cap=124 orig=1498 TRUNC vid=12
+180.613925 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x26 seg=3 ctr=18154 cap=124 orig=1498 TRUNC vid=12
+180.623454 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=phantom value=0x01 seg=3 ctr=18189 cap=124 orig=1498 TRUNC vid=12
+180.623675 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=18190 cap=124 orig=1496 TRUNC vid=12
+180.624025 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x16 seg=3 ctr=18191 cap=124 orig=1498 TRUNC vid=12
+180.633237 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=phantom value=0x01 seg=3 ctr=18225 cap=124 orig=1496 TRUNC vid=12
+180.633539 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x01 seg=3 ctr=18226 cap=124 orig=1498 TRUNC vid=12
+180.633779 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x1a seg=3 ctr=18227 cap=124 orig=1498 TRUNC vid=12
+180.643565 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=phantom value=0x01 seg=3 ctr=18263 cap=124 orig=1498 TRUNC vid=12
+180.643814 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=18264 cap=124 orig=1496 TRUNC vid=12
+180.644150 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x00 seg=3 ctr=18265 cap=124 orig=1498 TRUNC vid=12
+180.653409 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=phantom value=0x00 seg=3 ctr=18299 cap=124 orig=1498 TRUNC vid=12
+180.653633 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=18300 cap=124 orig=1498 TRUNC vid=12
+180.653907 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x0f seg=3 ctr=18301 cap=124 orig=1498 TRUNC vid=12
+180.663427 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=phantom value=0x01 seg=3 ctr=18336 cap=124 orig=1498 TRUNC vid=12
+180.663675 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=18337 cap=124 orig=1496 TRUNC vid=12
+180.663958 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x04 seg=3 ctr=18338 cap=124 orig=1496 TRUNC vid=12
+180.673547 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=phantom value=0x00 seg=3 ctr=18373 cap=124 orig=1498 TRUNC vid=12
+180.673771 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=18374 cap=124 orig=1498 TRUNC vid=12
+180.674056 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x0e seg=3 ctr=18375 cap=124 orig=1498 TRUNC vid=12
+180.683293 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=phantom value=0x01 seg=3 ctr=18409 cap=124 orig=1498 TRUNC vid=12
+180.683564 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=18410 cap=124 orig=1498 TRUNC vid=12
+180.683812 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x00 seg=3 ctr=18411 cap=124 orig=1496 TRUNC vid=12
+180.693422 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=phantom value=0x01 seg=3 ctr=18446 cap=124 orig=1498 TRUNC vid=12
+180.693675 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=18447 cap=124 orig=1498 TRUNC vid=12
+180.693918 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x09 seg=3 ctr=18448 cap=124 orig=1498 TRUNC vid=12
+180.703451 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=phantom value=0x01 seg=3 ctr=18483 cap=124 orig=1498 TRUNC vid=12
+180.703683 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=18484 cap=124 orig=1496 TRUNC vid=12
+180.703972 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x0a seg=3 ctr=18485 cap=124 orig=1496 TRUNC vid=12
+180.713200 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=phantom value=0x00 seg=3 ctr=18519 cap=124 orig=1496 TRUNC vid=12
+180.713540 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=pad     value=0x00 seg=3 ctr=18520 cap=124 orig=1498 TRUNC vid=12
+180.713774 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=sens    value=0x00 seg=3 ctr=18521 cap=124 orig=1498 TRUNC vid=12
+180.723297 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=phantom value=0x00 seg=3 ctr=18556 cap=124 orig=1498 TRUNC vid=12
+180.723568 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=pad     value=0x00 seg=3 ctr=18557 cap=124 orig=1498 TRUNC vid=12
+180.723813 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=sens    value=0x15 seg=3 ctr=18558 cap=124 orig=1496 TRUNC vid=12
+180.733413 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=phantom value=0x00 seg=3 ctr=18593 cap=124 orig=1498 TRUNC vid=12
+180.733792 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=pad     value=0x00 seg=3 ctr=18594 cap=124 orig=1498 TRUNC vid=12
+180.733919 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=sens    value=0x14 seg=3 ctr=18595 cap=124 orig=1498 TRUNC vid=12
+180.743430 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=phantom value=0x00 seg=3 ctr=18630 cap=124 orig=1498 TRUNC vid=12
+180.743688 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=pad     value=0x00 seg=3 ctr=18631 cap=124 orig=1496 TRUNC vid=12
+180.743971 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=sens    value=0x12 seg=3 ctr=18632 cap=124 orig=1496 TRUNC vid=12
+180.753552 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=phantom value=0x00 seg=3 ctr=18667 cap=124 orig=1498 TRUNC vid=12
+180.753771 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=pad     value=0x00 seg=3 ctr=18668 cap=124 orig=1498 TRUNC vid=12
+180.754047 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=sens    value=0x12 seg=3 ctr=18669 cap=124 orig=1498 TRUNC vid=12
+180.763567 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=phantom value=0x00 seg=3 ctr=18704 cap=124 orig=1498 TRUNC vid=12
+180.763812 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=pad     value=0x00 seg=3 ctr=18705 cap=124 orig=1496 TRUNC vid=12
+180.764156 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=sens    value=0x13 seg=3 ctr=18706 cap=124 orig=1498 TRUNC vid=12
+180.773427 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=phantom value=0x00 seg=3 ctr=18740 cap=124 orig=1498 TRUNC vid=12
+180.773680 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=pad     value=0x00 seg=3 ctr=18741 cap=124 orig=1498 TRUNC vid=12
+180.773925 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=sens    value=0x12 seg=3 ctr=18742 cap=124 orig=1498 TRUNC vid=12
+180.783448 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=phantom value=0x00 seg=3 ctr=18777 cap=124 orig=1498 TRUNC vid=12
+180.783687 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=pad     value=0x00 seg=3 ctr=18778 cap=124 orig=1496 TRUNC vid=12
+180.784023 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=sens    value=0x13 seg=3 ctr=18779 cap=124 orig=1498 TRUNC vid=12
+180.793542 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=phantom value=0x00 seg=3 ctr=18814 cap=124 orig=1498 TRUNC vid=12
+180.793773 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=pad     value=0x00 seg=3 ctr=18815 cap=124 orig=1498 TRUNC vid=12
+180.794067 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=sens    value=0x00 seg=3 ctr=18816 cap=124 orig=1498 TRUNC vid=12
+180.803298 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=phantom value=0x00 seg=3 ctr=18850 cap=124 orig=1498 TRUNC vid=12
+180.803567 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=pad     value=0x00 seg=3 ctr=18851 cap=124 orig=1496 TRUNC vid=12
+180.803815 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=sens    value=0x00 seg=3 ctr=18852 cap=124 orig=1496 TRUNC vid=12
+180.813678 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=phantom value=0x00 seg=3 ctr=18888 cap=124 orig=1498 TRUNC vid=12
+180.813909 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=pad     value=0x00 seg=3 ctr=18889 cap=124 orig=1498 TRUNC vid=12
+180.814190 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=sens    value=0x00 seg=3 ctr=18890 cap=124 orig=1498 TRUNC vid=12
+180.823435 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=phantom value=0x00 seg=3 ctr=18924 cap=124 orig=1498 TRUNC vid=12
+180.823691 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=pad     value=0x00 seg=3 ctr=18925 cap=124 orig=1496 TRUNC vid=12
+180.824039 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=sens    value=0x00 seg=3 ctr=18926 cap=124 orig=1498 TRUNC vid=12
+180.833545 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=phantom value=0x00 seg=3 ctr=18961 cap=124 orig=1498 TRUNC vid=12
+180.833800 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=pad     value=0x00 seg=3 ctr=18962 cap=124 orig=1498 TRUNC vid=12
+180.834056 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=sens    value=0x00 seg=3 ctr=18963 cap=124 orig=1498 TRUNC vid=12
+180.843573 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=phantom value=0x00 seg=3 ctr=18998 cap=124 orig=1496 TRUNC vid=12
+180.843814 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=pad     value=0x00 seg=3 ctr=18999 cap=124 orig=1496 TRUNC vid=12
+180.844155 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=sens    value=0x00 seg=3 ctr=19000 cap=124 orig=1498 TRUNC vid=12
+180.853437 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=phantom value=0x00 seg=3 ctr=19034 cap=124 orig=1498 TRUNC vid=12
+180headamp_trace: records=1388889 reac=1388888 headamp=96 fragments=0 grants=13 short_of_block=0 bad_record_cksum=0
+.853679 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=pad     value=0x00 seg=3 ctr=19035 cap=124 orig=1498 TRUNC vid=12
+180.853929 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=sens    value=0x00 seg=3 ctr=19036 cap=124 orig=1498 TRUNC vid=12
+180.863458 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=phantom value=0x00 seg=3 ctr=19071 cap=124 orig=1498 TRUNC vid=12
+180.863685 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=pad     value=0x00 seg=3 ctr=19072 cap=124 orig=1496 TRUNC vid=12
+180.864031 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=sens    value=0x00 seg=3 ctr=19073 cap=124 orig=1498 TRUNC vid=12
+== 2026-09-14T08:22:13 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:25:22 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:28:31 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:31:40 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:34:49 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:37:58 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:41:07 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:44:16 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:47:25 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:50:34 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:53:43 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T08:56:52 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:00:01 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:03:10 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:06:19 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:09:28 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:12:37 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:15:46 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:18:55 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:22:04 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:25:13 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:28:22 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:31:31 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:34:40 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:37:49 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:40:58 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:44:07 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:47:16 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:50:24 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T09:53:42 /var/tmp/reac-captures-run2/ha.pcap03
+172.559943 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=phantom value=0x01 seg=3 ctr=60449 cap=124 orig=1498 TRUNC vid=12
+172.559946 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=60450 cap=124 orig=1498 TRUNC vid=12
+172.559950 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=60451 cap=124 orig=1498 TRUNC vid=12
+172.568511 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=phantom value=0x01 seg=3 ctr=60483 cap=124 orig=1498 TRUNC vid=12
+172.568742 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=60484 cap=124 orig=1498 TRUNC vid=12
+172.569015 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x0d seg=3 ctr=60485 cap=124 orig=1498 TRUNC vid=12
+172.578268 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=phantom value=0x01 seg=3 ctr=60519 cap=124 orig=1498 TRUNC vid=12
+172.578534 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=60520 cap=124 orig=1496 TRUNC vid=12
+172.578788 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x23 seg=3 ctr=60521 cap=124 orig=1496 TRUNC vid=12
+172.588387 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=phantom value=0x00 seg=3 ctr=60556 cap=124 orig=1498 TRUNC vid=12
+172.588661 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=60557 cap=124 orig=1498 TRUNC vid=12
+172.588890 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x12 seg=3 ctr=60558 cap=124 orig=1498 TRUNC vid=12
+172.598406 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=phantom value=0x01 seg=3 ctr=60593 cap=124 orig=1498 TRUNC vid=12
+172.598660 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=60594 cap=124 orig=1496 TRUNC vid=12
+172.598921 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x0c seg=3 ctr=60595 cap=124 orig=1496 TRUNC vid=12
+172.608512 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=phantom value=0x01 seg=3 ctr=60630 cap=124 orig=1498 TRUNC vid=12
+172.608744 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=60631 cap=124 orig=1498 TRUNC vid=12
+172.609026 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x00 seg=3 ctr=60632 cap=124 orig=1498 TRUNC vid=12
+172.618270 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=phantom value=0x01 seg=3 ctr=60666 cap=124 orig=1498 TRUNC vid=12
+172.618534 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=60667 cap=124 orig=1496 TRUNC vid=12
+172.618790 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x26 seg=3 ctr=60668 cap=124 orig=1496 TRUNC vid=12
+172.628388 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=phantom value=0x01 seg=3 ctr=60703 cap=124 orig=1498 TRUNC vid=12
+172.628661 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=60704 cap=124 orig=1498 TRUNC vid=12
+172.628896 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x16 seg=3 ctr=60705 cap=124 orig=1498 TRUNC vid=12
+172.638136 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=phantom value=0x01 seg=3 ctr=60739 cap=124 orig=1498 TRUNC vid=12
+172.638410 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x01 seg=3 ctr=60740 cap=124 orig=1498 TRUNC vid=12
+172.638661 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x1a seg=3 ctr=60741 cap=124 orig=1496 TRUNC vid=12
+172.648249 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=phantom value=0x01 seg=3 ctr=60776 cap=124 orig=1498 TRUNC vid=12
+172.648515 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=60777 cap=124 orig=1498 TRUNC vid=12
+172.648745 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x00 seg=3 ctr=60778 cap=124 orig=1498 TRUNC vid=12
+172.658268 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=phantom value=0x00 seg=3 ctr=60813 cap=124 orig=1498 TRUNC vid=12
+172.658537 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=60814 cap=124 orig=1498 TRUNC vid=12
+172.658787 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x0f seg=3 ctr=60815 cap=124 orig=1496 TRUNC vid=12
+172.668387 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=phantom value=0x01 seg=3 ctr=60850 cap=124 orig=1498 TRUNC vid=12
+172.668653 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=60851 cap=124 orig=1498 TRUNC vid=12
+172.668887 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x04 seg=3 ctr=60852 cap=124 orig=1498 TRUNC vid=12
+172.678409 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=phantom value=0x00 seg=3 ctr=60887 cap=124 orig=1498 TRUNC vid=12
+172.678663 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=60888 cap=124 orig=1496 TRUNC vid=12
+172.678923 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x0e seg=3 ctr=60889 cap=124 orig=1496 TRUNC vid=12
+172.688514 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=phantom value=0x01 seg=3 ctr=60924 cap=124 orig=1498 TRUNC vid=12
+172.688747 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=60925 cap=124 orig=1498 TRUNC vid=12
+172.689017 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x00 seg=3 ctr=60926 cap=124 orig=1498 TRUNC vid=12
+172.698271 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=phantom value=0x01 seg=3 ctr=60960 cap=124 orig=1498 TRUNC vid=12
+172.698536 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=60961 cap=124 orig=1498 TRUNC vid=12
+172.698795 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x09 seg=3 ctr=60962 cap=124 orig=1496 TRUNC vid=12
+172.708654 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=phantom value=0x01 seg=3 ctr=60998 cap=124 orig=1498 TRUNC vid=12
+172.709045 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=60999 cap=124 orig=1498 TRUNC vid=12
+172.709160 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x0a seg=3 ctr=61000 cap=124 orig=1498 TRUNC vid=12
+172.718411 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=phantom value=0x00 seg=3 ctr=61034 cap=124 orig=1498 TRUNC vid=12
+172.718662 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=pad     value=0x00 seg=3 ctr=61035 cap=124 orig=1496 TRUNC vid=12
+172.718924 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x10 param=sens    value=0x00 seg=3 ctr=61036 cap=124 orig=1496 TRUNC vid=12
+172.728515 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=phantom value=0x00 seg=3 ctr=61071 cap=124 orig=1498 TRUNC vid=12
+172.728747 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=pad     value=0x00 seg=3 ctr=61072 cap=124 orig=1498 TRUNC vid=12
+172.729021 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x11 param=sens    value=0x15 seg=3 ctr=61073 cap=124 orig=1498 TRUNC vid=12
+172.738538 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=phantom value=0x00 seg=3 ctr=61108 cap=124 orig=1498 TRUNC vid=12
+172.738793 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=pad     value=0x00 seg=3 ctr=61109 cap=124 orig=1496 TRUNC vid=12
+172.739126 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x12 param=sens    value=0x14 seg=3 ctr=61110 cap=124 orig=1498 TRUNC vid=12
+172.748389 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=phantom value=0x00 seg=3 ctr=61144 cap=124 orig=1498 TRUNC vid=12
+172.748655 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=pad     value=0x00 seg=3 ctr=61145 cap=124 orig=1498 TRUNC vid=12
+172.748893 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x13 param=sens    value=0x12 seg=3 ctr=61146 cap=124 orig=1498 TRUNC vid=12
+172.758412 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=phantom value=0x00 seg=3 ctr=61181 cap=124 orig=1498 TRUNC vid=12
+172.758676 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=pad     value=0x00 seg=3 ctr=61182 cap=124 orig=1496 TRUNC vid=12
+172.760014 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x14 param=sens    value=0x12 seg=3 ctr=61183 cap=124 orig=1496 TRUNC vid=12
+172.768246 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=phantom value=0x00 seg=3 ctr=61217 cap=124 orig=1498 TRUNC vid=12
+172.768522 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=pad     value=0x00 seg=3 ctr=61218 cap=124 orig=1498 TRUNC vid=12
+172.768749 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x15 param=sens    value=0x13 seg=3 ctr=61219 cap=124 orig=1498 TRUNC vid=12
+172.778273 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=phantom value=0x00 seg=3 ctr=61254 cap=124 orig=1498 TRUNC vid=12
+172.778548 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=pad     value=0x00 seg=3 ctr=61255 cap=124 orig=1498 TRUNC vid=12
+172.778797 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x16 param=sens    value=0x12 seg=3 ctr=61256 cap=124 orig=1496 TRUNC vid=12
+172.788389 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=phantom value=0x00 seg=3 ctr=61291 cap=124 orig=1498 TRUNC vid=12
+172.788655 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=pad     value=0x00 seg=3 ctr=61292 cap=124 orig=1498 TRUNC vid=12
+172.788895 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x17 param=sens    value=0x13 seg=3 ctr=61293 cap=124 orig=1498 TRUNC vid=12
+172.798421 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=phantom value=0x00 seg=3 ctr=61328 cap=124 orig=1498 TRUNC vid=12
+172.798665 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=pad     value=0x00 seg=3 ctr=61329 cap=124 orig=1496 TRUNC vid=12
+172.798925 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x18 param=sens    value=0x00 seg=3 ctr=61330 cap=124 orig=1496 TRUNC vid=12
+172.808517 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=phantom value=0x00 seg=3 ctr=61365 cap=124 orig=1498 TRUNC vid=12
+172.808750 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=pad     value=0x00 seg=3 ctr=61366 cap=124 orig=1498 TRUNC vid=12
+172.809106 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x19 param=sens    value=0x00 seg=3 ctr=61367 cap=124 orig=1498 TRUNC vid=12
+172.818553 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=phantom value=0x00 seg=3 ctr=61402 cap=124 orig=1498 TRUNC vid=12
+172.818792 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=pad     value=0x00 seg=3 ctr=61403 cap=124 orig=1496 TRUNC vid=12
+172.819130 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1a param=sens    value=0x00 seg=3 ctr=61404 cap=124 orig=1498 TRUNC vid=12
+172.828388 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=phantom value=0x00 seg=3 ctr=61438 cap=124 orig=1498 TRUNC vid=12
+172.828655 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=pad     value=0x00 seg=3 ctr=61439 cap=124 orig=1498 TRUNC vid=12
+172.828896 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1b param=sens    value=0x00 seg=3 ctr=61440 cap=124 orig=1498 TRUNC vid=12
+172.838411 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=phantom value=0x00 seg=3 ctr=61475 cap=124 orig=1498 TRUNC vid=12
+172.838679 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=pad     value=0x00 seg=3 ctr=61476 cap=124 orig=1496 TRUNC vid=12
+172.838925 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1c param=sens    value=0x00 seg=3 ctr=61477 cap=124 orig=1496 TRUNC vid=12
+172.848213 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=phantom value=0x00 seg=3 ctr=61511 cap=124 orig=1496 TRUNC vid=12
+172.848522 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=pad     value=0x00 seg=3 ctr=61512 cap=124 orig=1498 TRUNC vid=12
+172.848751 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1d param=sens    value=0x00 seg=3 ctr=61513 cap=124 orig=1498 TRUNC vid=12
+172.858277 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=phantom value=0x00 seg=3 ctr=61548 cap=124 orig=1498 TRUNC vid=12
+172headamp_trace: records=1388889 reac=1388888 headamp=96 fragments=0 grants=14 short_of_block=0 bad_record_cksum=0
+.858552 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=pad     value=0x00 seg=3 ctr=61549 cap=124 orig=1498 TRUNC vid=12
+172.858797 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1e param=sens    value=0x00 seg=3 ctr=61550 cap=124 orig=1496 TRUNC vid=12
+172.868662 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=phantom value=0x00 seg=3 ctr=61586 cap=124 orig=1498 TRUNC vid=12
+172.868903 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=pad     value=0x00 seg=3 ctr=61587 cap=124 orig=1498 TRUNC vid=12
+172.869169 src=00:40:ab:c9:cc:03 dst=ff:ff:ff:ff:ff:ff ch=0x1f param=sens    value=0x00 seg=3 ctr=61588 cap=124 orig=1498 TRUNC vid=12
+== 2026-09-14T09:56:51 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:00:00 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:03:09 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:06:18 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:09:26 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:12:35 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:15:44 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:18:53 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:22:02 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:25:11 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:28:20 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:31:29 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:34:38 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:37:47 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:40:54 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=5 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:44:03 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:47:12 /var/tmp/reac-captures-run2/ha.pcap00
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:50:21 /var/tmp/reac-captures-run2/ha.pcap01
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:53:30 /var/tmp/reac-captures-run2/ha.pcap02
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:56:39 /var/tmp/reac-captures-run2/ha.pcap03
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T10:59:48 /var/tmp/reac-captures-run2/ha.pcap04
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:02:57 /var/tmp/reac-captures-run2/ha.pcap05
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:06:06 /var/tmp/reac-captures-run2/ha.pcap06
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:09:15 /var/tmp/reac-captures-run2/ha.pcap07
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:12:24 /var/tmp/reac-captures-run2/ha.pcap08
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:15:33 /var/tmp/reac-captures-run2/ha.pcap09
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:18:42 /var/tmp/reac-captures-run2/ha.pcap10
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:21:51 /var/tmp/reac-captures-run2/ha.pcap11
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:24:59 /var/tmp/reac-captures-run2/ha.pcap12
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:28:08 /var/tmp/reac-captures-run2/ha.pcap13
+headamp_trace: records=1388889 reac=1388888 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:31:17 /var/tmp/reac-captures-run2/ha.pcap14
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:34:26 /var/tmp/reac-captures-run2/ha.pcap15
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:37:35 /var/tmp/reac-captures-run2/ha.pcap16
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:40:44 /var/tmp/reac-captures-run2/ha.pcap17
+headamp_trace: records=1388890 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:43:53 /var/tmp/reac-captures-run2/ha.pcap18
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:47:02 /var/tmp/reac-captures-run2/ha.pcap19
+headamp_trace: records=1388889 reac=1388889 headamp=0 fragments=0 grants=0 short_of_block=0 bad_record_cksum=0
+== 2026-09-14T11:50:13 /var/tmp/reac-captures-run2/ha.pcap00
+149.835786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=phantom value=0x00 seg=3 ctr=5952 cap=124 orig=1496 TRUNC vid=12
+149.837287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=5964 cap=124 orig=1496 TRUNC vid=12
+149.838780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=5976 cap=124 orig=1496 TRUNC vid=12
+149.850786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=phantom value=0x00 seg=3 ctr=6072 cap=124 orig=1496 TRUNC vid=12
+149.852283 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=6084 cap=124 orig=1496 TRUNC vid=12
+149.853785 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=6096 cap=124 orig=1496 TRUNC vid=12
+149.855293 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=phantom value=0x00 seg=3 ctr=6108 cap=124 orig=1496 TRUNC vid=12
+149.856784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=6120 cap=124 orig=1496 TRUNC vid=12
+149.858286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=6132 cap=124 orig=1496 TRUNC vid=12
+149.859783 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=phantom value=0x00 seg=3 ctr=6144 cap=124 orig=1496 TRUNC vid=12
+149.861290 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=6156 cap=124 orig=1496 TRUNC vid=12
+149.862786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=6168 cap=124 orig=1496 TRUNC vid=12
+149.864281 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=phantom value=0x00 seg=3 ctr=6180 cap=124 orig=1496 TRUNC vid=12
+149.865784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=6192 cap=124 orig=1496 TRUNC vid=12
+149.867283 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=6204 cap=124 orig=1496 TRUNC vid=12
+149.868786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=phantom value=0x00 seg=3 ctr=6216 cap=124 orig=1496 TRUNC vid=12
+149.870286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=6228 cap=124 orig=1496 TRUNC vid=12
+149.871791 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=6240 cap=124 orig=1496 TRUNC vid=12
+149.873296 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=phantom value=0x00 seg=3 ctr=6252 cap=124 orig=1496 TRUNC vid=12
+149.874796 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=6264 cap=124 orig=1496 TRUNC vid=12
+149.876298 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=6276 cap=124 orig=1496 TRUNC vid=12
+149.877793 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=phantom value=0x00 seg=3 ctr=6288 cap=124 orig=1496 TRUNC vid=12
+149.879286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=6300 cap=124 orig=1496 TRUNC vid=12
+149.880792 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=6312 cap=124 orig=1496 TRUNC vid=12
+149.882283 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=phantom value=0x00 seg=3 ctr=6324 cap=124 orig=1496 TRUNC vid=12
+149.883784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=6336 cap=124 orig=1496 TRUNC vid=12
+149.885285 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=6348 cap=124 orig=1496 TRUNC vid=12
+149.886784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=phantom value=0x00 seg=3 ctr=6360 cap=124 orig=1496 TRUNC vid=12
+149.888286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=6372 cap=124 orig=1496 TRUNC vid=12
+149.889788 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=6384 cap=124 orig=1496 TRUNC vid=12
+149.891284 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=phantom value=0x00 seg=3 ctr=6396 cap=124 orig=1496 TRUNC vid=12
+149.892784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=6408 cap=124 orig=1496 TRUNC vid=12
+149.894292 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=6420 cap=124 orig=1496 TRUNC vid=12
+149.895787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=phantom value=0x00 seg=3 ctr=6432 cap=124 orig=1496 TRUNC vid=12
+149.897287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=6444 cap=124 orig=1496 TRUNC vid=12
+149.898784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=6456 cap=124 orig=1496 TRUNC vid=12
+149.900287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=phantom value=0x00 seg=3 ctr=6468 cap=124 orig=1496 TRUNC vid=12
+149.901787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=6480 cap=124 orig=1496 TRUNC vid=12
+149.903287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=6492 cap=124 orig=1496 TRUNC vid=12
+149.904787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=phantom value=0x00 seg=3 ctr=6504 cap=124 orig=1496 TRUNC vid=12
+149.906287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=6516 cap=124 orig=1496 TRUNC vid=12
+149.907791 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=6528 cap=124 orig=1496 TRUNC vid=12
+149.909289 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=phantom value=0x00 seg=3 ctr=6540 cap=124 orig=1496 TRUNC vid=12
+149.910787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=6552 cap=124 orig=1496 TRUNC vid=12
+149.912287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=6564 cap=124 orig=1496 TRUNC vid=12
+149.913795 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=phantom value=0x00 seg=3 ctr=6576 cap=124 orig=1496 TRUNC vid=12
+149.915288 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=6588 cap=124 orig=1496 TRUNC vid=12
+149.916787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=6600 cap=124 orig=1496 TRUNC vid=12
+149.918284 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=phantom value=0x00 seg=3 ctr=6612 cap=124 orig=1496 TRUNC vid=12
+149.919796 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=pad     value=0x00 seg=3 ctr=6624 cap=124 orig=1496 TRUNC vid=12
+149.921297 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=sens    value=0x20 seg=3 ctr=6636 cap=124 orig=1496 TRUNC vid=12
+149.922799 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=phantom value=0x00 seg=3 ctr=6648 cap=124 orig=1496 TRUNC vid=12
+149.924301 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=pad     value=0x00 seg=3 ctr=6660 cap=124 orig=1496 TRUNC vid=12
+149.925797 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=sens    value=0x20 seg=3 ctr=6672 cap=124 orig=1496 TRUNC vid=12
+149.927286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=phantom value=0x00 seg=3 ctr=6684 cap=124 orig=1496 TRUNC vid=12
+149.928848 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=pad     value=0x00 seg=3 ctr=6696 cap=124 orig=1496 TRUNC vid=12
+149.930289 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=sens    value=0x20 seg=3 ctr=6708 cap=124 orig=1496 TRUNC vid=12
+149.931784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=phantom value=0x00 seg=3 ctr=6720 cap=124 orig=1496 TRUNC vid=12
+149.933288 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=pad     value=0x00 seg=3 ctr=6732 cap=124 orig=1496 TRUNC vid=12
+149.934788 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=sens    value=0x20 seg=3 ctr=6744 cap=124 orig=1496 TRUNC vid=12
+149.936289 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=phantom value=0x00 seg=3 ctr=6756 cap=124 orig=1496 TRUNC vid=12
+149.937785 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=pad     value=0x00 seg=3 ctr=6768 cap=124 orig=1496 TRUNC vid=12
+149.939285 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=sens    value=0x20 seg=3 ctr=6780 cap=124 orig=1496 TRUNC vid=12
+149.940805 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=phantom value=0x00 seg=3 ctr=6792 cap=124 orig=1496 TRUNC vid=12
+149.942281 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=pad     value=0x00 seg=3 ctr=6804 cap=124 orig=1496 TRUNC vid=12
+149.943786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=sens    value=0x20 seg=3 ctr=6816 cap=124 orig=1496 TRUNC vid=12
+149.945287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=phantom value=0x00 seg=3 ctr=6828 cap=124 orig=1496 TRUNC vid=12
+149.946786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=pad     value=0x00 seg=3 ctr=6840 cap=124 orig=1496 TRUNC vid=12
+149.948286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=sens    value=0x20 seg=3 ctr=6852 cap=124 orig=1496 TRUNC vid=12
+149.949787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=phantom value=0x00 seg=3 ctr=6864 cap=124 orig=1496 TRUNC vid=12
+149.951285 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=pad     value=0x00 seg=3 ctr=6876 cap=124 orig=1496 TRUNC vid=12
+149.952786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=sens    value=0x20 seg=3 ctr=6888 cap=124 orig=1496 TRUNC vid=12
+149.954281 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=phantom value=0x00 seg=3 ctr=6900 cap=124 orig=1496 TRUNC vid=12
+149.955793 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=pad     value=0x00 seg=3 ctr=6912 cap=124 orig=1496 TRUNC vid=12
+149.957276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=sens    value=0x20 seg=3 ctr=6924 cap=124 orig=1496 TRUNC vid=12
+149.958782 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=phantom value=0x00 seg=3 ctr=6936 cap=124 orig=1496 TRUNC vid=12
+149.960280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=pad     value=0x00 seg=3 ctr=6948 cap=124 orig=1496 TRUNC vid=12
+149.961780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=sens    value=0x20 seg=3 ctr=6960 cap=124 orig=1496 TRUNC vid=12
+149.963281 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=phantom value=0x00 seg=3 ctr=6972 cap=124 orig=1496 TRUNC vid=12
+149.964793 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=pad     value=0x00 seg=3 ctr=6984 cap=124 orig=1496 TRUNC vid=12
+149.966289 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=sens    value=0x20 seg=3 ctr=6996 cap=124 orig=1496 TRUNC vid=12
+149.967777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=phantom value=0x00 seg=3 ctr=7008 cap=124 orig=1496 TRUNC vid=12
+149.969279 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=pad     value=0x00 seg=3 ctr=7020 cap=124 orig=1496 TRUNC vid=12
+149.970778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=sens    value=0x20 seg=3 ctr=7032 cap=124 orig=1496 TRUNC vid=12
+149.972280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=phantom value=0x00 seg=3 ctr=7044 cap=124 orig=1496 TRUNC vid=12
+149.973781 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=pad     value=0x00 seg=3 ctr=7056 cap=124 orig=1496 TRUNC vid=12
+149.975278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=sens    value=0x20 seg=3 ctr=7068 cap=124 orig=1496 TRUNC vid=12
+149.976777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=phantom value=0x00 seg=3 ctr=7080 cap=124 orig=1496 TRUNC vid=12
+149.978276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=pad     value=0x00 seg=3 ctr=7092 cap=124 orig=1496 TRUNC vid=12
+149.979777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=sens    value=0x20 seg=3 ctr=7104 cap=124 orig=1496 TRUNC vid=12
+149.981287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=phantom value=0x00 seg=3 ctr=7116 cap=124 orig=1496 TRUNC vid=12
+149.982777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=pad     value=0x00 seg=3 ctr=7128 cap=124 orig=1496 TRUNC vid=12
+149.984277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=sens    value=0x20 seg=3 ctr=7140 cap=124 orig=1496 TRUNC vid=12
+149.985790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=phantom value=0x00 seg=3 ctr=7152 cap=124 orig=1496 TRUNC vid=12
+149.987277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=pad     value=0x00 seg=3 ctr=7164 cap=124 orig=1496 TRUNC vid=12
+149.988778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=sens    value=0x20 seg=3 ctr=7176 cap=124 orig=1496 TRUNC vid=12
+149.990277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=phantom value=0x00 seg=3 ctr=7188 cap=124 orig=1496 TRUNC vid=12
+149.991777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=7200 cap=124 orig=1496 TRUNC vid=12
+149.993279 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=7212 cap=124 orig=1496 TRUNC vid=12
+149.994777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=phantom value=0x00 seg=3 ctr=7224 cap=124 orig=1496 TRUNC vid=12
+149.996572 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=7236 cap=124 orig=1496 TRUNC vid=12
+149.997790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=7248 cap=124 orig=1496 TRUNC vid=12
+149.999277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=phantom value=0x00 seg=3 ctr=7260 cap=124 orig=1496 TRUNC vid=12
+150.000787 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=7272 cap=124 orig=1496 TRUNC vid=12
+150.002281 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=7284 cap=124 orig=1496 TRUNC vid=12
+150.003780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=phantom value=0x00 seg=3 ctr=7296 cap=124 orig=1496 TRUNC vid=12
+150.005279 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=7308 cap=124 orig=1496 TRUNC vid=12
+150.006777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=7320 cap=124 orig=1496 TRUNC vid=12
+150.008278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=phantom value=0x00 seg=3 ctr=7332 cap=124 orig=1496 TRUNC vid=12
+150.009780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=7344 cap=124 orig=1496 TRUNC vid=12
+150.011288 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=7356 cap=124 orig=1496 TRUNC vid=12
+150.012791 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=phantom value=0x00 seg=3 ctr=7368 cap=124 orig=1496 TRUNC vid=12
+150.014278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=7380 cap=124 orig=1496 TRUNC vid=12
+150.015778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=7392 cap=124 orig=1496 TRUNC vid=12
+150.017294 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=phantom value=0x00 seg=3 ctr=7404 cap=124 orig=1496 TRUNC vid=12
+150.018778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=7416 cap=124 orig=1496 TRUNC vid=12
+150.020296 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=7428 cap=124 orig=1496 TRUNC vid=12
+150.021778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=phantom value=0x00 seg=3 ctr=7440 cap=124 orig=1496 TRUNC vid=12
+150.023278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=7452 cap=124 orig=1496 TRUNC vid=12
+150.024779 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=7464 cap=124 orig=1496 TRUNC vid=12
+150.026292 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=phantom value=0x00 seg=3 ctr=7476 cap=124 orig=1496 TRUNC vid=12
+150.027784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=7488 cap=124 orig=1496 TRUNC vid=12
+150.029907 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=7500 cap=124 orig=1496 TRUNC vid=12
+150.030790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=phantom value=0x00 seg=3 ctr=7512 cap=124 orig=1496 TRUNC vid=12
+150.032306 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=7524 cap=124 orig=1496 TRUNC vid=12
+150.033779 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=7536 cap=124 orig=1496 TRUNC vid=12
+150.035277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=phantom value=0x00 seg=3 ctr=7548 cap=124 orig=1496 TRUNC vid=12
+150.036776 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=7560 cap=124 orig=1496 TRUNC vid=12
+150.038276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=7572 cap=124 orig=1496 TRUNC vid=12
+150.039790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=phantom value=0x00 seg=3 ctr=7584 cap=124 orig=1496 TRUNC vid=12
+150.041288 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=7596 cap=124 orig=1496 TRUNC vid=12
+150.042777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=7608 cap=124 orig=1496 TRUNC vid=12
+150.044276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=phantom value=0x00 seg=3 ctr=7620 cap=124 orig=1496 TRUNC vid=12
+150.045777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=7632 cap=124 orig=1496 TRUNC vid=12
+150.047280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=7644 cap=124 orig=1496 TRUNC vid=12
+150.048778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=phantom value=0x00 seg=3 ctr=7656 cap=124 orig=1496 TRUNC vid=12
+150.050290 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=7668 cap=124 orig=1496 TRUNC vid=12
+150.051778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=7680 cap=124 orig=1496 TRUNC vid=12
+150.053278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=phantom value=0x00 seg=3 ctr=7692 cap=124 orig=1496 TRUNC vid=12
+150.054777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=7704 cap=124 orig=1496 TRUNC vid=12
+150.056285 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=7716 cap=124 orig=1496 TRUNC vid=12
+150.057776 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=phantom value=0x00 seg=3 ctr=7728 cap=124 orig=1496 TRUNC vid=12
+150.059276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=7740 cap=124 orig=1496 TRUNC vid=12
+150.060776 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=7752 cap=124 orig=1496 TRUNC vid=12
+150.063259 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=phantom value=0x00 seg=3 ctr=7764 cap=124 orig=1496 TRUNC vid=12
+150.063778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=pad     value=0x00 seg=3 ctr=7776 cap=124 orig=1496 TRUNC vid=12
+150.065279 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x10 param=sens    value=0x20 seg=3 ctr=7788 cap=124 orig=1496 TRUNC vid=12
+150.066795 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=phantom value=0x00 seg=3 ctr=7800 cap=124 orig=1496 TRUNC vid=12
+150.068278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=pad     value=0x00 seg=3 ctr=7812 cap=124 orig=1496 TRUNC vid=12
+150.069777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x11 param=sens    value=0x20 seg=3 ctr=7824 cap=124 orig=1496 TRUNC vid=12
+150.071285 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=phantom value=0x00 seg=3 ctr=7836 cap=124 orig=1496 TRUNC vid=12
+150.072777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=pad     value=0x00 seg=3 ctr=7848 cap=124 orig=1496 TRUNC vid=12
+150.074278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x12 param=sens    value=0x20 seg=3 ctr=7860 cap=124 orig=1496 TRUNC vid=12
+150.075789 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=phantom value=0x00 seg=3 ctr=7872 cap=124 orig=1496 TRUNC vid=12
+150.077289 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=pad     value=0x00 seg=3 ctr=7884 cap=124 orig=1496 TRUNC vid=12
+150.078972 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x13 param=sens    value=0x20 seg=3 ctr=7896 cap=124 orig=1496 TRUNC vid=12
+150.080278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=phantom value=0x00 seg=3 ctr=7908 cap=124 orig=1496 TRUNC vid=12
+150.081777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=pad     value=0x00 seg=3 ctr=7920 cap=124 orig=1496 TRUNC vid=12
+150.083277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x14 param=sens    value=0x20 seg=3 ctr=7932 cap=124 orig=1496 TRUNC vid=12
+150.084778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=phantom value=0x00 seg=3 ctr=7944 cap=124 orig=1496 TRUNC vid=12
+150.086277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=pad     value=0x00 seg=3 ctr=7956 cap=124 orig=1496 TRUNC vid=12
+150.087790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x15 param=sens    value=0x20 seg=3 ctr=7968 cap=124 orig=1496 TRUNC vid=12
+150.089278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=phantom value=0x00 seg=3 ctr=7980 cap=124 orig=1496 TRUNC vid=12
+150.090778 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=pad     value=0x00 seg=3 ctr=7992 cap=124 orig=1496 TRUNC vid=12
+150.092278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x16 param=sens    value=0x20 seg=3 ctr=8004 cap=124 orig=1496 TRUNC vid=12
+150.093790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=phantom value=0x00 seg=3 ctr=8016 cap=124 orig=1496 TRUNC vid=12
+150.095286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=pad     value=0x00 seg=3 ctr=8028 cap=124 orig=1496 TRUNC vid=12
+150.096788 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x17 param=sens    value=0x20 seg=3 ctr=8040 cap=124 orig=1496 TRUNC vid=12
+150.098287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=phantom value=0x00 seg=3 ctr=8052 cap=124 orig=1496 TRUNC vid=12
+150.099777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=pad     value=0x00 seg=3 ctr=8064 cap=124 orig=1496 TRUNC vid=12
+150.101277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x18 param=sens    value=0x20 seg=3 ctr=8076 cap=124 orig=1496 TRUNC vid=12
+150.102790 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=phantom value=0x00 seg=3 ctr=8088 cap=124 orig=1496 TRUNC vid=12
+150.104277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=pad     value=0x00 seg=3 ctr=8100 cap=124 orig=1496 TRUNC vid=12
+150.105786 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x19 param=sens    value=0x20 seg=3 ctr=8112 cap=124 orig=1496 TRUNC vid=12
+150.107277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=phantom value=0x00 seg=3 ctr=8124 cap=124 orig=1496 TRUNC vid=12
+150.108780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=pad     value=0x00 seg=3 ctr=8136 cap=124 orig=1496 TRUNC vid=12
+150.110280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1a param=sens    value=0x20 seg=3 ctr=8148 cap=124 orig=1496 TRUNC vid=12
+150.111777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=phantom value=0x00 seg=3 ctr=8160 cap=124 orig=1496 TRUNC vid=12
+150.113302 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=pad     value=0x00 seg=3 ctr=8172 cap=124 orig=1496 TRUNC vid=12
+150.114798 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1b param=sens    value=0x20 seg=3 ctr=8184 cap=124 orig=1496 TRUNC vid=12
+150.116276 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=phantom value=0x00 seg=3 ctr=8196 cap=124 orig=1496 TRUNC vid=12
+150.117804 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=pad     value=0x00 seg=3 ctr=8208 cap=124 orig=1496 TRUNC vid=12
+150.119277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1c param=sens    value=0x20 seg=3 ctr=8220 cap=124 orig=1496 TRUNC vid=12
+150.120777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=phantom value=0x00 seg=3 ctr=8232 cap=124 orig=1496 TRUNC vid=12
+150.122277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=pad     value=0x00 seg=3 ctr=8244 cap=124 orig=1496 TRUNC vid=12
+150.123777 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1d param=sens    value=0x20 seg=3 ctr=8256 cap=124 orig=1496 TRUNC vid=12
+150.125278 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=phantom value=0x00 seg=3 ctr=8268 cap=124 orig=1496 TRUNC vid=12
+150.126791 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=pad     value=0x00 seg=3 ctr=8280 cap=124 orig=1496 TRUNC vid=12
+150.128277 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1e param=sens    value=0x20 seg=3 ctr=8292 cap=124 orig=1496 TRUNC vid=12
+150.129785 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=phantom value=0x00 seg=3 ctr=8304 cap=124 orig=1496 TRUNC vid=12
+150.131287 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=pad     value=0x00 seg=3 ctr=8316 cap=124 orig=1496 TRUNC vid=12
+150.132788 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x1f param=sens    value=0x20 seg=3 ctr=8328 cap=124 orig=1496 TRUNC vid=12
+151.226531 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=phantom value=0x00 seg=3 ctr=17078 cap=124 orig=1498 TRUNC vid=12
+151.226656 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=phantom value=0x00 seg=3 ctr=17079 cap=124 orig=1498 TRUNC vid=12
+151.226780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=phantom value=0x00 seg=3 ctr=17080 cap=124 orig=1498 TRUNC vid=12
+151.226906 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=17081 cap=124 orig=1498 TRUNC vid=12
+151.227034 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=17082 cap=124 orig=1498 TRUNC vid=12
+151.227161 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=17083 cap=124 orig=1498 TRUNC vid=12
+151.227280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=17084 cap=124 orig=1498 TRUNC vid=12
+151.227407 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=17085 cap=124 orig=1498 TRUNC vid=12
+151.227531 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=17086 cap=124 orig=1498 TRUNC vid=12
+151.227658 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=17087 cap=124 orig=1498 TRUNC vid=12
+151.227782 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=17088 cap=124 orig=1498 TRUNC vid=12
+151.227905 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=17089 cap=124 orig=1498 TRUNC vid=12
+151.228030 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=17090 cap=124 orig=1498 TRUNC vid=12
+151.228155 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=17091 cap=124 orig=1498 TRUNC vid=12
+151.228286 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=17092 cap=124 orig=1498 TRUNC vid=12
+151.228412 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=phantom value=0x00 seg=3 ctr=17093 cap=124 orig=1498 TRUNC vid=12
+151.228531 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=17094 cap=124 orig=1498 TRUNC vid=12
+151.228657 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=17095 cap=124 orig=1498 TRUNC vid=12
+151.228781 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=phantom value=0x00 seg=3 ctr=17096 cap=124 orig=1498 TRUNC vid=12
+151.228910 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=17097 cap=124 orig=1498 TRUNC vid=12
+151.229032 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=17098 cap=124 orig=1498 TRUNC vid=12
+151.229161 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=phantom value=0x00 seg=3 ctr=17099 cap=124 orig=1498 TRUNC vid=12
+151.229423 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=17100 cap=124 orig=1498 TRUNC vid=12
+151.229424 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=17101 cap=124 orig=1498 TRUNC vid=12
+151.229535 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=phantom value=0x00 seg=3 ctr=17102 cap=124 orig=1498 TRUNC vid=12
+151.229660 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=17103 cap=124 orig=1498 TRUNC vid=12
+151.229784 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=17104 cap=124 orig=1498 TRUNC vid=12
+151.229906 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=phantom value=0x00 seg=3 ctr=17105 cap=124 orig=1498 TRUNC vid=12
+151.230032 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=17106 cap=124 orig=1498 TRUNC vid=12
+151.230155 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=17107 cap=124 orig=1498 TRUNC vid=12
+151.230280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=phantom value=0x00 seg=3 ctr=17108 cap=124 orig=1498 TRUNC vid=12
+151.230406 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=17109 cap=124 orig=1498 TRUNC vid=12
+151.230534 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=17110 cap=124 orig=1498 TRUNC vid=12
+151.230656 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=phantom value=0x00 seg=3 ctr=17111 cap=124 orig=1498 TRUNC vid=12
+151.230780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=17112 cap=124 orig=1498 TRUNC vid=12
+151.230905 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=17113 cap=124 orig=1498 TRUNC vid=12
+151.231034 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=phantom value=0x00 seg=3 ctr=17114 cap=124 orig=1498 TRUNC vid=12
+151.231157 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=17115 cap=124 orig=1498 TRUNC vid=12
+151.231283 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=17116 cap=124 orig=1498 TRUNC vid=12
+151.231406 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=phantom value=0x00 seg=3 ctr=17117 cap=124 orig=1498 TRUNC vid=12
+151.231531 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=17118 cap=124 orig=1498 TRUNC vid=12
+151.231658 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=17119 cap=124 orig=1498 TRUNC vid=12
+151.231780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=phantom value=0x00 seg=3 ctr=17120 cap=124 orig=1498 TRUNC vid=12
+151.231908 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=17121 cap=124 orig=1498 TRUNC vid=12
+151.232030 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=17122 cap=124 orig=1498 TRUNC vid=12
+151.232156 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=phantom value=0x00 seg=3 ctr=17123 cap=124 orig=1498 TRUNC vid=12
+151.232280 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=17124 cap=124 orig=1498 TRUNC vid=12
+151.232405 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=17125 cap=124 orig=1498 TRUNC vid=12
+151.232530 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=phantom value=0x00 seg=3 ctr=17126 cap=124 orig=1498 TRUNC vid=12
+151.232658 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=17127 cap=124 orig=1498 TRUNC vid=12
+151.232780 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=17128 cap=124 orig=1498 TRUNC vid=12
+151.232906 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=phantom value=0x00 seg=3 ctr=17129 cap=124 orig=1498 TRUNC vid=12
+151.233030 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=17130 cap=124 orig=1498 TRUNC vid=12
+151.233155 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=17131 cap=124 orig=1498 TRUNC vid=12
+153.203346 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=32893 cap=124 orig=1498 TRUNC vid=12
+153.203430 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=32894 cap=124 orig=1496 TRUNC vid=12
+153.203624 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=32895 cap=124 orig=1498 TRUNC vid=12
+153.203678 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=32896 cap=124 orig=1496 TRUNC vid=12
+153.203773 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=32897 cap=124 orig=1496 TRUNC vid=12
+153.203978 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=32898 cap=124 orig=1498 TRUNC vid=12
+153.204060 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=32899 cap=124 orig=1496 TRUNC vid=12
+153.204154 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=32900 cap=124 orig=1496 TRUNC vid=12
+153.204303 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=32901 cap=124 orig=1496 TRUNC vid=12
+153.204408 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=32902 cap=124 orig=1496 TRUNC vid=12
+153.204521 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=32903 cap=124 orig=1496 TRUNC vid=12
+153.204647 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=32904 cap=124 orig=1496 TRUNC vid=12
+153.204772 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=32905 cap=124 orig=1496 TRUNC vid=12
+153.204896 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=32906 cap=124 orig=1496 TRUNC vid=12
+153.205019 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=32907 cap=124 orig=1496 TRUNC vid=12
+153.205171 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=32908 cap=124 orig=1496 TRUNC vid=12
+153.205271 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=32909 cap=124 orig=1496 TRUNC vid=12
+153.205395 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=32910 cap=124 orig=1496 TRUNC vid=12
+153.205519 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=32911 cap=124 orig=1496 TRUNC vid=12
+153.205644 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=32912 cap=124 orig=1496 TRUNC vid=12
+153.205888 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=32913 cap=124 orig=1498 TRUNC vid=12
+153.205927 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=32914 cap=124 orig=1496 TRUNC vid=12
+153.206021 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=32915 cap=124 orig=1496 TRUNC vid=12
+153.206147 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=32916 cap=124 orig=1496 TRUNC vid=12
+153.206342 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=32917 cap=124 orig=1498 TRUNC vid=12
+153.206426 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=32918 cap=124 orig=1496 TRUNC vid=12
+153.206518 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=32919 cap=124 orig=1496 TRUNC vid=12
+153.206645 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=32920 cap=124 orig=1496 TRUNC vid=12
+153.206767 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=32921 cap=124 orig=1496 TRUNC vid=12
+153.206894 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=32922 cap=124 orig=1496 TRUNC vid=12
+153.207021 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=32923 cap=124 orig=1496 TRUNC vid=12
+153.207142 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=32924 cap=124 orig=1496 TRUNC vid=12
+155.206557 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=48919 cap=124 orig=1498 TRUNC vid=12
+155.206739 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=48920 cap=124 orig=1498 TRUNC vid=12
+155.206836 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=48921 cap=124 orig=1498 TRUNC vid=12
+155.206923 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=48922 cap=124 orig=1496 TRUNC vid=12
+155.207109 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=48923 cap=124 orig=1498 TRUNC vid=12
+155.207211 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=48924 cap=124 orig=1498 TRUNC vid=12
+155.207298 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=48925 cap=124 orig=1496 TRUNC vid=12
+155.207499 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=48926 cap=124 orig=1498 TRUNC vid=12
+155.207585 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=48927 cap=124 orig=1498 TRUNC vid=12
+155.207669 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=48928 cap=124 orig=1496 TRUNC vid=12
+155.207859 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=48929 cap=124 orig=1498 TRUNC vid=12
+155.207960 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=48930 cap=124 orig=1498 TRUNC vid=12
+155.208044 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=48931 cap=124 orig=1496 TRUNC vid=12
+155.208235 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=48932 cap=124 orig=1498 TRUNC vid=12
+155.208336 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=48933 cap=124 orig=1498 TRUNC vid=12
+155.208419 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=48934 cap=124 orig=1496 TRUNC vid=12
+155.208675 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=48935 cap=124 orig=1498 TRUNC vid=12
+155.208712 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=48936 cap=124 orig=1498 TRUNC vid=12
+155.208799 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=48937 cap=124 orig=1496 TRUNC vid=12
+155.208984 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=48938 cap=124 orig=1498 TRUNC vid=12
+155.209085 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=48939 cap=124 orig=1498 TRUNC vid=12
+155.209169 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=48940 cap=124 orig=1496 TRUNC vid=12
+155.209369 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=48941 cap=124 orig=1498 TRUNC vid=12
+155.209458 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=48942 cap=124 orig=1498 TRUNC vid=12
+155.209547 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=48943 cap=124 orig=1496 TRUNC vid=12
+155.209733 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=48944 cap=124 orig=1498 TRUNC vid=12
+155.209835 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=48945 cap=124 orig=1498 TRUNC vid=12
+155.209927 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=48946 cap=124 orig=1496 TRUNC vid=12
+155.210108 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=48947 cap=124 orig=1498 TRUNC vid=12
+155.210210 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=48948 cap=124 orig=1498 TRUNC vid=12
+155.210295 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=48949 cap=124 orig=1496 TRUNC vid=12
+155.210510 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=48950 cap=124 orig=1498 TRUNC vid=12
+159.208029 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=15390 cap=124 orig=1498 TRUNC vid=12
+159.208031 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=15391 cap=124 orig=1498 TRUNC vid=12
+159.208033 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=15392 cap=124 orig=1498 TRUNC vid=12
+159.208035 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=15393 cap=124 orig=1498 TRUNC vid=12
+159.208232 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=15394 cap=124 orig=1498 TRUNC vid=12
+159.208234 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=15395 cap=124 orig=1498 TRUNC vid=12
+159.208349 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=15396 cap=124 orig=1498 TRUNC vid=12
+159.208475 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=15397 cap=124 orig=1498 TRUNC vid=12
+159.208601 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=15398 cap=124 orig=1498 TRUNC vid=12
+159.208725 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=15399 cap=124 orig=1498 TRUNC vid=12
+159.208877 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=15400 cap=124 orig=1498 TRUNC vid=12
+159.208989 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=15401 cap=124 orig=1498 TRUNC vid=12
+159.209097 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=15402 cap=124 orig=1498 TRUNC vid=12
+159.209223 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=15403 cap=124 orig=1498 TRUNC vid=12
+159.209351 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=15404 cap=124 orig=1498 TRUNC vid=12
+159.209486 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=15405 cap=124 orig=1498 TRUNC vid=12
+159.209598 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=15406 cap=124 orig=1498 TRUNC vid=12
+159.209744 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=15407 cap=124 orig=1498 TRUNC vid=12
+159.209868 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=15408 cap=124 orig=1498 TRUNC vid=12
+159.209994 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=15409 cap=124 orig=1498 TRUNC vid=12
+159.210110 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=15410 cap=124 orig=1498 TRUNC vid=12
+159.210223 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=15411 cap=124 orig=1498 TRUNC vid=12
+159.210431 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=15412 cap=124 orig=1498 TRUNC vid=12
+159.210483 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=sens    value=0x20 seg=3 ctr=15413 cap=124 orig=1498 TRUNC vid=12
+159.210597 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=15414 cap=124 orig=1498 TRUNC vid=12
+159.210722 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=15415 cap=124 orig=1498 TRUNC vid=12
+159.210870 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=15416 cap=124 orig=1498 TRUNC vid=12
+159.210994 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=15417 cap=124 orig=1498 TRUNC vid=12
+159.211098 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=15418 cap=124 orig=1498 TRUNC vid=12
+159.211234 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=15419 cap=124 orig=1498 TRUNC vid=12
+159.211348 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=15420 cap=124 orig=1498 TRUNC vid=12
+159.211470 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=15421 cap=124 orig=1498 TRUNC vid=12
+167.207892 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=pad     value=0x00 seg=3 ctr=13855 cap=124 orig=1498 TRUNC vid=12
+167.208021 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=pad     value=0x00 seg=3 ctr=13856 cap=124 orig=1498 TRUNC vid=12
+167.208149 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=pad     value=0x00 seg=3 ctr=13857 cap=124 orig=1498 TRUNC vid=12
+167.208274 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=pad     value=0x00 seg=3 ctr=13858 cap=124 orig=1498 TRUNC vid=12
+167.208393 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=pad     value=0x00 seg=3 ctr=13859 cap=124 orig=1498 TRUNC vid=12
+167.208519 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=pad     value=0x00 seg=3 ctr=13860 cap=124 orig=1498 TRUNC vid=12
+167.208643 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=pad     value=0x00 seg=3 ctr=13861 cap=124 orig=1498 TRUNC vid=12
+167.208768 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=pad     value=0x00 seg=3 ctr=13862 cap=124 orig=1498 TRUNC vid=12
+167.208896 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x00 param=sens    value=0x20 seg=3 ctr=13863 cap=124 orig=1498 TRUNC vid=12
+167.209041 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x01 param=sens    value=0x20 seg=3 ctr=13864 cap=124 orig=1498 TRUNC vid=12
+167.209154 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x02 param=sens    value=0x20 seg=3 ctr=13865 cap=124 orig=1498 TRUNC vid=12
+167.209267 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x03 param=sens    value=0x20 seg=3 ctr=13866 cap=124 orig=1498 TRUNC vid=12
+167.209402 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x04 param=sens    value=0x20 seg=3 ctr=13867 cap=124 orig=1498 TRUNC vid=12
+167.209517 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x05 param=sens    value=0x20 seg=3 ctr=13868 cap=124 orig=1498 TRUNC vid=12
+167.209647 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x06 param=sens    value=0x20 seg=3 ctr=13869 cap=124 orig=1498 TRUNC vid=12
+167.209769 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x07 param=sens    value=0x20 seg=3 ctr=13870 cap=124 orig=1498 TRUNC vid=12
+167.209892 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=pad     value=0x00 seg=3 ctr=13871 cap=124 orig=1498 TRUNC vid=12
+167.210024 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x08 param=sens    value=0x20 seg=3 ctr=13872 cap=124 orig=1498 TRUNC vid=12
+167.210159 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=pad     value=0x00 seg=3 ctr=13873 cap=124 orig=1498 TRUNC vid=12
+167.210268 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x09 param=sens    value=0x20 seg=3 ctr=13874 cap=124 orig=1498 TRUNC vid=12
+167.210394 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=pad     value=0x00 seg=3 ctr=13875 cap=124 orig=1498 TRUNC vid=12
+167.210521 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0a param=sens    value=0x20 seg=3 ctr=13876 cap=124 orig=1498 TRUNC vid=12
+167.210647 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=pad     value=0x00 seg=3 ctr=13877 cap=124 orig=1498 TRUNC vid=12
+167.210789 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0b param=headamp_trace: records=1388889 reac=1388888 headamp=374 fragments=0 grants=12 short_of_block=0 bad_record_cksum=0
+sens    value=0x20 seg=3 ctr=13878 cap=124 orig=1498 TRUNC vid=12
+167.210896 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=pad     value=0x00 seg=3 ctr=13879 cap=124 orig=1498 TRUNC vid=12
+167.211022 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0c param=sens    value=0x20 seg=3 ctr=13880 cap=124 orig=1498 TRUNC vid=12
+167.211153 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=pad     value=0x00 seg=3 ctr=13881 cap=124 orig=1498 TRUNC vid=12
+167.211267 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0d param=sens    value=0x20 seg=3 ctr=13882 cap=124 orig=1498 TRUNC vid=12
+167.211392 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=pad     value=0x00 seg=3 ctr=13883 cap=124 orig=1498 TRUNC vid=12
+167.211518 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0e param=sens    value=0x20 seg=3 ctr=13884 cap=124 orig=1498 TRUNC vid=12
+167.211641 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=pad     value=0x00 seg=3 ctr=13885 cap=124 orig=1498 TRUNC vid=12
+167.211769 src=34:5a:60:9f:9e:be dst=ff:ff:ff:ff:ff:ff ch=0x0f param=sens    value=0x20 seg=3 ctr=13886 cap=124 orig=1498 TRUNC vid=12
