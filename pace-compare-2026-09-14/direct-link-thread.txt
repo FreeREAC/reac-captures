@@ -1,0 +1,6 @@
+# pace_hist: resolution 1 us (classic pcap); nominal given
+src=00:14:5c:9b:28:2d frames=495182 span_s=61.900 pps=7999.752 rate_hz=96000
+  iv_mean_us=125.004 iv_min_us=1.000 iv_max_us=1136.000 iv_sd_us=17.171
+  p50_us=125 p90_us=126 p99_us=131 p999_us=338
+  nominal_us=125.000 late1p5=1843 late2x=1286 late4x=208 catchup=3067
+  late1p5_ps=29.7740 late4x_ps=3.3603 catchup_ps=49.5480
