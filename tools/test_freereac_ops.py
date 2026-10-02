@@ -193,6 +193,14 @@ class Export(Fixture):
                        cwd=ops, check=True)
         self.assertEqual(self.run_check()[0], 0)
 
+    def test_export_signs_when_commit_gpgsign_is_set(self):
+        ops = self.ops_repo(seeded=True)
+        sh(ops, 'config', 'commit.gpgsign', 'true')
+        sh(ops, 'config', 'gpg.program', os.path.join(self.tmp, 'no-gpg'))
+        with self.assertRaises(SystemExit) as e:
+            fo.export(ops, repo=self.pub, out=io.StringIO())
+        self.assertIn('commit-tree', str(e.exception), 'the export asked gpg to sign, and gpg failed')
+
     def test_export_into_empty_ops_is_a_root_commit(self):
         ops = self.ops_repo(seeded=False)
         fo.export(ops, repo=self.pub, out=io.StringIO())
