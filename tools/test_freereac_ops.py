@@ -206,6 +206,32 @@ class Export(Fixture):
         fo.export(ops, repo=self.pub, out=io.StringIO())
         self.assertEqual(len(self.ls(ops, fo.BRANCH).splitlines()), len(MOVED))
 
+    def test_each_path_is_taken_from_its_own_base(self):
+        self.add('plans/old-plan.md', 'a plan the tip never carried\n')
+        sh(self.pub, 'commit', '-qm', 'plan')
+        older = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=self.pub, capture_output=True,
+                               text=True).stdout.strip()
+        sh(self.pub, 'rm', '-q', 'plans/old-plan.md')
+        write(self.pub, fo.MOVES, '# base %s\n%s\n# base %s\nplans/old-plan.md\n'
+              % (self.base, '\n'.join(MOVED), older))
+        sh(self.pub, 'add', '-A')
+        sh(self.pub, 'commit', '-qm', 'drop plan')
+        self.assertEqual(fo.moved_paths(self.pub), MOVED + ['plans/old-plan.md'])
+        ops = self.ops_repo(seeded=False)
+        fo.export(ops, repo=self.pub, out=io.StringIO())
+        tree = self.ls(ops, fo.BRANCH)
+        self.assertIn('\treac-captures/plans/old-plan.md\n', tree)
+        self.assertEqual(len(tree.splitlines()), len(MOVED) + 1)
+        msg = subprocess.run(['git', 'log', '-1', '--format=%B', fo.BRANCH], cwd=ops,
+                             capture_output=True, text=True).stdout
+        self.assertIn(','.join(sorted((self.base[:12], older[:12]))), msg)
+
+    def test_a_path_before_any_base_is_refused(self):
+        write(self.pub, fo.MOVES, 'x-re/FINDINGS.md\n# base %s\n' % self.base)
+        with self.assertRaises(SystemExit) as e:
+            fo.read_moves(self.pub)
+        self.assertIn('comes before any "# base <sha>" line', str(e.exception))
+
     def test_export_refuses_a_path_missing_at_base(self):
         ops = self.ops_repo(seeded=True)
         write(self.pub, fo.MOVES, '# base %s\nnot/there.md\n' % self.base)
@@ -215,12 +241,25 @@ class Export(Fixture):
 
 
 class RealTree(unittest.TestCase):
-    """This repository: the move list is exactly the rule applied at its base, and the tree is clean."""
+    """This repository: the move list's first group is exactly the rule applied at its base, every
+    later group is history-only internal files, and the tree is clean."""
 
     def test_the_list_is_the_rule_at_base(self):
-        base, paths = fo.read_moves()
+        moves = fo.read_moves()
+        base = moves[0][0]
+        paths = [p for b, p in moves if b == base]
         tree = fo.git('ls-tree', '-r', '--name-only', base).decode().splitlines()
         self.assertEqual(sorted(p for p in tree if fo.belongs_in_ops(p)), sorted(paths))
+
+    def test_later_groups_are_history_only_internal_files(self):
+        moves = fo.read_moves()
+        first = fo.git('ls-tree', '-r', '--name-only', moves[0][0]).decode().splitlines()
+        for base, p in moves:
+            if base == moves[0][0]:
+                continue
+            self.assertTrue(fo.belongs_in_ops(p), p)
+            self.assertNotIn(p, first, '%s reached the move: list it in the first group' % p)
+            self.assertTrue(fo.git('ls-tree', base, '--', p).strip(), '%s is not in %s' % (p, base))
 
     def test_the_public_tree_is_clean(self):
         env = {k: v for k, v in os.environ.items() if k != 'FREEREAC_REQUIRE_OPS'}
