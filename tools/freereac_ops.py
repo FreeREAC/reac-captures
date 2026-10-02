@@ -210,6 +210,9 @@ def export(ops, branch=BRANCH, repo=REPO, out=sys.stdout):
                'Their history before the move: git log %s -- <path> in reac-captures.\n'
                % (base[:12], len(entries), MOVES, base[:12]))
         args = ['commit-tree', tree, '-m', msg] + (['-p', start] if start else [])
+        # commit-tree never reads commit.gpgSign itself; every ops commit is signed when it is set
+        if git('config', '--bool', 'commit.gpgsign', cwd=ops, check=False).strip() == b'true':
+            args.append('-S')
         existing = git('rev-parse', '-q', '--verify', 'refs/heads/' + branch, cwd=ops,
                        check=False).decode().strip()
         if existing:
