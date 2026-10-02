@@ -1,5 +1,10 @@
 # Moved to FreeREAC/freereac-ops as reac-captures/<path> (tools/freereac_ops.py). Cite one by its
 # slug, the path without its extension. The list is the guard's: a path here never comes back.
+# Each "# base <sha>" line names the commit the paths after it are taken from, byte-identical.
+# The last group never reached the move: internal files that only lived in this repo's history,
+# listed so the history rewrite (RULED 2026-10-01 item 2) drops nothing without an ops copy.
+# The rewrite drops every path below; the base commits then live on only under the
+# backup/pre-rewrite-2026-10-01 tag (fetch it to run `export` again).
 # base 2ccb62c32db6fc737585283ac145d5691ccb050d
 CAPTURE-PLAN-role-change.md
 analysis/2026-09-13-announce-bytes-and-headamp-base.md
@@ -66,3 +71,5 @@ pace-compare-2026-09-14/thread/wire.err
 pace-compare-2026-09-14/thread/wire.txt
 s1608-bank-2026-08-22/README.md
 s4000-coldconnect-re/FINDINGS.md
+# base 73ff3218e176e080d672a1be545f99d39264a385
+CAPTURE-PLAN-next.md
