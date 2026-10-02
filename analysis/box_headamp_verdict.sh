@@ -13,7 +13,7 @@
 # GATED under reac-pw while the operator sets 48 V on both its banks from real mixers -- so
 # a GATED verdict here means "this master is not reaching this box's preamps", NOT "this box
 # is broken". Read it as a divergence, and diff our desk-side traffic against a real desk's
-# (analysis/opdiff.py, m200-s1608-headamp/DESK-TEST-PROCEDURE.md).
+# (analysis/opdiff.py, m200-s1608-headamp/DESK-TEST-PROCEDURE).
 #
 # The test: arm every declared input at a high SENS and ask whether ANY slot leaves the
 # converter floor. A live preamp lifts its own noise floor ~35 dB going from minimum to

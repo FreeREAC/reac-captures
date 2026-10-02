@@ -37,8 +37,8 @@ BOX_MAC = {
     '00:40:ab:c9:cc:04': 'reac-pw(master stand-in)',
 }
 
-# Upstream audio frame length -> channel count: len = 52 + nch*36 (m200-s4000-width-re
-# FINDINGS.md). The mirror tap adds +2 (Ethernet FCS), so accept len and len-2.
+# Upstream audio frame length -> channel count: len = 52 + nch*36
+# (m200-s4000-width-re/FINDINGS). The mirror tap adds +2 (Ethernet FCS), so accept len and len-2.
 def nch_from_len(n):
     for cand in (n, n - 2):
         if cand >= 52 and (cand - 52) % 36 == 0:

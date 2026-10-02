@@ -3,7 +3,7 @@
 #
 #   ./capture-role-change.sh <arm> <nic> [seconds]
 #
-# Arms are the three in CAPTURE-PLAN-role-change.md. This script only CAPTURES and records
+# Arms are the three in CAPTURE-PLAN-role-change. This script only CAPTURES and records
 # context; the physical act (flipping a REAC Mode switch, power-cycling a box) is the operator's,
 # and the script tells you when to do it.
 #

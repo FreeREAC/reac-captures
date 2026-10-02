@@ -119,8 +119,8 @@ agree on the same 12 files of the 83 that predate this manifest.
 
 | capture | pair | rate/tap | date | size raw → distilled | trunc | state | evidence for |
 |---|---|---|---|---:|---|---|---|
-| `m200-s1608-headamp-48v-pad-sens-2026-07-17.pcap` | ? x ? | ?/? | 2026-07-17 | 57.6 KB → **26.4 KB** | **TRUNCATED snaplen=128** | committed(LFS) | m200-headamp-re/HEADAMP-GROUND-TRUTH-2026-07-17.md |
-| `m200i-s0808-48k-mirror__ctl-session1-precut.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 5.5 MB → **3.3 MB** | full | committed(LFS) | session 1 control-plane extract (pre power-cut); 00-timeline.md, DECODE.md |
+| `m200-s1608-headamp-48v-pad-sens-2026-07-17.pcap` | ? x ? | ?/? | 2026-07-17 | 57.6 KB → **26.4 KB** | **TRUNCATED snaplen=128** | committed(LFS) | m200-headamp-re/HEADAMP-GROUND-TRUTH-2026-07-17 |
+| `m200i-s0808-48k-mirror__ctl-session1-precut.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 5.5 MB → **3.3 MB** | full | committed(LFS) | session 1 control-plane extract (pre power-cut); m200-headamp-re/00-timeline, m200-headamp-re/DECODE |
 | `m200i-s0808-48k-mirror__ctl2.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 4.8 GB → **46.8 MB** | full | committed(LFS) | THE HEAD-AMP RE MASTER CAPTURE. 12 citers: libreac reac_ctrlblk.c, reac-pw reac_grant.c + test_reac_headamp.c, PLACEMENT-EVIDENCE.md, 4 openmixer design docs. Session 2 of the 2026-07-16 head-amp night |
 | `m200i-s0808-48k-mirror__enrol-01-control.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 96 KB → **96 KB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s0808-48k-mirror__enrol-02-control.pcap` | m200i x s0808 | 48k/mirror | 2026-07-16 | 96 KB → **96 KB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
@@ -136,21 +136,21 @@ agree on the same 12 files of the 83 that predate this manifest.
 | `m200i-s0808-48k-mirror__m200-%Y%m%d-%H%M%S.pcap08` | m200i x s0808 | 48k/mirror | 2026-07-16 | 200.0 MB → **3.7 MB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s0808-48k-mirror__m200-%Y%m%d-%H%M%S.pcap09` | m200i x s0808 | 48k/mirror | 2026-07-16 | 200.0 MB → **3.7 MB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s0808-48k-mirror__m200-%Y%m%d-%H%M%S.pcap10` | m200i x s0808 | 48k/mirror | 2026-07-16 | 111.8 MB → **1.9 MB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
-| `m5000-s0808-96k-mirror__enrol-00-control.pcap` | m5000 x s0808 | 96k/mirror | 2026-07-16 | 1.7 MB → **1.7 MB** | full | committed(LFS) | enrolment control transcript; DECODE.md |
+| `m5000-s0808-96k-mirror__enrol-00-control.pcap` | m5000 x s0808 | 96k/mirror | 2026-07-16 | 1.7 MB → **1.7 MB** | full | committed(LFS) | enrolment control transcript; m200-headamp-re/DECODE |
 | `m5000-s0808-96k-mirror__m200-%Y%m%d-%H%M%S.pcap00` | m5000 x s0808 | 96k/mirror | 2026-07-16 | 200.0 MB → **3.8 MB** | full | ON DISK, uncommitted | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 
 ## `m200-s1608-headamp/` — 16 captures, 20.3 GB raw → 57.2 MB distilled
 
 | capture | pair | rate/tap | date | size raw → distilled | trunc | state | evidence for |
 |---|---|---|---|---:|---|---|---|
-| `m200i-s1608-48k-mirror__m200-anchor-openwindow-20260721-221150.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 1.1 GB → **3.7 MB** | full | committed(LFS) | m200-s1608-headamp/WIRE-EXONERATED-2026-08-21.md |
+| `m200i-s1608-48k-mirror__m200-anchor-openwindow-20260721-221150.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 1.1 GB → **3.7 MB** | full | committed(LFS) | m200-s1608-headamp/WIRE-EXONERATED-2026-08-21 |
 | `m200i-s1608-48k-mirror__m200-ch16-anchor-toggle-20260721-220347.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 351.3 MB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__m200-ch16-anchor-v2-20260721-220654.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 585.8 MB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__m200-ch7-ON-OFF-ON-20260721-215743.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 527.3 MB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__m200-headamp-1357_16-toggle3-20260721-214420.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 366.0 MB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__m200-pad-sweep-20260721-222651.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 2.6 GB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__m200-pad-v2-20260721-223131.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 3.5 GB → **3.8 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
-| `m200i-s1608-48k-mirror__m200-s1608-COLDCONNECT-clean-2026-07-24.pcap` | m200i x s1608 | 48k/mirror | 2026-07-24 | 305.3 MB → **3.7 MB** | full | committed(LFS) | m200-s1608-headamp/UPPER-BANK-2026-08-21.md |
+| `m200i-s1608-48k-mirror__m200-s1608-COLDCONNECT-clean-2026-07-24.pcap` | m200i x s1608 | 48k/mirror | 2026-07-24 | 305.3 MB → **3.7 MB** | full | committed(LFS) | m200-s1608-headamp/UPPER-BANK-2026-08-21 |
 | `m200i-s1608-48k-mirror__m200-s1608-establish-today-20260721-235750.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 847.0 MB → **4.4 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__reacpw-cc03-headamp-20260721-231501.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 116.5 MB → **3.7 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
 | `m200i-s1608-48k-mirror__reacpw-establish-20260721-234355.pcap` | m200i x s1608 | 48k/mirror | 2026-07-21 | 232.9 MB → **4.4 MB** | full | committed(LFS) | corpus membership only — held by the per-file baselines in libreac `tests/corpus-baseline.txt` and reac-protocol `spec/corpus-baseline.json` |
@@ -164,7 +164,7 @@ agree on the same 12 files of the 83 that predate this manifest.
 
 | capture | pair | rate/tap | date | size raw → distilled | trunc | state | evidence for |
 |---|---|---|---|---:|---|---|---|
-| `m200i-s1608-48k-mirror__m200-scene-recall-2026-07-17.pcap` | m200i x s1608 | 48k/mirror | 2026-07-17 | 190.1 MB → **370 KB** | **TRUNCATED snaplen=160** | committed(LFS) | m200-scene-recall-re/SCENE-RECALL-GROUND-TRUTH-2026-07-17.md + decode_scene.py |
+| `m200i-s1608-48k-mirror__m200-scene-recall-2026-07-17.pcap` | m200i x s1608 | 48k/mirror | 2026-07-17 | 190.1 MB → **370 KB** | **TRUNCATED snaplen=160** | committed(LFS) | m200-scene-recall-re/SCENE-RECALL-GROUND-TRUTH-2026-07-17 + m200-scene-recall-re/decode_scene |
 
 ## `s1608-bank-2026-08-22/` — 2 captures, 125.0 MB raw → 278 KB distilled
 
@@ -281,7 +281,7 @@ the two files contribute exactly 215 control frames, which is the whole of the 6
 
 **Nothing was renamed.** A capture cited by name stays citable: the distillation writes to the
 same 85 relative paths, so every reference in `libreac tests/`, `reac-pw`, `spec/`,
-`HEADAMP-GROUND-TRUTH-2026-07-17.md` and the openmixer docs still resolves. The contents are
+`m200-headamp-re/HEADAMP-GROUND-TRUTH-2026-07-17` and the openmixer docs still resolves. The contents are
 distilled; the names are not touched.
 
 **`analysis/dedup_mirror.py` was deliberately NOT used.** It is the obvious tool for the 61% of
