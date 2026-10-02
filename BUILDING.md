@@ -30,3 +30,12 @@ gcc -O2 -Wall -o analysis/up_slots analysis/up_slots.c -I$LIBREAC/include $LIBRE
 ```
 
 `analysis/slot_rms.sh` expects `up_slots` beside it (or its path in `UP_SLOTS`).
+
+## Checks
+
+The repository's own check, the same one CI runs (`.github/workflows/check.yml`):
+
+```
+python3 -m unittest discover -s tools -p 'test_*.py'
+python3 tools/freereac_ops.py check
+```
