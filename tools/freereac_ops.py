@@ -15,6 +15,14 @@ extension (m200-s4000-width-re/FINDINGS), never by file name.
   freereac_ops.py export <ops-checkout> [<branch>]
                                    commit the moved files, byte-identical, onto <branch> of an ops
                                    checkout (one commit on its main, or a root commit); never pushes
+  freereac_ops.py history [<rev>...]
+                                   the internal paths in the history of <rev> (default: --all), one
+                                   per line: the drop list of the history rewrite. Refuses, by
+                                   name, any such path the move list does not carry (it would be
+                                   dropped with no ops copy)
+  freereac_ops.py history-check [<rev>...]
+                                   no commit reachable from <rev> (default: HEAD) carries an
+                                   internal path: the public history stays rewritten
 
 The ops checkout is found by one rule: $FREEREAC_OPS, else the sibling ../freereac-ops, else
 absent. Absent, `check` reports OPS-ABSENT and skips that half by name; FREEREAC_REQUIRE_OPS=1
@@ -177,9 +185,68 @@ def check(repo=REPO, out=sys.stdout):
     return fails
 
 
+def has_commit(sha, repo=REPO):
+    """False once the history rewrite took <sha> away (it lives on under the backup tag)."""
+    return subprocess.run(['git', 'cat-file', '-e', sha + '^{commit}'], cwd=repo,
+                          capture_output=True).returncode == 0
+
+
+def history_paths(revs, repo=REPO):
+    """{path: the oldest commit that touches it (where it entered)} over every commit reachable
+    from <revs>; merges are diffed against each parent, so a file a merge adds is seen too."""
+    data = git('log', '-m', '--no-renames', '--name-only', '-z', '--format=%x00%H', *revs, '--',
+               cwd=repo).decode()
+    # each record is NUL <sha> NUL, then "\n" and its NUL-terminated names; a name is never
+    # empty, so the token after an empty one is a commit, whatever the names look like
+    seen, commit, after_empty = {}, None, False
+    for tok in data.split('\0'):
+        if after_empty:
+            commit, after_empty = tok, False
+        elif not tok:
+            after_empty = True
+        else:
+            seen[tok[1:] if tok.startswith('\n') else tok] = commit  # log is newest first
+    return seen
+
+
+def history_internal(revs, repo=REPO):
+    """{internal path: the commit that added it} in the history of <revs>: every path on the
+    move list, and every path the rule classes as vendor RE or rig-session material."""
+    listed = set(moved_paths(repo))
+    return {p: c for p, c in history_paths(revs, repo).items() if p in listed or belongs_in_ops(p)}
+
+
+def history(revs=('--all',), repo=REPO, out=sys.stdout, err=sys.stderr):
+    """Print the rewrite's drop list; returns the count of internal paths the move list lacks."""
+    found = history_internal(revs, repo)
+    listed = set(moved_paths(repo))
+    unlisted = sorted(p for p in found if p not in listed)
+    for p in unlisted:
+        print('UNLISTED %s (%s): internal, in the history, and not on %s: it has no ops copy'
+              % (p, found[p][:12], MOVES), file=err)
+    for p in sorted(found):
+        print(p, file=out)
+    return len(unlisted)
+
+
+def history_check(revs=('HEAD',), repo=REPO, out=sys.stdout):
+    """One HISTORY-INTERNAL line per internal path still in the history; returns the count."""
+    found = history_internal(revs, repo)
+    for p in sorted(found):
+        print('HISTORY-INTERNAL %s: added in %s; the public history must not carry it (%s)'
+              % (p, found[p][:12], MOVES), file=out)
+    n = int(git('rev-list', '--count', *revs, cwd=repo).decode().strip() or 0)
+    print('HISTORY OK %d commits' % n if not found else 'HISTORY FAILED %d' % len(found), file=out)
+    return len(found)
+
+
 def export(ops, branch=BRANCH, repo=REPO, out=sys.stdout):
     """Commit the moved files, each from its base, byte-identical, onto <branch> of <ops>."""
     moves = read_moves(repo)
+    for base in sorted({b for b, _ in moves}):
+        if not has_commit(base, repo):
+            raise SystemExit('EXPORT REFUSED: base %s is not in this clone; after the history '
+                             'rewrite fetch it with the backup/pre-rewrite-2026-10-01 tag' % base[:12])
     entries = []
     for base, p in moves:
         row = git('ls-tree', base, '--', p, cwd=repo).decode().strip()
@@ -215,7 +282,8 @@ def export(ops, branch=BRANCH, repo=REPO, out=sys.stdout):
         bases = sorted({b[:12] for b, _ in moves})
         msg = ('reac-captures: vendor RE write-ups and rig notes\n\n'
                'From FreeREAC/reac-captures@%s, byte-identical (%d files, %s).\n'
-               'Their history before the move: git log <base> -- <path> in reac-captures.\n'
+               'Their history before the move: git log <base> -- <path> in reac-captures before\n'
+               'its history rewrite, or under its backup/pre-rewrite-2026-10-01 tag after it.\n'
                % (','.join(bases), len(entries), MOVES))
         args = ['commit-tree', tree, '-m', msg] + (['-p', start] if start else [])
         # commit-tree never reads commit.gpgSign itself; every ops commit is signed when it is set
@@ -244,6 +312,10 @@ def main(argv):
             return 3
         print(p)
         return 0
+    if len(argv) >= 1 and argv[0] == 'history':
+        return 1 if history(argv[1:] or ('--all',)) else 0
+    if len(argv) >= 1 and argv[0] == 'history-check':
+        return 1 if history_check(argv[1:] or ('HEAD',)) else 0
     if len(argv) in (2, 3) and argv[0] == 'export':
         export(os.path.abspath(argv[1]), *argv[2:])
         return 0

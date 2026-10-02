@@ -232,6 +232,13 @@ class Export(Fixture):
             fo.read_moves(self.pub)
         self.assertIn('comes before any "# base <sha>" line', str(e.exception))
 
+    def test_export_refuses_a_base_the_rewrite_took_away(self):
+        ops = self.ops_repo(seeded=True)
+        write(self.pub, fo.MOVES, '# base %s\n%s\n' % ('e' * 40, '\n'.join(MOVED)))
+        with self.assertRaises(SystemExit) as e:
+            fo.export(ops, repo=self.pub, out=io.StringIO())
+        self.assertIn('backup/pre-rewrite-2026-10-01', str(e.exception))
+
     def test_export_refuses_a_path_missing_at_base(self):
         ops = self.ops_repo(seeded=True)
         write(self.pub, fo.MOVES, '# base %s\nnot/there.md\n' % self.base)
@@ -240,9 +247,86 @@ class Export(Fixture):
         self.assertIn('not/there.md is not in', str(e.exception))
 
 
+class History(Fixture):
+    """The rewrite's drop list and the guard that keeps the rewritten history clean."""
+
+    def commit(self, msg):
+        sh(self.pub, 'commit', '-qm', msg)
+
+    def drops(self, *revs):
+        out, err = io.StringIO(), io.StringIO()
+        n = fo.history(revs or ('--all',), self.pub, out=out, err=err)
+        return n, out.getvalue().split(), err.getvalue()
+
+    def guard(self, *revs):
+        buf = io.StringIO()
+        n = fo.history_check(revs or ('HEAD',), self.pub, out=buf)
+        return n, buf.getvalue()
+
+    def test_drop_list_is_every_moved_path_even_deleted_ones(self):
+        n, paths, err = self.drops()
+        self.assertEqual((n, err), (0, ''))
+        self.assertEqual(paths, sorted(MOVED))
+
+    def test_an_internal_path_off_the_list_is_refused_by_name(self):
+        sh(self.pub, 'checkout', '-q', '-b', 'side')
+        self.add('CAPTURE-PLAN-z.md', 'a plan\n')
+        self.commit('plan')
+        sh(self.pub, 'rm', '-q', 'CAPTURE-PLAN-z.md')
+        self.commit('drop plan')
+        sh(self.pub, 'checkout', '-q', 'main')
+        self.assertEqual(self.drops('main')[0], 0, 'the side branch is not in main')
+        n, paths, err = self.drops()
+        self.assertEqual(n, 1)
+        self.assertIn('UNLISTED CAPTURE-PLAN-z.md', err)
+        self.assertIn('CAPTURE-PLAN-z.md', paths)
+
+    def test_guard_is_red_on_the_old_history_and_names_the_paths(self):
+        n, out = self.guard()
+        self.assertEqual(n, len(MOVED), out)
+        self.assertIn('HISTORY-INTERNAL x-re/FINDINGS.md: added in %s' % self.base[:12], out)
+        self.assertIn('HISTORY FAILED 3', out)
+
+    def test_guard_is_green_on_a_clean_history_and_red_on_an_add_and_delete(self):
+        sh(self.pub, 'checkout', '-q', '--orphan', 'clean')
+        sh(self.pub, 'rm', '-rq', '--cached', '.')
+        self.add('README.md', 'captures\n')
+        self.add('x-re/cap.pcap', 'pointer\n')
+        self.add(fo.MOVES, '# base %s\n%s\n' % (self.base, '\n'.join(MOVED)))
+        self.add('a' * 40, 'a 40-hex file name is a file, not a commit\n')
+        self.commit('rewritten')
+        n, out = self.guard()
+        self.assertEqual(n, 0, out)
+        self.assertIn('HISTORY OK 1 commits', out)
+        self.add('y-re/FINDINGS.md', 'back\n')
+        self.commit('oops')
+        sh(self.pub, 'rm', '-q', 'y-re/FINDINGS.md')
+        self.commit('undo')
+        n, out = self.guard()
+        self.assertIn('HISTORY-INTERNAL y-re/FINDINGS.md', out)
+        self.assertEqual(n, 1, out)
+
+    def test_a_file_a_merge_adds_is_seen(self):
+        sh(self.pub, 'checkout', '-q', '-b', 'side')
+        self.add('side.pcap', 'x\n')
+        self.commit('side')
+        sh(self.pub, 'checkout', '-q', 'main')
+        sh(self.pub, 'merge', '-q', '--no-ff', '--no-commit', 'side')
+        self.add('s-2026-01-01/timeline.txt', 'only the merge adds this\n')
+        self.commit('merge')
+        self.assertIn('s-2026-01-01/timeline.txt', fo.history_paths(['HEAD'], self.pub))
+
+
 class RealTree(unittest.TestCase):
-    """This repository: the move list's first group is exactly the rule applied at its base, every
-    later group is history-only internal files, and the tree is clean."""
+    """This repository, before its history rewrite and after it: the move list's first group is
+    exactly the rule applied at its base, every later group is history-only internal files, every
+    internal path the history carries is listed, and the tree is clean."""
+
+    def setUp(self):
+        gone = [b[:12] for b in sorted({b for b, _ in fo.read_moves()}) if not fo.has_commit(b)]
+        if gone and self._testMethodName in ('test_the_list_is_the_rule_at_base',
+                                             'test_later_groups_are_history_only_internal_files'):
+            self.skipTest('bases %s rewritten away; the history tests hold instead' % ','.join(gone))
 
     def test_the_list_is_the_rule_at_base(self):
         moves = fo.read_moves()
@@ -260,6 +344,19 @@ class RealTree(unittest.TestCase):
             self.assertTrue(fo.belongs_in_ops(p), p)
             self.assertNotIn(p, first, '%s reached the move: list it in the first group' % p)
             self.assertTrue(fo.git('ls-tree', base, '--', p).strip(), '%s is not in %s' % (p, base))
+
+    def test_every_internal_path_in_the_history_is_listed(self):
+        out, err = io.StringIO(), io.StringIO()
+        self.assertEqual(fo.history(('HEAD',), out=out, err=err), 0, err.getvalue())
+
+    def test_once_the_base_is_gone_the_history_carries_nothing_listed(self):
+        base = fo.read_moves()[0][0]
+        # gone from HEAD's history; a clone that fetched the backup tag still has the commit
+        if subprocess.run(['git', 'merge-base', '--is-ancestor', base, 'HEAD'], cwd=fo.REPO,
+                          capture_output=True).returncode == 0:
+            self.skipTest('base %s still in the history: it is not rewritten yet' % base[:12])
+        buf = io.StringIO()
+        self.assertEqual(fo.history_check(('HEAD',), out=buf), 0, buf.getvalue())
 
     def test_the_public_tree_is_clean(self):
         env = {k: v for k, v in os.environ.items() if k != 'FREEREAC_REQUIRE_OPS'}
