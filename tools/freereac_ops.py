@@ -5,8 +5,9 @@
 Vendor reverse-engineering write-ups, rig session notes and logs, capture plans and ground-truth
 decoders live in the private FreeREAC/freereac-ops repository under reac-captures/<same path>.
 This tree keeps the captures, the capture tooling and the user docs. tools/ops-moves.txt lists
-every path that moved (and the commit it was taken from); a public file cites one by its SLUG,
-the path without its extension (m200-s4000-width-re/FINDINGS), never by file name.
+every path that moved (and the commit it was taken from), including the internal files that only
+ever lived in this repo's history; a public file cites one by its SLUG, the path without its
+extension (m200-s4000-width-re/FINDINGS), never by file name.
 
   freereac_ops.py check            the public tree is clean; with the ops checkout present, every
                                    moved path resolves in it
@@ -70,18 +71,25 @@ def git(*args, cwd=REPO, check=True, data=None):
 
 
 def read_moves(repo=REPO):
-    """(base sha, [moved paths]) from tools/ops-moves.txt."""
-    base, paths = None, []
+    """[(base sha, moved path)] from tools/ops-moves.txt: each "# base <sha>" line names the
+    commit the paths after it are taken from."""
+    base, moves = None, []
     with open(os.path.join(repo, MOVES)) as f:
         for line in f:
             line = line.strip()
             if line.startswith('# base '):
                 base = line.split()[2]
             elif line and not line.startswith('#'):
-                paths.append(line)
-    if not base:
-        raise SystemExit('%s has no "# base <sha>" line' % MOVES)
-    return base, paths
+                if not base:
+                    raise SystemExit('%s: %s comes before any "# base <sha>" line' % (MOVES, line))
+                moves.append((base, line))
+    if not moves:
+        raise SystemExit('%s lists no moved path' % MOVES)
+    return moves
+
+
+def moved_paths(repo=REPO):
+    return [p for _, p in read_moves(repo)]
 
 
 def ops_root(repo=REPO):
@@ -104,8 +112,7 @@ def ops_path(rel, repo=REPO):
 
 def resolve(name, repo=REPO):
     """A slug (or a moved path) -> the ops file it names, or None."""
-    _, paths = read_moves(repo)
-    hits = [p for p in paths if p == name or slug(p) == name]
+    hits = [p for p in moved_paths(repo) if p == name or slug(p) == name]
     return ops_path(hits[0], repo) if len(hits) == 1 else None
 
 
@@ -130,7 +137,7 @@ def check(repo=REPO, out=sys.stdout):
         fails += 1
         print(msg, file=out)
 
-    _, paths = read_moves(repo)
+    paths = moved_paths(repo)
     tracked = git('ls-files', '-z', cwd=repo).decode().split('\0')
     tracked = [t for t in tracked if t]
     present = set(tracked)
@@ -171,10 +178,10 @@ def check(repo=REPO, out=sys.stdout):
 
 
 def export(ops, branch=BRANCH, repo=REPO, out=sys.stdout):
-    """Commit the moved files at the list's base, byte-identical, onto <branch> of <ops>."""
-    base, paths = read_moves(repo)
+    """Commit the moved files, each from its base, byte-identical, onto <branch> of <ops>."""
+    moves = read_moves(repo)
     entries = []
-    for p in paths:
+    for base, p in moves:
         row = git('ls-tree', base, '--', p, cwd=repo).decode().strip()
         if not row:
             raise SystemExit('EXPORT REFUSED: %s is not in %s' % (p, base))
@@ -205,10 +212,11 @@ def export(ops, branch=BRANCH, repo=REPO, out=sys.stdout):
                 raise SystemExit('EXPORT REFUSED: %s already in the ops tree with other content' % dest)
             g('update-index', '--add', '--cacheinfo', '%s,%s,%s' % (mode, sha, dest))
         tree = g('write-tree')
+        bases = sorted({b[:12] for b, _ in moves})
         msg = ('reac-captures: vendor RE write-ups and rig notes\n\n'
                'From FreeREAC/reac-captures@%s, byte-identical (%d files, %s).\n'
-               'Their history before the move: git log %s -- <path> in reac-captures.\n'
-               % (base[:12], len(entries), MOVES, base[:12]))
+               'Their history before the move: git log <base> -- <path> in reac-captures.\n'
+               % (','.join(bases), len(entries), MOVES))
         args = ['commit-tree', tree, '-m', msg] + (['-p', start] if start else [])
         # commit-tree never reads commit.gpgSign itself; every ops commit is signed when it is set
         if git('config', '--bool', 'commit.gpgsign', cwd=ops, check=False).strip() == b'true':
