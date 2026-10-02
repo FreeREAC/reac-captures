@@ -3,6 +3,8 @@
 # Each "# base <sha>" line names the commit the paths after it are taken from, byte-identical.
 # The last group never reached the move: internal files that only lived in this repo's history,
 # listed so the history rewrite (RULED 2026-10-01 item 2) drops nothing without an ops copy.
+# The rewrite drops every path below; the base commits then live on only under the
+# backup/pre-rewrite-2026-10-01 tag (fetch it to run `export` again).
 # base 2ccb62c32db6fc737585283ac145d5691ccb050d
 CAPTURE-PLAN-role-change.md
 analysis/2026-09-13-announce-bytes-and-headamp-base.md
