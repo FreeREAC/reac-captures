@@ -14,9 +14,9 @@ box-dependent frame (16-ch → 628 B, 8-ch → 340 B).
 ## Organisation
 
 The corpus is split across a general `captures/` directory and per-investigation directories
-(`<topic>-<date>/`, e.g. `m200-s1608-headamp/`, `courtship-trial-2026-09-12/`) that hold their own
-captures alongside the notes and analysis written from them. A directory's own notes are evidence
-for its captures — read them together, never edit a capture.
+(`<topic>-<date>/`, e.g. `m200-s1608-headamp/`, `courtship-trial-2026-09-12/`). Never edit a
+capture. The session notes and write-ups made from the captures are not part of this repository;
+where the manifest or a comment cites one, it does so by slug (`m200-s4000-width-re/FINDINGS`).
 
 **[MANIFEST.md](MANIFEST.md)** is the catalogue: one row per capture with its device pair, event,
 date, truncation, raw and distilled size, and what it is evidence for — read it before assuming a
@@ -31,8 +31,8 @@ MACs in the file (not as labelled by hand), sample rate, and `tap` (`clean` = si
 point, `mirror` = a port mirror carrying both directions, so every frame appears twice — a rate
 read as packets-per-second off one is 2x wrong). `analysis/name_from_facts.py` derives this from a
 capture's own contents. Investigation directories that capture a specific experiment rather than a
-generic session use a more descriptive name instead (see `capture-role-change.sh` and
-`CAPTURE-PLAN-role-change.md` for one such convention, with `.notes.txt` sidecars).
+generic session use a more descriptive name instead (see `capture-role-change.sh` for one such
+convention).
 
 ## Distillation and LFS
 
@@ -63,8 +63,10 @@ To refresh a public fixture: take a few frames, rewrite the rig MACs to the stan
 ## Adding a capture
 
 1. Capture on a wired tap where possible (`clean`, not `mirror`); note which you took.
-2. Name it from measured facts (see Naming above), or write a `.notes.txt` sidecar recording the
-   device pair, event and what was physically observed if the name alone can't carry it.
+2. Name it from measured facts (see Naming above). Session notes (`.notes.txt` sidecars, what was
+   physically observed) stay out of this repository; the manifest row carries what a reader needs.
 3. Add a row to `MANIFEST.md`: device pair, event, date, truncation, size, and what the capture is
    evidence for. A capture nobody can identify from the manifest is close to worthless.
 4. `*.pcap`/`*.pcapng`/`*.cap` are LFS-tracked automatically; commit as normal.
+
+Building the tools and running the repository's checks: [BUILDING.md](BUILDING.md).
