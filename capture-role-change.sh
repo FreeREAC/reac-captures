@@ -16,7 +16,8 @@ ARM="${1:?arm: rival-arrives | we-cede | identity-change | sp-mode}"
 NIC="${2:?nic, e.g. enp131s0 — NOT the USB AX88179, it lies about enrolment}"
 SECS="${3:-90}"
 STAMP=$(date +%Y%m%d-%H%M%S)
-OUT="$HOME/Devel/audio/reac-captures/captures/role-${ARM}-${STAMP}"
+HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+OUT="${REAC_CAPTURES:-$HERE}/captures/role-${ARM}-${STAMP}"
 mkdir -p "$(dirname "$OUT")"
 
 note() { echo "$*" | tee -a "$OUT.notes.txt"; }

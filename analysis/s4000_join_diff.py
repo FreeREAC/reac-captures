@@ -16,11 +16,13 @@ Read through reac_pcap.iter_packets, which drops a mirrored capture's duplicate
 copies; several corpus files are mirrored and ours is not, so any count taken
 without it compares a doubled stream against a single one.
 """
-import sys, collections
-sys.path.insert(0, __file__.rsplit('/', 1)[0])
+import sys, os, collections
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 from reac_pcap import iter_packets, mac, is_reac, control
 
-CAPTURES = '/home/pau/Devel/audio/reac-captures/captures/'
+# a bare file name resolves under captures/ of this repository ($REAC_CAPTURES: another checkout)
+CAPTURES = os.path.join(os.environ.get('REAC_CAPTURES', os.path.dirname(HERE)), 'captures', '')
 
 
 def census(path):
