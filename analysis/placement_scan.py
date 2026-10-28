@@ -12,6 +12,9 @@ Streaming: reac_pcap.iter_packets never holds more than one 4 MB chunk.
 
 Emits JSONL (one row per capture) + a human table. Run:
     placement_scan.py [--out DIR] [capture ...]
+
+With no capture named it scans the corpus this script is in ($REAC_CAPTURES names
+another checkout); each row's `path` is relative to that root.
 """
 import collections, json, os, sys
 
@@ -188,8 +191,8 @@ def scan(path):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     outdir = os.path.dirname(os.path.abspath(__file__))
+    base = os.environ.get('REAC_CAPTURES', os.path.dirname(outdir))
     if not args:
-        base = '/home/pau/Devel/audio/reac-captures'
         args = []
         for d in ('captures', 'm200-headamp-re', 'm200-s1608-headamp',
                   'm200-scene-recall-re'):
@@ -208,7 +211,7 @@ def main():
         except Exception as e:
             r = {'file': os.path.basename(p), 'bytes': os.path.getsize(p),
                  'error': f'{type(e).__name__}: {e}'}
-        r['path'] = p
+        r['path'] = os.path.relpath(p, base)
         rows.append(r)
         eps = r.get('episodes') or []
         sys.stderr.write(f"{r.get('reac_frames', 0)} reac, "

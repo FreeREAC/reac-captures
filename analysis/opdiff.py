@@ -5,9 +5,9 @@ Reads the committed analysis/placement_rows.jsonl (no pcap rescan).
 Discriminator is the FILENAME prefix, not the source MAC: reac-pw impersonated
 the real M-200 MAC 00:40:ab:c9:cc:03 in the July runs.
 """
-import json, sys, collections
+import json, sys, collections, os
 
-ROWS = '/home/pau/Devel/audio/reac-captures/analysis/placement_rows.jsonl'
+ROWS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'placement_rows.jsonl')
 
 rows = [json.loads(l) for l in open(ROWS)]
 by_file = {r['file']: r for r in rows}

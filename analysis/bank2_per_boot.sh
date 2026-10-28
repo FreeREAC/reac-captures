@@ -99,9 +99,9 @@ join_start () {
 
 join_finish () {
 	wait $JOINPID 2>/dev/null
-	python3 - "$JOINPCAP" <<-'PY'
+	python3 - "$JOINPCAP" "$HERE" <<-'PY'
 	import sys, collections
-	sys.path.insert(0, '/home/pau/Devel/audio/reac-captures/analysis')
+	sys.path.insert(0, sys.argv[2])
 	from reac_pcap import iter_packets, dt1_record
 	c = collections.Counter()
 	for ts, wl, fr in iter_packets(sys.argv[1]):
