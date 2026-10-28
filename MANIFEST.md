@@ -6,8 +6,9 @@ nobody can identify is nearly worthless; this file is what stops that.
 
 **The captures in this repository are DISTILLED.** Same 85 names, same relative paths, 271.3 MB
 instead of 47.9 GB. Every control frame that is not a `grant` is still here — all 852,274 of
-them; the audio is sampled, and so are the grants. The rule and its proof are at the foot of this file. The raw 47.9 GB set lives outside
-git at `~/Devel/audio/reac-captures-raw/` with its own README and a full `SHA256SUMS.txt`.
+them; the audio is sampled, and so are the grants. The rule and its proof are at the foot of this file. The raw 47.9 GB set is not published; it
+lives outside git in the directory `$REAC_CAPTURES_RAW` names (by default `../reac-captures-raw`,
+beside this checkout) with its own README and a full `SHA256SUMS.txt`.
 
 ## How to read a row
 
@@ -27,7 +28,7 @@ git at `~/Devel/audio/reac-captures-raw/` with its own README and a full `SHA256
   are whole whatever it says. Every record still carries its true wire length in `origlen`, so ask
   the file, not this column. The column is kept because it is a fact about the capture session —
   a snaplen-128 session never recorded audio and no distillation can put it back.
-- **Size raw → distilled** — bytes in `~/Devel/audio/reac-captures-raw/`, then bytes in this repo.
+- **Size raw → distilled** — bytes in the raw set (`$REAC_CAPTURES_RAW`), then bytes in this repo.
 - **State** — `committed(LFS)` was already in git via git-lfs before the distillation;
   `ON DISK, uncommitted` was not. Both are committed now, distilled. The label is kept because it
   says which objects the unpushable raw history still carries — see The 2 GB question.
@@ -257,11 +258,12 @@ GitHub refuses an LFS object over 2 GiB. The distilled set clears it with four o
 magnitude to spare — the largest committed object is `ctl2.pcap` at 46.8 MB. History carries no
 pointer over the limit either: it was rewritten with `git filter-repo` to replace the handful of
 oversized raw-era LFS pointers with a note giving each object's sha256 and byte count, all of
-which resolve against `~/Devel/audio/reac-captures-raw/SHA256SUMS.txt`.
+which resolve against the raw set's `SHA256SUMS.txt`.
 
 ### Where the raw corpus is
 
-`~/Devel/audio/reac-captures-raw/` — a plain directory, not a git repository, with a README and a
+In the directory `$REAC_CAPTURES_RAW` names, by default `../reac-captures-raw` beside this
+checkout — a plain directory, not a git repository, and not published (47.9 GB), with a README and a
 full `SHA256SUMS.txt`. It was copied out with `cp --reflink` on btrfs and verified independently
 before anything was overwritten: 85/85 files present, byte totals equal at 47,907,786,044 on both
 sides, and all 85 SHA256 digests identical.

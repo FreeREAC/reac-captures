@@ -41,8 +41,9 @@ are **distilled**: every control frame is kept except `grant`, which — like th
 is sampled rather than dropped, because the full corpus is 47.9 GB and does not fit GitHub's LFS
 limits. MANIFEST.md's "The distillation" section states the exact rule (what is kept whole, what
 is sampled, and why) and the proof that distilling changed only the fields the rule allows to
-change. The undistilled raw set lives outside git at `~/Devel/audio/reac-captures-raw/`, with its
-own README and a `SHA256SUMS.txt`.
+change. The undistilled raw set is not published; it lives outside git in the directory
+`$REAC_CAPTURES_RAW` names (default `../reac-captures-raw`, beside this checkout), with its own
+README and a `SHA256SUMS.txt`.
 
 ## Use
 
@@ -51,6 +52,10 @@ own README and a `SHA256SUMS.txt`.
 tshark -r captures/<file>.pcap -Y 'frame.len==1492' -w /tmp/downstream.pcap   # 40-ch master
 tshark -r captures/<file>.pcap -Y 'frame.len==628'  -w /tmp/upstream16.pcap   # 16-ch box return
 ```
+
+The scripts find this repository from their own location; `REAC_CAPTURES` points them at another
+corpus checkout, and `REAC_SPEC` at a reac-protocol `spec/` directory (default: the sibling
+`../reac-protocol/spec`).
 
 `analysis/` holds corpus-wide extractors — a streaming pcap reader, a placement scanner, and the
 naming/table generators — that read the whole corpus without loading any one file into memory; see
