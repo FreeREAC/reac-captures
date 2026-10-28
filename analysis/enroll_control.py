@@ -8,9 +8,12 @@ testify. A capture contains one iff the box sourced a CONFIG announce
 
 Restricted to that set, the question is: which desk->box pairs carry an ENROLL.
 """
-import json, collections
+import json, collections, os, sys
 
-rows = [json.loads(l) for l in open('/home/pau/Devel/audio/reac-captures/analysis/placement_rows.jsonl')]
+# the committed rows beside this script, or the file named on the command line
+ROWS = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'placement_rows.jsonl')
+rows = [json.loads(l) for l in open(ROWS)]
 
 def ops(r):
     return r.get('ops') or {}

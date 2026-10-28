@@ -26,9 +26,9 @@ SECS=${5:-8}
 HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 UP=${UP_SLOTS:-$HERE/up_slots}
 if [ ! -x "$UP" ]; then
-	echo "up_slots not built at $UP" >&2
-	echo "  gcc -O2 -o $UP $HERE/up_slots.c -I ~/Devel/audio/libreac/include \\" >&2
-	echo "      ~/Devel/audio/libreac/libreac.a -lm" >&2
+	echo "up_slots not built at $UP; build it against libreac (see BUILDING.md):" >&2
+	echo "  gcc -O2 -o $UP $HERE/up_slots.c \$(pkg-config --cflags --libs libreac) -lm" >&2
+	echo "  or, from a libreac checkout, -I\$LIBREAC_INCLUDE and its libreac.a in place of pkg-config" >&2
 	exit 2
 fi
 
