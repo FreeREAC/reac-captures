@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Establish-sequence PACE, measured on the wire's own clock, not the capture host's.
 
 WHY NOT CAPTURE TIMESTAMPS. Two independent distortions sit on them:

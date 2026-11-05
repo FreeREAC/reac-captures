@@ -41,7 +41,7 @@ BRANCH = 'lane/docs-reac-captures'
 
 # What stays public: these files, and everything under these directories.
 KEEP_FILES = {'README.md', 'BUILDING.md', 'MANIFEST.md', 'CHANGELOG.md', 'CONTRIBUTING.md',
-              'LICENSE', 'analysis/README.md'}
+              'LICENSE', 'LICENSES/GPL-3.0-or-later.txt', 'analysis/README.md'}
 KEEP_DIRS = ('tools/', '.github/')
 # Prose and session artefacts: write-ups, timelines, notes sidecars, rig logs, traces.
 NOTE_EXT = ('.md', '.txt', '.err', '.log', '.trace')

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Condense placement_rows.jsonl into the placement evidence table (CSV + markdown)."""
 import csv, json, os, sys
 

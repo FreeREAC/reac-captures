@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Dump the DISTINCT desk->box control blocks per opcode, so two establishes diff.
 
 The head-amp record says WHICH cell; the chanmap and the subscription say what

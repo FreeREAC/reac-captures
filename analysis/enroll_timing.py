@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """WHEN does a desk send its ENROLL — before or after the box declares itself?
 
 reac-pw emits a wide-safe ENROLL at GRANTING tick 0, before it knows what the box

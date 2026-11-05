@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 # Capture a role-change experiment on a live REAC segment.
 #
 #   ./capture-role-change.sh <arm> <nic> [seconds]

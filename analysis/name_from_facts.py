@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Derive a capture's name from what is IN it, not from what someone called it.
 
 "Capture filenames are not evidence" (operator, 2026-08-21) — so make them

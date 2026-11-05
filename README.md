@@ -4,8 +4,11 @@ Raw REAC packet captures from our rig — the ground truth that the decoders, th
 [reac-protocol](https://github.com/FreeREAC/reac-protocol) wire-format docs, and the firmware
 reverse-engineering are checked against.
 
-**Licence: CC0 1.0 Universal** (see LICENSE). The captures are frames from our own Roland gear on
-our own network; the device MACs in them are those of that gear.
+**Licences.** The captures, the manifest and the derived data (`*.pcap*`, `*.jsonl`, `*.csv`,
+`MANIFEST.md`) are **CC0 1.0 Universal** (`LICENSE`). The captures are frames from our own Roland
+gear on our own network; the device MACs in them are those of that gear. The scripts and tools
+(`analysis/*.py|sh|c`, `tools/`, `capture-role-change.sh`) are **GPL-3.0-or-later**
+(`LICENSES/GPL-3.0-or-later.txt`), and each one says so in its `SPDX-License-Identifier` line.
 
 All streams are REAC (EtherType `0x8819`), source OUI `00:40:ab` (Roland). The downstream master
 broadcast is a fixed 40-channel / 1492-byte frame; a stagebox's upstream return is a smaller,

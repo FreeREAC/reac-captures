@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """TASK #210 — fabric-slot PLACEMENT evidence extractor.
 
 For every capture in the corpus, pull the full placement tuple:

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Which head-amp CELLS did a desk actually write, and in which order?
 
 The op-0403 container carries a Roland DT1 record at frame[34:40]:

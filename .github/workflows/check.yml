@@ -11,3 +11,7 @@ jobs:
         run: python3 -m unittest discover -s tools -p 'test_*.py'
       - name: public tree
         run: python3 tools/freereac_ops.py check
+      - name: every script names its licence
+        run: |
+          missing=$(git ls-files '*.py' '*.sh' '*.c' '*.h' | xargs grep -L 'SPDX-License-Identifier: GPL-3.0-or-later' || true)
+          [ -z "$missing" ] || { echo "::error::no GPL SPDX line in: $missing"; exit 1; }

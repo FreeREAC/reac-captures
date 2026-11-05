@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """EXHAUSTIVE wire-feature differential, not a search for a named suspect.
 
 opdiff.py answers this question at ONE granularity -- (kind, op, oplen) -- and at

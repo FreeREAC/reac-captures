@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Streaming pcap/pcapng reader + REAC control-frame decoder.
 
 Never loads a whole capture: reads fixed-size chunks and yields one packet at a
