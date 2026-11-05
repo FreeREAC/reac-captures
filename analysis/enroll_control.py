@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Does a real desk ever ENROLL an S-1608?
 
 The control that makes the absence meaningful: an ENROLL (cdea 0103 000d) is only

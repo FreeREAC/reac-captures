@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Is opcode 0x9D ever sent, by anyone? And does the chanmap 0xFE value CHANGE?
 
 Two questions from the firmware lane, answered over the whole corpus in one pass

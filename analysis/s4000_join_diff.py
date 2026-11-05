@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Why an S-4000S cold-connects to a real M-5000 and not to reac-pw.
 
 Censuses one or more captures by (source, frame geometry, control op) and

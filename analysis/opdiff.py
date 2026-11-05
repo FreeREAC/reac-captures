@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Pau Aliagas <linuxnow@gmail.com>
 """Op-set diff: what a real desk sends an S-1608 that reac-pw never sends.
 
 Reads the committed analysis/placement_rows.jsonl (no pcap rescan).
