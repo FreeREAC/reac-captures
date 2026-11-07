@@ -4,3 +4,4 @@
 02:44:35 reac-pw 1.0.3 proof: 60 s on the mirror — VLAN 11 (mixer) 495 633 frames from our MAC, VLAN 12 (tap, 2 streams: M-200 downstream + S-1608) 0, VLAN 13 (vacant door) 0.
 08:21:17 operator (M-200i display): S-4000-3208 Firmware 2.500, REAC 2.102 — the 0x0600 block (0,2,1,2) is the REAC version, prediction confirmed.
 11:51:03 HUNT STOPPED. ~11 h on VLAN 12: 221 rotations distilled; head-amp records by hour/source: 08h M-200i 96 (S-4000S-3208 enrolment after the morning swap), 09h M-200i 96 (Q4 replug enrolment), 11h our master 374 (the mixer flip + enrolment). Between 00:13 and 08:xx with an idle M-200i mastering the S-1608: ZERO records — an idle desk never re-asserts; the full re-assert trigger needs a console in use (M-5000 day).
+18:20:08 COMPARATIVE RUN: experimental 2.etf RPMs installed (thread pacer default); smoke above.
