@@ -15,3 +15,10 @@ jobs:
         run: |
           missing=$(git ls-files '*.py' '*.sh' '*.c' '*.h' | xargs grep -L 'SPDX-License-Identifier: GPL-3.0-or-later' || true)
           [ -z "$missing" ] || { echo "::error::no GPL SPDX line in: $missing"; exit 1; }
+
+  pr-fixes-issue:
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: Open-Mixer/.github/.github/workflows/pr-fixes-issue.yml@openmixer-v1
